@@ -10,5 +10,21 @@ body {
 }
 
 h2 {
-  color: red;
+  color: slateblue;
+}
+
+ul li.git {
+  list-style: none;
+  position: relative;
+  padding-left: 25px; /* Espacio para el SVG */
+}
+
+ul li.git::before {
+  content: url('github.svg'); /* O usar background-image */
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%); /* Centrado vertical */
+  width: 20px; /* Tamaño del SVG */
+  height: 20px;
 }

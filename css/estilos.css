@@ -28,3 +28,8 @@ ul li.git::before {
   width: 20px; /* Tamaño del SVG */
   height: 20px;
 }
+/*
+ul li.git::marker {
+  content: url('ruta/al/icono.svg');
+}
+*/

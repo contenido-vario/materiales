@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto con Tailwind CSS</title>
+  <!-- Los <link> de las fuentes se colocan en el HTML dado que es la forma más rápida de carga cuando se usa el CDN. -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
+  </script>
+
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+    /* Esto carga todo el framework */
+
+    /* Variables de configuración */
+    @theme {
+      --font-sans: "Inclusive Sans", ui-sans-serif, system-ui, sans-serif;
+      --color-brand: #ff4500;
+    }
+
+    /* layer base: estilos globales y "reseteo" de etiquetas HTML puras */
+    /* Permite definir cómo se ve la web "por defecto" antes de empezar a poner clases. */
+
+    @layer base {
+      /* Agregar estilo de párrafo para todo el documento */
+      p {
+        @apply mb-4 leading-relaxed text-gray-700;
+      }
+
+      /* Estilos de los títulos */
+      h1, h2, h3 {
+        @apply font-serif font-bold text-gray-900 mb-6;
+      }
+    }
+
+    /* @layer components: Se usa para crear clases complejas reutilizables */
+    /* Se usa cuando se está repitiendo EXACTAMENTE las mismas 10 clases en muchos componentes (por ejemplo botones), para crear una clase propia. */
+
+    @layer components {
+      .btn-principal {
+        @apply px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition;
+      }
+    }
+
+    /* @layer utilities: 
+    Es la capa de clases de un solo propósito y máxima prioridad, incluso por encima de lo que diga la capa base o de componentes. */
+
+    @layer utilities {
+      .rotate-45-extra {
+        transform: rotate(45deg);
+      }
+    }
+
+  </style>
+
+</head>
+
+<body class="bg-taupe-50 leading-normal tracking-normal">
+
+  <header class="bg-white/90 backdrop-blur-md shadow-sm p-4 sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-blue-600"><span title="logo">👩🏻‍💻</span></h1>
+      <nav class="space-x-4">
+        <a href="https://tailwindcss.com/docs/theme" target="_blank" rel="noopener"
+          class="text-gray-600 hover:text-blue-500 transition">Variables Tailwind</a>
+        <a href="https://www.creative-tim.com/twcomponents/cheatsheet/tailwind-css-4" target="_blank" rel="noopener"
+          class="text-gray-600 hover:text-sky-500 transition">CheatSheet V4</a>
+        <a href="https://tailwindcss.com/docs/colors" target="_blank" rel="noopener"
+          class="text-gray-600 hover:text-sky-500 transition">Colores</a>
+        <a href="https://oklch.com/" target="_blank" rel="noopener"
+          class="text-gray-600 hover:sky-sky-500 transition">oklch.com</a>            
+        <a href="https://fonts.google.com/" target="_blank" rel="noopener"
+          class="bg-sky-800 text-white px-4 py-2 rounded-lg hover:bg-sky-500">Google Fonts</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto mt-10 p-6 bg-white rounded-xl shadow-lg">
+    <section class="text-center text-lg">
+      <h2 class="text-4xl font-extrabold text-gray-800 mb-4">¡Bienvenidos a Tailwind!</h2>
+      <p>Esta es una página de ejemplo en Tailwind que utiliza las clases de espaciado, tipografía y responsive design.
+      </p>
+      <p class="bg-cyan-200">Para ver el contenido de cada clase en Visual Studio Code, instala la extensión <strong>Tailwind CSS Intellisense</strong></p>
+      <p>Para agregar variables y estilos adicionales se agrega una sección de estilos en el head:
+      <br><code><mark>&lt;style type="text/tailwindcss"&gt;</mark><br>...<br><mark>&lt;/style&gt;</mark></code></p>
+
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-base">
+        <div class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition text-base">
+          <h3 class="font-semibold text-xl mb-2">Diseño Rápido</h3>
+          <p>Tailwind CSS es un framework de CSS "utility-first" (prioridad a la utilidad) de código abierto diseñado
+            para maquetar sitios web <strong>rápidamente</strong> sin salir del HTML. </p>
+          <p>Permite diseñar sin cambiar de archivo, agilizando el desarrollo.</p>
+        </div>
+        <div class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
+          <h3 class="font-semibold text-xl mb-2">Responsive</h3>
+          <p><strong>Mobile-First</strong>: Enfocado en el diseño responsivo desde dispositivos móviles.</p>
+          <p>Controla cómo se ve en móvil y desktop con prefijos como <code>md:</code>. Ver <a class="text-sky-800 underline hover:text-sky-500 transition" href="https://tailwindcss.com/docs/responsive-design" target="_blank" rel="noopener noreferrer">Responsive design</a></p>
+          <p>La clase <code>container</code> establece un <code>max-width</code> (ancho máximo) que cambia según el tamaño de la pantalla del usuario (los  breakpoints).</p>
+        </div>
+        <div class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
+          <h3 class="font-semibold text-xl mb-2">Moderno y optimizado</h3>
+          <p>Flexbox y Grid facilitan la creación de layouts complejos.</p>
+          <p>Tailwind utiliza una herramienta similar a <strong>PurgeCSS</strong> para eliminar el CSS no utilizado, resultando en
+            archivos finales muy ligeros.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-20 py-8 bg-gray-800 text-white text-center">
+    <p class="text-white">&copy; 2026 Página web creada con Tailwind CSS</p>
+  </footer>
+
+</body>
+
+</html>

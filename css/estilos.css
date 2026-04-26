@@ -88,7 +88,7 @@ details {
 }
 
 /* El encabezado clicable */
-summary {
+summary, h2 {
   padding: 10px;
   font-weight: bold;
   cursor: pointer;

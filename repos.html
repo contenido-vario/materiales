@@ -5,14 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-      *{
-        line-height: 1.5em;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      }
-      body {
-        width: 80%;
-        margin: 0 auto;
-      }
+        * {
+            line-height: 1.5em;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .copiable {
+            cursor: copy
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+        }
     </style>
     <title>Repositorios</title>
 </head>
@@ -21,81 +31,104 @@
     <h1>Repositorios</h1>
     <ol>
         <li>
-            <a  href="https://github.com/codeguille98/" 
-                target="_blank" 
-                rel="noopener noreferrer">Guillermo Muñoz</a>
-                🔸
-            <a  href="https://codeguille98.github.io" 
-                target="_blank" 
-                rel="noopener noreferrer">Guillermo Muñoz</a>
+            <a id="repo1" href="https://github.com/codeguille98" target="_blank" rel="noopener noreferrer">Guillermo
+                Muñoz</a>
+            <button type="button" onclick="copiar('https:&#47;&#47;codeguille98.github.io&#47;')">
+                <img src="copy.svg" alt="copiar">
+            </button>
         </li>
         <li>
-            <a  href="https://github.com/dayvip369/" 
-                target="_blank" 
-                rel="noopener noreferrer">David Campos</a>
+            <a href="https://github.com/dayvip369" target="_blank" rel="noopener noreferrer">David Campos</a>
+            <button type="button" onclick="copiar('https:&#47;&#47;dayvip369.github.io&#47;')">
+                <img src="copy.svg" alt="copiar">
+            </button>
         </li>
         <li>
-            <a  href="https://github.com/fontanillus/" 
-                target="_blank" 
-                rel="noopener noreferrer">Yolanda Fontanillus</a>
+            <a href="https://github.com/fontanillus" target="_blank" rel="noopener noreferrer">Yolanda Fontanillus</a>
+            <button type="button" onclick="copiar('https:&#47;&#47;fontanillus.github.io&#47;')">
+                <img src="copy.svg" alt="copiar">
+            </button>
         </li>
         <li>
-            <a  href="https://github.com/mx-2-d/" 
-                target="_blank" 
-                rel="noopener noreferrer">Maximilian León</a>
+            <a href="https://github.com/mx-2-d" target="_blank" rel="noopener noreferrer">Maximilian León</a>
+            <button type="button" onclick="copiar('https:&#47;&#47;mx-2-d.github.io&#47;')">
+                <img src="copy.svg" alt="copiar">
+            </button>
         </li>
         <li>
-            <a  href="https://github.com/xiles5/" 
-                target="_blank" 
-                rel="noopener noreferrer">Cristian Rengifo</a>
+            <a href="https://github.com/xiles5" target="_blank" rel="noopener noreferrer">Cristian Rengifo</a>
+            <button type="button" onclick="copiar('https:&#47;&#47;xiles5.github.io&#47;')">
+                <img src="copy.svg" alt="copiar">
+            </button>
         </li>
         <li>
-            <a  href="https://github.com/jenifer-al/" 
-                target="_blank" 
-                rel="noopener noreferrer">Jenifer González</a>
+            <a href="https://github.com/jenifer-al" target="_blank" rel="noopener noreferrer">Jenifer González</a>
+            <button type="button" onclick="copiar('https:&#47;&#47;jenifer-al.github.io&#47;')">
+                <img src="copy.svg" alt="copiar">
+            </button>
         </li>
         <li>
-            <a  href="https://github.com/nataliya-stack/" 
-                target="_blank" 
-                rel="noopener noreferrer">Natalia Yanovich</a>
+            <a href="https://github.com/nataliya-stack" target="_blank" rel="noopener noreferrer">Natalia Yanovich</a>
+            <button type="button" onclick="copiar('https:&#47;&#47;nataliya-stack.github.io&#47;')">
+                <img src="copy.svg" alt="copiar">
+            </button>
         </li>
         <li>
-            <a  href="https://github.com/MohammedZakhbat/" 
-                target="_blank" 
-                rel="noopener noreferrer">Mohammed Zakhbat</a>
+            <a href="https://github.com/MohammedZakhbat" target="_blank" rel="noopener noreferrer">Mohammed Zakhbat</a>
+            <button type="button" onclick="copiar('https:&#47;&#47;MohammedZakhbat.github.io&#47;')">
+                <img src="copy.svg" alt="copiar">
+            </button>
         </li>
         <li>
-            <a  href="https://github.com/yordano108/" 
-                target="_blank" 
-                rel="noopener noreferrer">Yordano Gil</a>
+            <a href="https://github.com/yordano108" target="_blank" rel="noopener noreferrer">Yordano Gil</a>
+            <button type="button" onclick="copiar('https:&#47;&#47;yordano108.github.io&#47;')">
+                <img src="copy.svg" alt="copiar">
+            </button>
         </li>
         <li>
-            <a  href="https://github.com/ayaelo9/" 
-                target="_blank" 
-                rel="noopener noreferrer">Guillermo Muñoz</a>
+            <a href="https://github.com/ayaelo9" target="_blank" rel="noopener noreferrer">Guillermo Muñoz</a>
+            <button type="button" onclick="copiar('https:&#47;&#47;ayaelo9.github.io&#47;')">
+                <img src="copy.svg" alt="copiar">
+            </button>
         </li>
         <li>
-            <a  href="https://github.com/cyrille514/" 
-                target="_blank" 
-                rel="noopener noreferrer">Cyrille Nyami</a>
+            <a href="https://github.com/cyrille514" target="_blank" rel="noopener noreferrer">Cyrille Nyami</a>
+            <button type="button" onclick="copiar('https:&#47;&#47;cyrille514.github.io&#47;')">
+                <img src="copy.svg" alt="copiar">
+            </button>
         </li>
         <li>
-            <a  href="https://github.com/1moussijoelle-source/" 
-                target="_blank" 
-                rel="noopener noreferrer">Joelle Moussi</a>
+            <a href="https://github.com/moussijoelle" target="_blank" rel="noopener noreferrer">Joelle Moussi</a>
+            <button type="button" onclick="copiar('https:&#47;&#47;moussijoelle.github.io&#47;')">
+                <img src="copy.svg" alt="copiar">
+            </button>
         </li>
-                <li>
-            <a  href="https://github.com/" 
-                target="_blank" 
-                rel="noopener noreferrer">Araceli Leon</a>
-        </li>
-             
         <li>
-            <a  href="https://github.com/naomiquitosalazar-cyber/" 
-                target="_blank" 
-                rel="noopener noreferrer">Naomi Quito</a>
+            <a href="https://github.com/naomiquitosalazar-cyber" target="_blank" rel="noopener noreferrer">Naomi
+                Quito</a>
+            <button type="button" onclick="copiar('https:&#47;&#47;naomiquitosalazar-cyber.github.io&#47;')">
+                <img src="copy.svg" alt="copiar">
+            </button>
         </li>
     </ol>
+
+    <script>
+        let repo;
+        function copiar(repositorio) {
+            repo=repositorio;
+            console.log(repositorio);
+
+            navigator.clipboard.writeText(repositorio).then(() => {
+                mostrarMensaje();
+            }).catch(err => {
+                console.error("Error al copiar: en el portapapeles:", err);
+            });
+        }
+
+        function mostrarMensaje() {
+            console.log(repo);
+        }
+    </script>
 </body>
 
 </html>

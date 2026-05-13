@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
+  </script>
+
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+
+    @layer base {
+      :root {
+        @apply text-sm;
+        line-height: 1.5;
+      }
+
+      p {
+        @apply mb-1
+      }
+
+      button {
+        @apply rounded-md bg-slate-200 border-1 border-slate-400 px-4 py-1 my-1 text-sm cursor-pointer disabled:opacity-50
+      }
+      details {
+        @apply mb-4 py-2 border-b-slate-700 border-b-1 text-slate-800 
+      }
+      summary {
+        @apply py-1 text-base bg-slate-800 text-white font-bold
+      }
+      blockquote {
+        @apply mx-8 p-2 bg-slate-200
+      }
+
+      ol {
+        @apply list-decimal list-outside ml-6 mb-4
+      }
+
+      ul {
+        @apply list-[circle] list-outside ml-6 mb-4
+      }
+
+      li {@apply mb-3}
+      
+      kbd, code, a {
+        @apply text-blue-800
+      }
+
+      a {
+        @apply border-b-1 
+      }
+
+      input, select {
+        @apply border-1 px-2
+      }
+
+      hr {
+        @apply my-3
+      }
+
+      td, th {
+        @apply border-black border p-1.5
+      }
+
+      h1, h2, h3 {
+        @apply font-bold
+      }
+    }
+  </style>
+
+  <link rel="shortcut icon" href="questions.svg" type="image/svg">
+  <title>JS Examen Práctico</title>
+</head>
+
+<body class="container mx-auto w-5/6 pb-10">
+<h1 class="text-lg md:text-xl text-black text-center mb-4">
+  Prueba práctica de evaluación // Prova pràctica d' avaluació
+</h1>
+<p class="text-center"></p>
+<div>
+  <table class="w-full  text-sky-800">
+    <tr class="bg-sky-50">
+      <td colspan="2">
+        <h2 class="text-2xl">ACTIVIDAD</h2>
+      </td>
+    </tr>
+    <tr>
+      <td class="w-1/6">&nbsp;</td>
+      <td>
+        <h3>Proyecto final de Módulo</h3>
+        <p>La actividad a realizar tiene dos partes: </p>
+        <ol>
+          <li>
+            <h4 class="font-bold bg-yellow-50">Dashboard / Menú de Ejercicios</h4>
+            <p>Realizar un Dashboard / Menu que enlace con todos los <a target="_blank" rel="noopener" href="https://contenido-vario.github.io/js1/">ejercicios de JavaScript</a> que hemos realizado.</p>
+            <p>Revisaré vuestro Dashboard desde el móvil. Tanto el Dashboard como los ejercicios a partir de <b>Ejercicios condicionales</b> deberán ser responsivos.</p>
+            <p><span class="underline">Puntuación</span>: <b>3 puntos</b> (<b>1 punto</b> responsividad y <b>2 puntos</b> entrega de todos los ejercicios.)</p>
+          </li>
+          <li>
+            <h4 class="font-bold bg-yellow-50">Carrusel (con array de Objetos)</h4>
+            <p>Hacer un carrusel que muestre el contenido de un array de objetos el cual tendrá la siguiente estructura (ejemplo):</p>
+            <blockquote><code>
+              <b>&#123;</b><br>
+              &nbsp;&nbsp;nombre: "Barcelona",<br>
+              &nbsp;&nbsp;descripcion: "Capital de Catalunya",<br>
+              &nbsp;&nbsp;imagen: "barcelona.png",<br>
+              &nbsp;&nbsp;caracteristicas:<b>[</b><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;"población: 1.740.782 (2025)",<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;"P.I.B: €112.000 millones (2024)",<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;"superficie: 101,9 km<sup>2</sup>"<br>
+              &nbsp;&nbsp;<b>]</b><br>
+              <b>&#125;</b>  
+            </code></blockquote>
+            <p class="mt-1.5">Podéis usar <b>cualquier tema</b> siempre y cuando el array de objetos tenga los atributos <code>nombre, descripcion, imagen</code> y el array de <code>características</code>. Al llegar al final o al inicio, debe dar la vuelta. Mínimo 10 imágenes.</p>
+            <p>La pantalla del carrusel deberá mostrar todos los datos del objeto.</p>
+          </li>
+        </ol>
+        <p>Deberéis subir las URL del Dashboard y del Carrusel al siguiente <a disabled href="#" rel="noopener">formulario</a></p>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="mt-4">
+  <table class="w-full  text-sky-800">
+    <tr class="bg-sky-50">
+      <td><h2 class="text-2xl">RESULTADO DE LA ACTIVIDAD</h2></td>
+    </tr>
+    <tr>
+      <td>
+        <figure>
+          <figcaption class="font-bold bg-yellow-50">Dashboard / Menú de Ejercicios (ejemplo)</figcaption>
+          <img class="max-w-full w-full my-4" src="./img/dashboard.png" alt="dashboard">
+        </figure>
+        <figure>
+          <figcaption class="font-bold bg-yellow-50">Carrusel</figcaption>
+          <img class="max-w-full w-full my-4" src="./img/barcelona.png" alt="">
+        </figure>
+        <p class="text-center"><small>La flechita verde es para que el carrusel se muestre automáticamente, os paso el código el lunes próximo.</small></p>
+      </td>
+    </tr>
+  </table>
+</div>
+<div>
+  <table class="w-full max-w-full my-4 text-sky-800">
+    <tr class="bg-sky-50">
+      <td colspan="7">
+        <h2 class="text-lg md:text-2xl">RESULTADO DE LA OBSERVACIÓN Y EVALUACIÓN DE LA PRÁCTICA</h2>
+      </td>
+    </tr>
+    <tr>
+      <th rowspan="2"><h3>ACTIVITAT</h3></th>
+      <th rowspan="2"><h3>FACTORES</h3></th>
+      <th colspan="3"><h3>PUNTUACIÓN</h3></th>
+    </tr>
+    <tr class="font-bold text-sm">
+      <th>Max</th>
+      <th>Obtenida</th>
+      <th>Min</th>
+    </tr>
+    <tr>
+      <th rowspan="2">Dashboard</th>
+      <td>Responsividad</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>
+      <td>Ejercicios</td>
+      <td class="text-center">2</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0.5</td>
+    </tr>
+    <tr>
+      <th rowspan="7">Carrusel</th>
+      <td>Responsividad</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>Diseño orientado al usuario (contraste de colores y textos adecuados)</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>    
+    <tr>      
+      <td>Mapeo del HTML</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>Uso de convenciones para nombrar archivos, variables, constantes</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>Creación y manipulación del array</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>      
+    <tr>      
+      <td>Manejo del objeto y sus elementos</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>Uso de funciones</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr class="border-2">      
+      <th colspan="2" class="text-right pr-4">Total</th>
+      <th>10</th>
+      <td>&nbsp;</td>
+      <th>0.5</th>
+    </tr>
+  </table>
+</div>
+
+</body>
+</html>

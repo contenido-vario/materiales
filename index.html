@@ -4,67 +4,145 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/estilos.css">
-  <link rel="shortcut icon" href="favicon.png" type="image/png">
-  <title>Materiales HTML-CSS</title>
+  <link rel="shortcut icon" href="mundo.svg" type="image/png">
+  <title>Materiales clase</title>
+  <!-- Los <link> de las fuentes se colocan en el HTML dado que es la forma más rápida de carga cuando se usa el CDN. -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
+  </script>
+
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+    /* Esto carga todo el framework */
+
+    /* Variables de configuración */
+    @theme {
+      --font-sans: "Inclusive Sans", ui-sans-serif, system-ui, sans-serif;
+      --color-brand: #ff4500;
+    }
+
+    /* layer base: estilos globales y "reseteo" de etiquetas HTML puras */
+    /* Permite definir cómo se ve la web "por defecto" antes de empezar a poner clases. */
+
+    @layer base {
+      /* Agregar estilo de párrafo para todo el documento */
+      body { @apply text-sm }
+      p { @apply mb-4 leading-relaxed text-gray-700; }
+      a { @apply text-blue-600 underline }
+      menu { @apply mb-4 text-sm}
+
+      /* Estilos de los títulos */
+      h1, h2 { @apply font-serif font-bold text-gray-900 mb-6; }
+      h3 { @apply font-bold text-blue-400 }
+      summary {@apply font-bold }
+    }
+
+    /* @layer components: Se usa para crear clases complejas reutilizables */
+    /* Se usa cuando se está repitiendo EXACTAMENTE las mismas 10 clases en muchos componentes (por ejemplo botones), para crear una clase propia. */
+
+    @layer components {
+      .btn-principal {
+        @apply px-4 py-2 bg-red-700 text-white rounded-lg hover:bg-red-500 transition;
+      }
+
+      /* Viñeta para Teoría */
+      li::before {
+        content: "📚"; 
+        font-size: 0.8rem;
+        margin-right: 8px;
+        opacity: 0.7;
+      }
+
+      /* Viñeta para GitHub (Usando un SVG como máscara o fondo) */
+      li.git::before {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+        background-color: #000;
+        /* Icono de GitHub simple */
+        mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>') no-repeat center;
+        /*- webkit-mask: url('...') no-repeat center;  Para compatibilidad */
+        -webkit-mask-size: contain;
+        mask-size: contain;
+      }
+
+    }
+
+    /* @layer utilities: 
+    Es la capa de clases de un solo propósito y máxima prioridad, incluso por encima de lo que diga la capa base o de componentes. */
+
+    @layer utilities {
+      .rotate-45-extra {
+        transform: rotate(45deg);
+      }
+    }
+
+  </style>
+
 </head>
 
-<body>
-  <header>
-    <h1>Materiales CURSO</h1>
-    <p><a href="examenes.html" target="_blank"
-        rel="noopener noreferrer">Exámenes prácticos</a></p>
+<body class="bg-taupe-50 leading-normal tracking-normal">
+
+  <header class="bg-white/90 backdrop-blur-md shadow-sm p-4 sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">
+        <img class="inline" width="32px" src="mundo.svg" alt="logo" title="logo">
+        Materiales del Curso
+      </h1>
+      <nav class="space-x-4 text-sm md:text-base xl:text-sm xl:space-x-2">
+        <a href="https://tailwindcss.com" target="_blank" rel="noopener"
+          class="text-gray-600 hover:text-sky-500 transition">Tailwindcss</a>
+        <a href="https://nodejs.org/es" target="_blank" rel="noopener"
+          class="text-gray-600 hover:text-blue-500 transition">Node.js®</a>
+        <a href="https://astro.build/" target="_blank" rel="noopener"
+          class="text-gray-600 hover:text-sky-500 transition">Astro</a>
+        <!-- <a href="https://oklch.com/" target="_blank" rel="noopener"
+          class="text-gray-600 hover:sky-sky-500 transition">oklch.com</a>             -->
+        <a href="examenes.html" target="_blank" rel="noopener"
+          class="bg-red-700 text-white px-4 py-2 rounded-lg hover:bg-red-500">Exámenes prácticos</a>
+      </nav>
+    </div>
   </header>
 
-  <div class="dashboard">
-    <nav class="columna">
-      <h2>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-html"
-          viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M14 4.5V11h-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zm-9.736 7.35v3.999h-.791v-1.714H1.79v1.714H1V11.85h.791v1.626h1.682V11.85h.79Zm2.251.662v3.337h-.794v-3.337H4.588v-.662h3.064v.662zm2.176 3.337v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596H9.93L8.79 11.85h-.805v3.999zm4.71-.674h1.696v.674H12.61V11.85h.79v3.325Z" />
-        </svg>
-        HTML
-      </h2>
-      <details>
-        <summary>Material de consulta</summary>
-        <menu>
-          <li class="teoria">Elementos HTML en <a download href="./assets/etiquetas_html.xlsx">Excel</a></li>
-          <li class="teoria">Elementos HTML en <a target="_blank"
-              href="https://docs.google.com/spreadsheets/d/1rXU7XDkpa092lHm5SsstBTyPs4Bjk0sueW4bcX0zKiA/edit?usp=drive_link"
-              rel="noreferrer noopener">Google Sheets</a></li>
-          <li class="teoria">Ejercicios de <a target="_blank" href="https://ritadelatorre.github.io/tablas/"
-              rel="noreferrer noopener">tablas</a></li>
-          <li class="teoria"><a href="https://www.w3schools.com/charsets/ref_emoji_intro.asp" target="_blank"
-              rel="noopener noreferrer">HTML Emojis</a></li>
-          <li class="teoria"><a href="https://web.dev/learn/html" target="_blank"
-              rel="noopener noreferrer">Google web.dev</a></li>
-          <li class="teoria"><a href="https://contenido-vario.github.io/formularios/" target="_blank"
-              rel="noopener noreferrer">Controles de Formulario</a></li>
-        </menu>
-      </details>
-
-      <details>
-        <summary>Subir al GitHub</summary>
-        <menu>
-          <li class="git"><a target="_blank" href="https://contenido-vario.github.io/clase6/"
-              rel="noreferrer noopener">CV</a></li>
-        </menu>
-      </details>
-      </menu>
-    </nav>
-
-    <nav class="columna">
-      <h2>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-css"
-          viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V0zM4.59 7.498q-.908 0-1.455.508-.547.507-.547 1.484v3.106q0 .986.527 1.484t1.406.498q.576 0 1.016-.224.45-.225.703-.674.255-.45.254-1.114v-.185h-1.22v.176q0 .449-.186.683t-.527.235q-.372-.01-.557-.264-.186-.255-.186-.752V9.686q0-.547.166-.811.177-.264.577-.264.321 0 .517.225.195.224.195.693v.205h1.23V9.52q0-.674-.243-1.124a1.55 1.55 0 0 0-.664-.673q-.42-.225-1.006-.225m4.214-.01q-.586 0-1.006.244a1.67 1.67 0 0 0-.635.674 2.1 2.1 0 0 0-.225.996q0 .753.293 1.182.304.42.967.732l.469.215q.44.186.625.43.186.244.186.635 0 .478-.166.703-.157.224-.528.224-.36 0-.547-.244-.185-.243-.205-.752H6.87q.02.996.498 1.524.479.527 1.387.527t1.416-.518.508-1.484q0-.81-.332-1.289-.333-.479-1.045-.79l-.45-.196q-.39-.166-.556-.381-.165-.214-.166-.576 0-.4.166-.596.175-.195.508-.195.36 0 .508.234.156.234.175.703h1.123q-.03-.976-.498-1.484-.468-.518-1.308-.518m4.057 0q-.585 0-1.006.244a1.67 1.67 0 0 0-.634.674 2.1 2.1 0 0 0-.225.996q0 .753.293 1.182.303.42.967.732l.469.215q.438.186.625.43.185.244.185.635 0 .478-.166.703-.156.224-.527.224-.361.001-.547-.244-.186-.243-.205-.752h-1.162q.02.996.498 1.524.479.527 1.386.527.909 0 1.417-.518.507-.517.507-1.484 0-.81-.332-1.289t-1.045-.79l-.449-.196q-.39-.166-.556-.381-.166-.214-.166-.576 0-.4.165-.596.177-.195.508-.195.361 0 .508.234.156.234.176.703h1.123q-.03-.976-.498-1.484-.47-.518-1.309-.518" />
-        </svg>
-        CSS
-      </h2>
-      <details>
-        <summary>Material de Consulta</summary>
+  <main class="container mx-auto mt-4 p-6 bg-white rounded-xl shadow-lg">
+    <section class="text-lg">
+      <!-- <span></span> -->
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6 text-base">
+        <div class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition text-base">
+          <h3 class="text-xl mb-2">HTML</h3>
+          <details><summary>Material de consulta</summary>
+            <menu>
+              <li class="teoria">Elementos HTML en <a download href="./assets/etiquetas_html.xlsx">Excel</a></li>
+              <li class="teoria">Elementos HTML en <a target="_blank"
+                  href="https://docs.google.com/spreadsheets/d/1rXU7XDkpa092lHm5SsstBTyPs4Bjk0sueW4bcX0zKiA/edit?usp=drive_link"
+                  rel="noreferrer noopener">Google Sheets</a></li>
+              <li class="teoria">Ejercicios de <a target="_blank" href="https://ritadelatorre.github.io/tablas/"
+                  rel="noreferrer noopener">tablas</a></li>
+              <li class="teoria"><a href="https://www.w3schools.com/charsets/ref_emoji_intro.asp" target="_blank"
+                  rel="noopener noreferrer">HTML Emojis</a></li>
+              <li class="teoria"><a href="https://web.dev/learn/html" target="_blank" rel="noopener noreferrer">Google
+                  web.dev</a></li>
+              <li class="teoria"><a href="https://contenido-vario.github.io/formularios/" target="_blank"
+                  rel="noopener noreferrer">Controles de Formulario</a></li>
+            </menu>
+          </details>
+          <details><summary>Subir al GitHub</summary>
+            <menu>
+              <li class="git"><a target="_blank" href="https://contenido-vario.github.io/clase6/"
+                  rel="noreferrer noopener">CV</a></li>
+            </menu>
+          </details>
+        </div>
+        <div class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
+          <h3 class="text-xl mb-2">CSS / Tailwind</h3>
+      <details><summary>Material de Consulta</summary>
         <menu>
           <li class="teoria"><a href="./assets/CSS-1.pdf">Básicos CSS</a></li>
           <li class="teoria"><a href="https://ritadelatorre.github.io/position/" target="_blank" rel="noreferrer noopener">Posicionamiento</a></li>
@@ -74,8 +152,7 @@
           <li class="teoria"><a href="https://gridbyexample.com/examples/" target="_blank" rel="noreferrer noopener">grid by example</a></li> 
         </menu>
       </details>
-      <details>
-        <summary>Subir a GitHub</summary>
+      <details><summary>Subir a GitHub</summary>
         <menu>
           <li class="git"><a target="_blank" href="https://ritadelatorre.github.io/fabula/"
               rel="noreferrer noopener">Pseudoclases y pseudoelementos</a></li>
@@ -99,32 +176,57 @@
         <menu>
           <li><a href="https://codepip.com/games/" target="_blank" rel="noopener noreferrer">Juegos</a></li>
           <li><a href="https://programmingmentor.com/post/playing-css-grid-garden/" target="_blank" rel="noopener noreferrer">Soluciones CSS Grid Garden</a></li>
-          <li><a href="https://flukeout.github.io/" target="_blank" rel="noopener noreferrer">CSS Diner</a>, <a href="https://gist.github.com/chrisman/fcb0a88459cd98239dbe6d2d200b02d1" target="_blank" rel="noopener noreferrer"> Solución CSS Diner</a></li>
-          
+          <li><a href="https://flukeout.github.io/" target="_blank" rel="noopener noreferrer">CSS Diner</a>, <a href="https://gist.github.com/chrisman/fcb0a88459cd98239dbe6d2d200b02d1" target="_blank" rel="noopener noreferrer"> Solución CSS Diner</a></li>          
         </menu>
       </details>
+        </div>
+        <div class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
+          <h3 class="text-xl mb-2">JavaScript</h3>
+          <details><summary>Material de Consulta</summary>
+            <menu>
+              <li class="teoria"><a href="https://www.aprendejavascript.dev/" target="_blank" rel="noreferrer noopener">Aprende JavaScript (MiDuDev)</a></li>
+              <li class="teoria"><a href="https://aprendejavascript.org/" target="_blank" rel="noreferrer noopener">Aprende JavaScript (Jon Mircha)</a></li>          
+              <li class="teoria"><a href="https://www.eloquentjavascript.es/" target="_blank" rel="noreferrer noopener">Eloquent JavaScript (libro)</a></li> 
+            </menu>      
+          </details>
+          <details open><summary>Ejercicios/Explicaciones</summary>
+            <menu>
+    <li class="git"><a href="https://contenido-vario.github.io/js1/" target="_blank" rel="noreferrer noopener">Ejercicios JavaScript (I)</a></li>
+    <li class="teoria"><a href="https://contenido-vario.github.io/js1/chuletas.html" target="_blank" rel="noreferrer noopener">Explicaciones de Clase</a></li>          
+            </menu>      
+          </details>
+        </div>
+        <div class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition text-base">
+          <h3 class="text-xl mb-2">Node.js</h3>
+          <details><summary>Material de Consulta</summary>
+            <menu>
+            </menu>      
+          </details>
+          <details><summary>Ejercicios</summary>
+            <menu>
+            </menu>      
+          </details>
+        </div>
+        <div class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
+          <h3 class="text-xl mb-2">Astro</h3>
+          <details><summary>Material de Consulta</summary>
+            <menu>
+            </menu>      
+          </details>
+          <details><summary>Ejercicios</summary>
+            <menu>
+            </menu>      
+          </details>
 
-    </nav>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <nav class="columna">
-      <h2>JavaScript</h2>
-      <details>
-        <summary>Material de Consulta</summary>
-        <menu>
-          <li class="teoria"><a href="https://www.aprendejavascript.dev/" target="_blank" rel="noreferrer noopener">Aprende JavaScript (MiDuDev)</a></li>
-          <li class="teoria"><a href="https://aprendejavascript.org/" target="_blank" rel="noreferrer noopener">Aprende JavaScript (Jon Mircha)</a></li>          
-          <li class="teoria"><a href="https://www.eloquentjavascript.es/" target="_blank" rel="noreferrer noopener">Eloquent JavaScript (libro)</a></li> 
-        </menu>      
-      </details>
-      <details open>
-        <summary>Ejercicios/Explicaciones</summary>
-        <menu>
-<li class="git"><a href="https://contenido-vario.github.io/js1/" target="_blank" rel="noreferrer noopener">Ejercicios JavaScript (I)</a></li>
-<li class="teoria"><a href="https://contenido-vario.github.io/js1/chuletas.html" target="_blank" rel="noreferrer noopener">Explicaciones de Clase</a></li>          
-        </menu>      
-      </details>
-    </nav>
-  </div>
+  <footer class="mt-20 py-8 bg-gray-800 text-white text-center">
+    <p class="text-white">&copy; 2026 Página web creada con Tailwind CSS</p>
+  </footer>
+
 </body>
 
 </html>

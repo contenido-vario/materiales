@@ -39,7 +39,8 @@
       /* Estilos de los títulos */
       h1, h2 { @apply font-serif font-bold text-gray-900 mb-6; }
       h3 { @apply font-bold text-blue-400 }
-      summary, h4 {@apply font-bold }
+      h4 { @apply font-bold text-red-700 }
+      summary {@apply font-bold }
     }
 
     /* @layer components: Se usa para crear clases complejas reutilizables */
@@ -97,16 +98,10 @@
         Materiales del Curso
       </h1>
       <nav class="space-x-4 text-sm md:text-base xl:text-sm xl:space-x-2">
-        <a href="https://tailwindcss.com" target="_blank" rel="noopener"
-          class="text-gray-600 hover:text-sky-500 transition">Tailwindcss</a>
-        <a href="https://nodejs.org/es" target="_blank" rel="noopener"
-          class="text-gray-600 hover:text-blue-500 transition">Node.js®</a>
-        <a href="https://astro.build/" target="_blank" rel="noopener"
-          class="text-gray-600 hover:text-sky-500 transition">Astro</a>
         <!-- <a href="https://oklch.com/" target="_blank" rel="noopener"
           class="text-gray-600 hover:sky-sky-500 transition">oklch.com</a>             -->
         <a href="examenes.html" target="_blank" rel="noopener"
-          class="bg-red-700 text-white px-4 py-2 rounded-lg hover:bg-red-500">Exámenes prácticos</a>
+          class="bg-red-700 text-white px-4 py-1 rounded-lg hover:bg-red-500" md:py-2">Exámenes prácticos</a>
       </nav>
     </div>
   </header>
@@ -165,7 +160,7 @@
           <li class="git"><a href="https://ritadelatorre.github.io/position/relativas.html" target="_blank" rel="noopener noreferrer">Hacer con Flexbox</a></li>
         </menu>
       </details>
-      <h4><a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind css</a></li>
+      <h4>&#9655; <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind css</a></h4>
       <details><summary>Tailwind CSS</summary>
         <menu>
           <li><a href="https://www.creative-tim.com/twcomponents/cheatsheet/tailwind-css-4" target="_blank" rel="noopener noreferrer">Tailwind CSS v4 Cheat Sheet</a></li>
@@ -196,8 +191,10 @@
             </menu>      
           </details>
         </div>
+        
         <div class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition text-base">
           <h3 class="text-xl mb-2">Node.js</h3>
+          <h4>&#9655; <a href="https://nodejs.org/es" target="_blank" rel="noopener">Node.js®</a></h4>
           <details><summary>Material de Consulta</summary>
             <menu>
             </menu>      
@@ -209,6 +206,7 @@
         </div>
         <div class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
           <h3 class="text-xl mb-2">Astro</h3>
+          <h4>&#9655; <a href="https://astro.build/" target="_blank" rel="noopener">Astro</a></h4>
           <details><summary>Material de Consulta</summary>
             <menu>
             </menu>      

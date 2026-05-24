@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
+  </script>
+
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+
+    @layer base {
+      :root {
+        @apply text-sm;
+        line-height: 1.5;
+      }
+
+      p {
+        @apply mb-1
+      }
+
+      button {
+        @apply rounded-md bg-slate-200 border-1 border-slate-400 px-4 py-1 my-1 text-sm cursor-pointer disabled:opacity-50
+      }
+      details {
+        @apply mb-4 py-2 border-b-slate-700 border-b-1 text-slate-800 
+      }
+      summary {
+        @apply py-1 text-base bg-slate-800 text-white font-bold
+      }
+      blockquote {
+        @apply mx-8 p-2 bg-slate-200
+      }
+
+      ol {
+        @apply list-decimal list-outside ml-6 mb-4
+      }
+
+      ul {
+        @apply list-[circle] list-outside ml-6 mb-4
+      }
+
+      li {@apply mb-1}
+      
+      kbd, code, a {
+        @apply text-blue-800
+      }
+
+      a {
+        @apply border-b-1 
+      }
+
+      input, select {
+        @apply border-1 px-2
+      }
+
+      hr {
+        @apply my-3
+      }
+
+      td, th {
+        @apply border-black border p-1.5
+      }
+
+      h1, h2, h3 {
+        @apply font-bold
+      }
+    }
+  </style>
+
+  <link rel="shortcut icon" href="questions.svg" type="image/svg">
+  <title>JS Examen Práctico</title>
+</head>
+
+<body class="container mx-auto w-5/6 pb-10">
+<h1 class="text-lg md:text-xl text-black text-center mb-4">
+  Prueba práctica de evaluación // Prova pràctica d' avaluació
+</h1>
+<p class="text-center"></p>
+<div>
+  <table class="w-full  text-sky-800">
+    <tr class="bg-sky-50">
+      <td colspan="2">
+        <h2 class="text-2xl">ACTIVIDAD</h2>
+      </td>
+    </tr>
+    <tr>
+      <td class="w-1/6">&nbsp;</td>
+      <td>
+        <h3 class="font-bold bg-yellow-50 mb-8 text-xl">Proyecto UF1843. TAMAGOTCHI</h3>
+        <p>Crear un programa que guarde en un objeto la información sobre un <b>Tamagotchi</b> (mascota virtual).</p>
+        <p>Además de la propiedad <code>nombre</code>, el objeto tamagotchi deberá tener 4 propiedades: <code>salud</code>, <code>felicidad</code>, <code>limpieza</code> y <code>energía</code>, cuyos valores pueden ir entre <b>0 y 10</b>. El valor de las mismas deberán mostrarse por pantalla cada vez que se modifiquen.</p>
+        <p>Al iniciar el programa se deberá asignar aleatoriamente los valores a cada propiedad.</p>
+        <p>Además se deberá activar una función que reste un punto a cada propiedad cada 5 segundos.</p>
+        <p>Se deberá mostrar un botón para cada una de las siguientes posibles acciones (funciones) a realizar, que modificarán los valores de sus propiedades de la siguiente forma:</p>
+        <table width="100%" class="my-6">
+          <tr>
+            <td width="50%">
+              <b>alimentar</b>: +3 energía, +2 felicidad, -1 limpieza<br>
+              <b>jugar</b>: +2 felicidad, -2 energía, -2 limpieza<br>
+              <b>dormir</b>: +5 energía, +2 salud
+            </td>
+            <td>
+              <b>duchar</b>: +3 salud, 10 limpieza<br>
+              <b>reprender</b>: -3 felicidad<br>
+              <b>acariciar</b>: +4 felicidad
+            </td>
+          </tr>
+        </table>
+        <p>Cuando el usuario selecciona una acción, la pantalla deberá reflejar el cambio de valor de las propiedades.</p> 
+        <h4 class="font-bold text-xl mb-4">Requerimientos del programa:</h4>
+        <ol>
+          <li>Se deberá crear una clase Tamagotchi con la cual se creará el objeto tamagotchi.</li>
+          <li>Las funciones deberán  ser programadas con funciones flecha</li> 
+          <li>Se deberán programar escuchadores de eventos a los botones, los cuales deberán ser removidos cuando el valor de la propiedad llegue a cero.</li>
+        </ol>
+        <figure>
+          <img src="./img/tamagotchi.png" alt="pantalla tamagotchi">
+          <figcaption class="text-center text-sm italic">Ejemplo de pantalla tamagotchi</figcaption>
+        </figure>
+        <hr>
+        <p>Deberéis subir las URL del tamagotchi al siguiente <a target="_blank" href="https://forms.gle/Uvp88r3ibaxNLVo39" rel="noopener">formulario</a></p>
+      </td>
+    </tr>
+  </table>
+</div>
+<div>
+  <table class="w-full max-w-full my-4 text-sky-800">
+    <tr class="bg-sky-50">
+      <td colspan="7">
+        <h2 class="text-lg md:text-2xl">RESULTADO DE LA OBSERVACIÓN Y EVALUACIÓN DE LA PRÁCTICA</h2>
+      </td>
+    </tr>
+    <tr>
+      <th rowspan="2"><h3>ACTIVITAT</h3></th>
+      <th rowspan="2"><h3>FACTORES</h3></th>
+      <th colspan="3"><h3>PUNTUACIÓN</h3></th>
+    </tr>
+    <tr class="font-bold text-sm">
+      <th>Max</th>
+      <th>Obtenida</th>
+      <th>Min</th>
+    </tr>
+    <tr>
+      <th rowspan="10">Tamagotchi</th>
+      <td>Responsividad</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>Diseño orientado al usuario (contraste de colores y textos adecuados)</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0.5</td>
+    </tr>    
+    <tr>      
+      <td>Clase Tamagotchi</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>Creación del objeto tamagotchi</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>Asignación aleatoria inicial de propiedades</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+        <tr>      
+      <td>Funciones flecha</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>Mapeo del HTML</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>Asignación de Escuchadores de Evento</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>Uso del temporizador</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>      
+    <tr>      
+      <td>Remoción de Escuchadores de Evento</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr class="border-2">      
+      <th colspan="2" class="text-right pr-4">Total</th>
+      <th>10</th>
+      <td>&nbsp;</td>
+      <th>0.5</th>
+    </tr>
+  </table>
+</div>
+
+</body>
+</html>

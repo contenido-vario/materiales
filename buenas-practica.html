@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buenas Prácticas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+    @theme {
+      --font-sans: "Inclusive Sans", ui-sans-serif, system-ui, sans-serif;
+      --color-brand: #ff4500;
+      --color-principal: #3d4449;
+      --color-cuerpo: #000;
+      --color-borde: rgba(210, 215, 217, 0.75);
+    }
+    @layer base {
+      h1 { @apply font-sans font-bold text-4xl md:text-4xl text-sky-700 leading-snug mb-4; }
+      h2 { @apply font-sans font-bold text-2xl md:text-xl text-principal mb-4;}
+      h3, summary { @apply font-sans text-lg text-principal mb-4 text-sky-700}
+      p  { @apply mb-6 text-cuerpo text-lg}
+      blockquote { @apply border-l-4 border-sky-600 italic pl-6 mb-8;}
+      a  { @apply text-sky-600 hover:text-sky-800 transition-colors duration-200;}
+      header {@apply text-center}
+      code {@apply text-red-700}
+    }
+  </style>
+</head>
+
+<body class="w-5/6 mx-auto">
+  <div id="wrapper">
+    <header>
+      <h1>Consejos y Buenas Prácticas<br>en Programación</h1>
+      <h2>Original de Pablo Sánchez. <a class="underline" href="https://personales.unican.es/sanchezbp/teaching/faqs/programming.html" target="_blank" rel="noopener">Ref. Documento original</a></h2>
+      <p><small>Este documento es un resumen modificado del referenciado  anteriormente.<br>He eliminado las pautas de corrección de la
+        Universidad de Cantabria<br>para no hacer tediosa su lectura.</small></p>
+    </header>
+    <main>
+      <h2>1. Introducción</h2>
+      <details>
+        <summary>
+          ¿Por qué son importantes las Buenas Prácticas?
+        </summary>
+        <p>Cuando se codifica una aplicación software, existe un número potencialmente infinito de programas que
+          satisfacen los mismos requisitos. Sin embargo, no todos estos programas comparten los mismos atributos de
+          calidad. Es decir, no todos son iguales de eficientes tanto en consumo de procesador como de memoria; no todos
+          son igual de legibles; no todos son igual de fáciles de modificar; no todos son igual de fáciles de probar y
+          verificar que funcionan correctamente, etc.</p>
+
+        <p>La labor de un Ingeniero Informático o Ingeniero Software no es solamente crear aplicaciones software que
+          funcionen correctamente, sino que además debe crear aplicaciones software robustas, eficientes, fáciles de
+          mantener y un largo etcétera de propiedades extras. Muchas personas están capacitadas para codificar
+          aplicaciones software pero un número bastante más reducido de ellas están capacitadas para hacerlo conforme a
+          los parámetros de calidad que se espera de un titulado superior en Informática. Hoy en día es muy fácil
+          aprender a programar por cuenta propia, dado la amplia cantidad de información disponible a través de internet
+          y la multitud de cursos que se ofertan.</p>
+
+        <p>Sin embargo, tanto el autoaprendizaje no debidamente supervisado como la mayoría de los cursos de
+          programación que se imparten llevan a adquirir las habilidades necesarias para la creación de software
+          artesanal, donde el programador codifica un algoritmo y prueba su correcto funcionamiento mediante un proceso
+          de prueba y error tras largos periodos de depuración.</p>
+
+        <p>Existe una diferencia entre este tipo de creación de software artesanal y el proceso de desarrolo software
+          que se supone debe seguir un Ingenierio en Informática. En la creación del software artesanal el objetivo
+          principal suele ser que la aplicación funcione sea como sea. En la Ingeniería del Software, un conjunto de
+          soluciones probadas, cuyas ventajas e incovenientes son bien conocidas, se van aplicando con el objetivo de
+          que la aplicación software además de hacer lo que se desea que haga, cumpla una serie de propiedades extras,
+          tales como que el programa sea fácilmente modificable.</p>
+
+        <p>...En ocasiones, esta concepción puede resultar algo árdua, pero la recompensa de unos programas con una alta
+          garantía de corrección y la satisfacción intelectual de haberlos construidos bien desde el principio, bien
+          mererece la pena ... Muchos de los consejos que se dan en esta página constituyen principios de lo que se ha
+          venido a denominar la programación estructurada.</p>
+      </details>
+
+      <h2>2. Lista de Buenas Prácticas</h2>
+      <details>
+        <summary>Consejo 1: Evitar el abuso de variables globales.</summary>
+        <p><strong>Justificación</strong>: Una variable global es una variable colocada fuera del ámbito de varias
+          funciones y que es globalmente accesible por todas ellas. No se debe confundir con un atributo de una clase,
+          que es un campo dentro de un registro que varias funciones manipulan. Un consejo útil para distinguir
+          atributos de variables globales es pensar si la variable corresponde a una característica identificable del
+          conjunto de individuos representado por una clase.</p>
+
+        <p>El uso de variables globales pueda resultar tentador por lo cómodo de evitar tener que estar pasando la
+          variable global como parámetro. Sin embargo, el uso de variables globales puede tener efectos laterales
+          bastante peligrosos. El problema es que al ser la variable globalmente accesible, ésta puede, por malicia o
+          simple infortunio, ser modificada fácilmente por terceras funciones, asignando a la variable un valor no
+          deseado. Este valor no deseado puede desecandenar una serie de fallos en cadena. Al ser la variable accesible
+          por un número potencialmente largo de funciones, una vez producido el fallo, depurar el programa hasta
+          averiguar cual es la causa del fallo puede ser un proceso largo y tedioso. En muchas Escuelas de Ingeniería
+          Informática <em>el uso no justificado</em> de variables globales es causa directa de suspenso en un examen o
+          práctica de programación.</p>
+
+        <p><strong>NOTA</strong>: <span title="Creador del Sistema Operativo Linux">Linus Torvalds</span> realiza la
+          misma recomendación para la creación de código para el núcleo de Linux: <mark>sólo usar variables globales
+            cuando es realmente necesario</mark>.</p>
+      </details>
+
+      <details>
+        <summary>Consejo 2: Evitar en lo posible el uso de <code
+            title="No existe en JavaScript">goto</code>, <code>break</code> y <code>continue</code> dentro de los
+          bucles.</summary>
+
+        <p><strong>Justificación</strong>: Evitar el uso de sentencias que rompan el flujo secuencial de ejecución de un
+          programa es el principio básico de la programación estructurada. (<em>... goto ...</em>).</p>
+
+        <p>El uso de sentencias <code>break</code> y <code>continue</code> suele estar asociado a técnicas de
+          construcción de bucles artesanales, donde primero se codifica un bucle y luego se comprueba su correción
+          mediante prueba y error usando depuración. El no usar estas sentencias obliga normalmente a pensar primero que
+          condición o invariante debe cumplirse durante la ejecución del bucle, y acontinuación codificar el bucle. Esta
+          segunda técnica resulta mucho más ingenieril, es la base para la posterior verificación formal del bucle y
+          suele contribuir a mejorar la legibilidad de los programas.</p>
+
+        <p>Por ejemplo: Un bucle tipo <code>while</code> libre de sentencias <code>break</code>, permite saber que el
+          bucle terminará cuando la condición deje de cumplirse. Por tanto, para saber si un bucle terminará, bastará
+          comprobar que en el cuerpo del bucle se realiza algún cómputo que converge hacia tal condición. Además, en
+          ausencia de sentencias <code>break</code>, a la salida del bucle sabemos que la negación de la condición del
+          bucle siempre será un predicado verdadero (<code>true</code> ), lo que constituye la base para seguir
+          diseñando el programa.</p>
+
+        <p>Las sentencias <code>break</code> y <code>continue</code> son versiones degeneradas de la sentencia
+          <code>goto</code>. La misión principal de estas instrucciones es <strong>forzar la salida de un bucle o su
+            continuación</strong>. Si el programa fuese modificado y las sentencias <code>break</code> o
+          <code>continue</code> quedasen anidadas dentro de nuevos bucles, éstas podrían dejar de cumplir su función. Al
+          modificar el programa las sentencias <code>break</code> y <code>continue</code> podrían salir de, o continuar
+          con, un bucle que no es el deseado, respectivamente. En ambos casos, la aplicación presentaría un
+          comportamiento no deseado.
+        </p>
+      </details>
+
+      <details>
+        <summary>Consejo 3: Usar <mark>un único <code>return</code> por función</mark>, que irá como última sentencia de la misma.</summary>
+
+        <p><strong>Justificación</strong>: Este consejo una consecuencia de uno de los principios de la programación
+          estructurada. Dicho principio establece que los programas deberían tener un único punto de entrada y un sólo
+          punto de salida. Además, enlanzado con el consejo anterior, un <code>return</code> puede considerarse como un
+          GOTO hacia el final de la función. El uso de un único <code>return</code> por función, colocado
+          consecuentemente al final de la misma, facilita tanto la depuración como la adaptabilidad de los programas.
+        </p>
+
+        <p>Por ejemplo, si estamos depurando un programa y queremos saber que valor devuelve una función, en caso de
+          existir un único <code>return</code>, bastará con o imprimir el valor devuelto antes de invocar dicho
+          <code>return</code>; o poner un punto de ruptura en tal sentencia. Si por el contrario tuviésemos, pongamos
+          por ejemplo, 5 sentencias <code>return</code> en la función, tendríamos que colocar y gestionar 5 puntos de
+          ruptura durante la depuración del programa.
+        </p>
+
+        <p>Como ejemplo de mejora de la adaptabilidad, supongamos ahora que tenemos una función que devuelve una
+          longitud en centímetros. Supongamos también que tenemos que adaptar nuestro software para que trabaje en el
+          sistema anglosajón, devuelviendo ahora en lugar de una cantidad en centímetros, la misma cantidad pero
+          expresada pulgadas. La adaptación requerida sería tan fácil como invocar una función
+          <code>cmApulgadas(..)</code> sobre el valor devuelto por la función. Si hay un sólo <code>return</code>, sólo
+          tendremos que modificar una línea de código. Si tenemos, pongamos por ejemplo, 5 sentencias
+          <code>return</code>, tendremos que modificar 5 líneas de código, lo cual es más propenso a errores.
+        </p>
+      </details>
+
+      <details>
+        <summary>Consejo 4: Evitar escribir funciones y procedimientos demasiado largos.</summary>
+
+        <p><strong>Justificación</strong>: Según estudios piscológicos, la mente humana no es capaz de procesar más de 6
+          ó 7 detalles diferentes a la vez. Las funciones demasiado largas suelen contener un número de detalles
+          superior a este límite. Ello dificulta su legibilidad y comprensión y por tanto, su mantenimiento.</p>
+
+        <p>En general, en funciones demasiado largas hay trozos claramente diferenciados de código, débilmente
+          acoplados. Cada uno de estos bloques suele realizar una tarea distinta. Por ejemplo, es habitual en muchas
+          funciones que al principio se preparen los datos para realizar un cómputo, o se inicialice alguna estrucura. A
+          continuación se realizan una serie de cálculos y por último se presenten por la salida los resultados.</p>
+
+        <p>En ese caso, por ejemplo, se recomienda dividir la función en tres subfunciones <code>inicializar(..)</code>,
+          <code>calcular(..)</code> e <code>imprimir(..)</code>. No importa que las expectativas iniciales de
+          reutilización de estas funciones sean prácticamente nulas. En general, si dos trozos de código pueden aparecer
+          juntos en una sola función o separados en dos subfunciones, la opción recomendada siempre es separarlos, salvo
+          justificación irrefutable en contra.
+        </p>
+
+        <p>Según <strong>Linus Torvalds</strong>, creador del núcleo de Linux, <q>"las funciones deberían ser cortas y
+            dulces, y servir para un único propósito. Deberían ocupar una o dos pantallas estándares de texto, es decir,
+            una pantalla de 24 líneas por 80 caracteres de ancho."</q></p>
+      </details>
+
+      <details>
+        <summary>Consejo 5: Evitar hacer trozos <em>cuasiidénticos</em> de código a lo largo de una aplicación software.
+        </summary>
+
+        <p><strong>Justificación</strong>: Si un trozo de código, por ejemplo, una serie de sentencias destinadas a
+          imprimir una matriz por pantalla, se copia y pega cada vez que se necesite dicha funcionalidad, el resultado
+          será una aplicación con bloques idénticos de código dispersos a través de múltiples lugares de una aplicación
+          software. El principal problema viene cuando hay que modificar este bloque de código. Por ejemplo, si
+          simplemente queremos añadir un recuadro a la matriz, deberemos modificar de la misma forma múltiples puntos de
+          nuestra aplicación, lo que es propenso a errores y puede provocar problemas de consistencia. En lugar de
+          copiar y pegar trozos de código a lo largo de una aplicación software, la práctica recomendada es encapsular
+          dicho trozo de código en una función e invocarla cuando se necesite.</p>
+      </details>
+
+      <details>
+        <summary>Consejo 6: Colocar cada clase en un fichero separado.</summary>
+
+        <p><strong>Justificación</strong>: Usar un fichero diferente para cada clase permite su reutilización a nivel
+          individual entre aplicaciones. <em
+            title="como las diferentes imágenes del tamagotchi que usan la clase Accion">La única excepción a esta norma
+            es que una clase esté muy fuertemente acoplada a otra</em>, siendo por tanto imposible que funcione de forma
+          separada a esta última. Sólo en este caso particular estaría justificado colocar ambas clases en un mismo
+          fichero.</p>
+      </details>
+
+      <details>
+        <summary>Consejo 7: Colocar la función <code>main</code> en un archivo separado e independiente.
+        </summary>
+        <p><strong>Justificación</strong>: La función main suele representar múltiples lenguajes de programación (e.g.,
+          C, C++, C# o Java) el punto de entrada a la aplicación. Su único objetivo es iniciar la aplicación.
+          <mark>[@delatorrerita: En JS es la función que interactúa con el HTML]</mark>. Por tanto, su funcionalidad no
+          pertenece a ninguna de las clases en las que se descompone una aplicación.La práctica recomendada es crear un
+          archivo que contenga únicamente la función <code>main</code> y las funciones auxiliares que ésta pudiese
+          necesitar.</p>
+        <p>Separar la función <code>main</code> de los módulos (<em>funciones en librerías</em>) o clases en los que se
+          descompone una aplicación incrementamos la reutilización de estos elementos a nivel individual.</p>
+      </details>
+
+      <h3>&nbsp;&nbsp;&nbsp;Consejo 8: No aplica a JS</h3>
+
+      <details>
+        <summary>Consejo 9: Usar siempre llaves (<code>{}</code>) en las estructuras de control.</summary>
+
+        <p><strong>Justificación</strong>: Muchos lenguajes, inspirados en C, permiten la posibilidad de suprimir las
+          llaves que delimitan un bloque de código (<code>{}</code>) cuando dicho bloque contiene una sola sentencia.
+          Esto suponíauna ventaja en los 70, los 80 e incluso los 90. Las ventajas eran: (1) reducir el tamaño del
+          código fuente, cuando cada kilobyte era importante;
+          (2) reducir el espacio que ocupaba un función en pantalla.</p>
+        <p>Este consejo previene futuros problemas. Podemos encontrarnos con el caso en el que tengamos que extender
+          dicho bloque de código con más sentencias. Por ejemplo, podríamos necesitar añadir una setencia para imprimir
+          algún valor con objeto de depurar un programa. Si hemos evitado el uso de llaves, puede que no caigamos en la
+          cuenta de que el bloque de código no está delimitado por llaves (<em>error muy común cuando se llevan varias
+            horas programando</em>).
+          La nueva sentencia quedará, en contra de nuestras intenciones, fuera de la estructura de control.</p>
+      </details>
+
+      <details>
+        <summary>Consejo 10: Colocar al lado de una llave que cierre un bloque de código un comentario corto indicando
+          lo que cierra.</summary>
+        <p><strong>Justificación</strong>: Es común cuando se anidan diversos bloques de código encontrarse con líneas
+          de código que simplemente sean una secuencia de cierre de llaves tipo }}}}.</p>
+        <p>En estos casos, es muy fácil perder la pista de que tipo de bloque de código o estructura cierra cada llave.
+          Por tanto, se aconseja poner al lado de cada llave algún comentario que indique que tipo de estructura o
+          bloque de
+          código se cierra. La práctica habitual es usar: (1) el nombre del tipo de estructura de control (condicionales
+          o bucles) que cierra; (2) el nombre de la función, en el caso del cierre de funciones; (3) el nombre de la
+          clase o módulo, en sus respectivos casos. Esto ayuda a asociar cada llave con la estructura que cierra y hace
+          más legible el código.</p>
+      </details>
+
+      <details>
+        <summary>Consejo 11: Inicializar siempre las variables cuando se declaran.</summary>
+        <p><strong>Justificación</strong>: Existen lenguajes como Java que inicializan las variables a un valor
+          constante por defecto cuando éstas son declaradas. Otros lenguajes, como C o JavaScript no lo hacen (permiten
+          escribir, por ejemplo: <code>let total;</code>).</p>
+        <p>Por lo tanto, si no se asigna ningún valor inicial a las variables, éstas contendran un valor indeterminado
+          <code>undefined</code>, presentando la aplicación software probablemente un comportamiento no determinista.
+        </p>
+        <p>Saber qué lenguajes inicializan automáticamente las variables y cuales no, y en caso de que las inicialicen,
+          a qué valor lo hacen, puede ser una tarea bastante compleja, dado el gran número de lenguajes de programación
+          existentes.</p>
+        <p>Por tanto, <strong>la práctica recomendada es</strong>, por seguridad, inicializar siempre
+          <mark>explícitamente</mark> las variables con independencia de que el lenguaje lo haga o no.</p>
+        <p><strong>Recomendaciones:</strong>Inicializar las variables numéricas a cero (si van a ser usadas para sumar)
+          o a uno (para multiplicar) y las variables de tipo string a '' (vacío).</p>
+      </details>
+      <details>
+        <summary>Consejo 12: No declarar atributos de clases como públicos, ni acceder a ellos directamente. </summary>
+
+        <p><strong>Justificación</strong>: Este consejo se basa en el <strong>principio de ocultación de la
+            información</strong>. Según este principio, <em>una aplicación software debe descomponerse en un conjunto de
+            módulos software que se comunican entre sí a través de interfaces bien definidas. Estas interfaces deben
+            exponer la funcionalidad ofrecida por cada módulo a la vez que esconden los detalles de su
+            implementación.</em></p>
+        <p>Siguiendo estos principios, el acceso a atributos de una clase o registro debe hacerse a través de una serie
+          de métodos o funciones, denominadas <code>getters</code> y <code>setters</code>. Las responsabilidades de
+          estos métodos son garantizar que estos atributos contengan valores correctos, de acuerdo con la semántica de
+          cada campo y del registro o clase como unidad.</p>
+        <p>El propósito principal es impedir que se puedan escribir en los atributos valores carentes de sentido (e.g.,
+          edades
+          con valores negativos, o fechas tales como 30/02/2010). Además, obligando a cambiar el valor de un atributo de
+          una clase a través de un método <code>setter</code> podemos fácilmente hacer, por ejemplo, que una serie de
+          objetos sean notificados cada vez que el valor de este atributo cambie.</p>
+      </details>
+      <details>
+        <summary>Consejo 13: No ser excesivamente estrictos
+          con la ocultación de información.</summary>
+        <p><strong>Justificación</strong>: A pesar de ser la ocultación de información algo positivo, su exceso puede
+          tener efectos negativos. Uno de estos efectos negativos es que los módulos o clases no puedan ser adaptados
+          por medio de alguna relación de especialización, tipo herencia. Por tanto, se aconseja no ser excesivamente
+          protectivos con la visibilidad de funciones y atributos de una clase, permitiendo que éstos puedan ser
+          modificados por las subclases que hereden de dicha clase. Esto debería incrementar la adaptabilidad y
+          facilidad de mantenimiento.</p>
+      </details>
+      <details>
+        <summary>Consejo 14: No usar caracteres propios del castellano en la codificacion de programas.</summary>
+        <p><strong>Justificación</strong>: Las vocales acentuadas y la ñ, al no ser caracteres básicos ASCII, pueden
+          sufrir
+          alteraciones cuando un fichero de código se abre en dos computadoras diferentes, incluso si ambas contienen el
+          mismo sistema operativo. Para evitar estos problemas <mark>se recomienda codificar directamente en
+            inglés</mark>, lo que
+          además facilita la legibilidad del código por parte de la comunidad no hispano hablante. En caso de no dominar
+          el inglés, o simplemente preferir no usarlo, se recomienda renunciar a las vocales acentuadas y sustuir la ñ
+          por
+          su forma catalana (ny) o por su forma gallega (nh).</p>
+      </details>
+      <details>
+        <summary>Consejo 15: Controlar desbordamientos en arrays cuando se
+          accede a ellos.</summary>
+        <p><strong>Justificación</strong>: Para evitar acceder a posiciones situadas fuera de los límites de un array
+          (vector) cuando se accede a una posición del mismo, se recomienda dedicar al menos unos segundos a analizar si
+          la expresión numérica usada para acceder a una posición determinada del mismo, podría en algún caso, tomar
+          algún valor que se situase fuera de sus límites. Si así fuese, según el lenguaje de programación que estemos
+          usando,podríamos obtener: (1) un error en tiempo de ejecución (e.g Java); o (2) obtener un compartamiento del
+          programa no determinista (e.g. C), puesto que en este segundo caso no podemos predecir que hay más allá de los
+          límites de un vector. Por tanto no podríamos saber que valor estamos escribiendo o leyendo. </p>
+      </details>
+      <h3>&nbsp;&nbsp;&nbsp;Consejo 16: No aplica en JS</h3>
+      <details>
+        <summary>Consejo 17: Comprobar la consistencia semántica de los
+          argumentos de una función.</summary>
+        <p><strong>Justificación</strong>: Una función podría verse obligada a usar para sus argumentos tipos de datos
+          cuyo rango de valores abarque más valores de los deseados para dichos argumentos. Por ejemplo, sea un función
+          <code>establecerDia(dia)</code> que asigna un valor para el día del mes. Dicho argumento sólo debería aceptar
+          valores comprendidos entre el 1 y el 31. Además, se debería comprobar que el día es consistente con el mes de
+          la fecha, ya que no todos los meses tienen 31 días.</p>
+      </details>
+      <details>
+        <summary>Consejo 18: Acostumbrase a depurar aplicaciones software sin usar depuradores</summary>.
+        <p><strong>Justificación</strong>: Los depuradores de código son unas excelentes herramientas. Pero, por desgracia, a medida que se programan sistemas más y más complejos, dejan de ser útiles, dado que en muchas ocasiones, simplemente no
+          pueden usarse. Por ejemplo, suelen fallar cuando se trata de integrar una aplicación con un sistema mantenido
+          por terceros, cuyo código fuente no está disponible. No funcionan normalmente cuando cuando se trabaja con
+          simuladores de tecnologías novedosas, como por ejemplo, de dispositivos móviles. Sin embargo, casi siempre
+          dispondremos algún lugar donde poder imprimir mensajes y los valores de aquellas variables que sean de nuestro
+          interés. Por eso se aconseja acostumbrarse a depurar aplicaciones software a base de imprimir mensajes por
+          consola en lugar de usar depuradores.</p>
+        <p><mark>[@delatorrerita] En la actualidad, podemos pegar el código a una IA para que nos explique dónde está el
+            error y nos guíe sobre cómo corregirlo siempre y cuando respete las Buenas prácticas.</mark></p>
+      </details>
+      <details>
+        <summary>Consejo 19: Expresar valores literales como constantes. </summary>
+        <p><strong>Justificación</strong>: Cuando se codifica una aplicación de software, en muchas ocasiones hay que
+          usar valores literales (e.g. el valor del número e, el tamaño máximo de un vector, la dimensión de una matriz
+          o el CIF de una empresa). Se aconseja expresar estos valores como constantes. Esto debería incrementar la
+          adaptabilidad de la aplicación, dado que si estos valores mutasen, simplemente deberíamos modificar el valor
+          asociado a una constante.</p>
+      </details>
+
+    </main>
+  </div>
+</body>
+
+</html>

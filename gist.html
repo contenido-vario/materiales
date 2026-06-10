@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://tailwindcss.com"></script>
+
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+    @layer base {
+      b {color: orangered; font-weight: 600;}
+      h1 {font-size: xx-large; margin-bottom: 1rem;}
+      h2 {font-size: x-large; margin-bottom: 1rem;}
+      h3 {font-size: large; background-color: orangered; color: white; margin-bottom: 1rem; padding-left: 3px;}
+      p {@apply my-4}
+      pre {@apply font-mono text-sky-800 text-sm;}
+      code {color: orangered; background-color: rgba(211, 211, 211, 0.338); padding: 1px 5px; border-radius: 3px;}
+      ul, ol {padding-left: 1rem; margin-bottom: 1rem;}
+    }
+  </style>
+  
+  <title>Gist de Github</title>
+</head>
+<body class="w-5/6 mx-auto">
+  <div class="font-sans text-base leading-relaxed overflow-x-hidden" id="wrapper">
+    <h1><b>Gists</b> de Github</h1>
+    <p>Un <b>Gist</b> es una herramienta de GitHub diseñada para compartir y gestionar <strong>fragmentos de código</strong>, notas o cualquier archivo de texto de forma sencilla, sin necesidad de crear un repositorio completo.</p>
+
+    <p>Cada <b>Gist</b> es técnicamente un mini repositorio independiente de Github, lo que permite que sea <strong>clonado</strong>, <strong>bifurcado (forked)</strong> y tenga un <strong>historial de versiones</strong> automático.</p>
+
+    <p>Básicamente, los <b>Gists</b> se utilizan como una colección de notas o fragmentos de código (denominados <em>snippets</em> ) para compartir:  funciones reutilizables, configuraciones o ejemplos de código que no justifican la estructura de un proyecto entero.</p>
+    
+    <p>Los <b>Gists</b> pueden ser <strong>públicos</strong> (visibles para todos) o <strong>secretos</strong> (solo accesibles mediante un enlace directo), y se pueden fijar al perfil de usuario para mayor visibilidad.</p>
+
+    <h2>Pasos para crear un <b>Gist</b></h2>
+    <ol>
+      <li>
+        1. Entra a tu cuenta de GitHub y presiona el botón <code><strong>+</strong> Create new...</code>
+      </li>
+      <li>
+        <p>2. Verás las siguientes opciones. Selecciona la opción <code>&lt;&gt; New gist</code></p>
+        <figure class="text-center">
+          <img class="w-40" src="./img/newgist.png" alt="New gist">
+        </figure>
+      </li>
+      <li><p>3. Aparecerá la siguiente pantalla: (he incluido en la misma el los datos a llenar.)</p>
+        <figure class="text-center">
+          <img class="w-10/12" src="./img/creargist.png" alt="New gist">
+        </figure>
+      </li>
+      <li>
+        <p>4. Para crear otro <b>Gist</b>, en el mismo repositorio de Gists, haz clic sobre el botón <button><code><strong>Add file</strong></code></button></p>
+      </li>
+    </ol>
+    
+
+    <h2>Copiar un <b>Gist</b></h2>
+    <p>Los <b>Gist</b> de un repositorio, se pueden copiar de diferentes maneras:</p>
+    <ul>
+      <li>- Obteniendo su código de inserción para mostrarlo en un HTML (opción <b>Embed</b>)</li>
+      <li>- Compartiendo la URL del repositorio (opción <b>Share</b>)</li>
+      <li>- Clonando el repositorio directamente</li>
+      <li>- Descargando el contenido del repositorio (botón <code>Download ZIP</code> )</li>
+      <li>- Asimismo se puede copiar el contenido de un sólo archivo clicando sobre el botón <code>Raw</code></li>
+    </ul>
+    <h3>Obteniendo la URL del Repositorio <b>Share</b></h3>
+    <p>La URL copiada tendrá el siguiente aspecto:</p>
+    <pre>https://gist.github.com/ritadelatorre/50d3e040dd1e0ebd5e191ba1676d366f</pre><br>
+    
+    <h3>Obtener el código de inserción:</h3>
+    <figure class="text-center">
+      <img class="w-10/12" src="./img/copiargist.png" alt="New gist">
+    </figure>
+    <p>Pasos:</p>  
+    <ul>
+      <li>- Abre el Gist que deseas compartir en tu navegador.</li>
+      <li>- Haz clic en el botón <b>Embed</b> (ubicado en la esquina superior derecha).</li>
+      <li>
+        <p>- GitHub generará automáticamente una etiqueta <code>&lt;script&gt;</code> que contiene la URL del Gist.<br>&nbsp;&nbsp;El código resultante tiene la siguiente estructura:<br>
+        <pre>&lt;script src="https://gist.github.com/USUARIO/ID_DEL_GIST.js"&gt;&lt;/script&gt;</pre></p>
+        <p></p>
+        <pre>&lt;script src="https://gist.github.com/ritadelatorre/50d3e040dd1e0ebd5e191ba1676d366f.js"&gt;&lt;/script&gt;</pre>
+      </li>
+    </ul>
+    <h3>Pegar el código de inserción en tu página web:</h3>
+    <ul>
+      <li>Pega el código copiado directamente en el HTML de tu sitio web donde quieras que aparezca el fragmento de código.</li>
+      <li>El script cargará dinámicamente el Gist con su resaltado de sintaxis, números de línea y botón  <code>copiar</code>.</li>
+    </ul>
+    <p class="font-bold">Ejemplo de código</p>
+    <script src="https://gist.github.com/ritadelatorre/50d3e040dd1e0ebd5e191ba1676d366f.js"></script>
+    <hr>
+    <h1>Ejercicio clase <b>Gist</b></h1>
+    <p>En este ejercicio, crearemos una clase <strong>Gist</strong> que nos permitirá crear un objeto <strong>gist</strong> y un array de objetos gists, al cual denominaremos <strong>snippets</strong></p>
+    <p>La clase <strong>Gist</strong> deberá tener los siguientes attributos: <code>idInterno</code>, <code>usuario</code>,<code>idGithub</code>,<code title="ejemplo: html, css, css-tailwind, js">lenguaje</code>,<code>descripcion</code></p>
+    <p>Ejemplo de un objeto <strong>gists</strong></p>
+    <p><pre>gist = new Gist(1, 
+               'ritadelatorre', 
+               '50d3e040dd1e0ebd5e191ba1676d366f', 
+               'js', 
+               'Buscar con while en un array de Objetos')</pre>
+    </p>
+    <p>Agregar a la clase <b>Gist</b>, <mark>métodos</mark> para:</p>
+    <ul>
+      <li>- Generar automáticamente el enlace de un <b>Gist</b> y devolverlo con <strong>return</strong></li>
+      <li>- Generar automáticamente el script que Github crea al copiar un Gist con <code>Embed</code>y devolverlo con <strong>return</strong></li>
+      <li>- Cambiar el método <strong>toString()</strong> para obtener tanto los datos del objeto como lo que se genera con sus métodos.</li>
+    </ul>
+    <p>Hacer un CRUD que permita hacer todas las operaciones con el array de <strong>snippets</strong></p>
+
+  </div>
+</body>
+</html>

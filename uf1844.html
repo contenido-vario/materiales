@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es-Es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">    
+  </script>
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+
+    @theme {
+      --font-sans: "Inclusive Sans", ui-sans-serif, system-ui, sans-serif;
+      --color-brand: #ff4500;
+    }
+
+    @layer base {
+      :root { @apply text-sm; line-height: 1.7;}
+      p { @apply mb-2}
+      button { @apply rounded-md bg-slate-200 border-1 border-slate-400 px-4 py-1 my-1 text-sm cursor-pointer disabled:opacity-50}
+      details { @apply mb-4 py-2 border-b-slate-700 border-b-1 text-slate-800 }
+      summary { @apply py-1 text-base bg-slate-800 text-white font-bold }
+      blockquote { @apply mx-8 p-2 bg-slate-200 }
+      ol { @apply list-decimal list-outside ml-6 mb-4 }
+      ul { @apply list-[circle] list-outside ml-6 mb-4 }
+      li { @apply mb-1 }     
+      kbd, code, a { @apply text-blue-800 }
+      a { @apply border-b-1 }
+      input, select { @apply border-1 px-2 }
+      hr { @apply my-3 }
+      td, th { @apply border-black border p-1.5 }
+      h1, h2, h3 { @apply font-bold }
+    }
+  </style>
+
+  <link rel="shortcut icon" href="questions.svg" type="image/svg">
+  <title>UF1844 Examen Práctico </title>
+</head>
+
+<body class="container mx-auto w-5/6 pb-10 text-sky-900">
+<h1 class="text-lg md:text-xl text-center mb-4 text-sky-950">
+  Prueba práctica de evaluación // Prova pràctica d' avaluació
+</h1>
+<p class="text-center"></p>
+<div>
+  <table class="w-full">
+    <tr class="bg-teal-50">
+      <td colspan="2">
+        <h2 class="text-2xl">ACTIVIDAD</h2>
+      </td>
+    </tr>
+    <tr>
+      <td class="w-1/6">&nbsp;</td>
+      <td>
+        <h3 class="font-bold bg-amber-100 mb-8 text-xl">Proyecto UF1844. JUGAR CON VARIOS TAMAGOTCHIS</h3>
+        <p>Crear un programa que <strong>permita seleccionar un tamagotchi</strong> de entre varios tamagotchis que estarán guardados en un <strong>array de tamagotchis</strong>, para jugar con él.</p>
+
+        <p class="text-xl">Los tamagotchis deberán crearse a través de una clase <strong>Tamagotchi</strong></p>
+        <p>La <strong>clase Tamagotchi</strong> deberá tener los siguientes atributos:</p>
+        <table width="100%" class="my-6">
+            <tr class="align-top">
+                <td width="50%">
+                    <ul>
+                        <li><strong>Públicos:</strong></li>
+                        <li><code>nombre</code></li> <li><code>descripcion</code></li><li><code>imagen</code></li>
+                    </ul>
+                </td>
+                <td> 
+                    <ul>
+                        <li><strong>Privados:</strong></li>
+                        <li><code>felicidad</code></li><li><code>salud</code></li><li><code>limpieza</code></li>
+                        <li><code>energia</code></li><li><code>enVida</code> (cuyo valor inicial será <code>true</code>)</li>
+                    </ul></td>
+            </tr>
+        </table>
+        <p>A las propiedades: <code>salud</code>, <code>felicidad</code>, <code>limpieza</code> y <code>energía</code>, se les asignarán <strong>valores aleatorios entre 1 y 10</strong> al crear el tamagotchi, <u>aunque su valor puede estar comprendido entre 0 y 10 durante el juego</u>. El valor de estas cuatro propiedades deberán mostrarse por pantalla cada vez que se modifiquen.</p>
+
+        <p>Además del <code>constructor</code>, <u>la clase Tamagotchi</u> deberá tener <strong>métodos para manejar las interacciones que se realicen con él</strong>: </p>
+        <table width="100%" class="my-6">
+          <tr>
+            <td width="10%" class="border-r-transparent"><code>alimentar</code></td>
+            <td width="40%"> +3 energía, +2 felicidad, -1 limpieza</td>
+            <td width="10%" class="border-r-transparent"><code>duchar</code></td>
+            <td width="40%">+3 salud, 10 limpieza</td>
+          </tr>
+          <tr>
+            <td width="10%" class="border-r-transparent"><code>jugar</code></td>
+            <td width="40%">+2 felicidad, -2 energía, -2 limpieza</td>
+            <td width="10%" class="border-r-transparent"><code>reprender</code></td>
+            <td width="40%">-3 felicidad, -2 salud</td>
+          </tr>                        
+          <tr>
+            <td width="10%" class="border-r-transparent"><code>dormir</code></td>
+            <td width="40%">+5 energía, +2 salud</td>
+            <td width="10%" class="border-r-transparent"><code>acariciar</code></td>
+            <td width="40%">+4 felicidad</td>
+          </tr>
+        </table>
+
+        <p>Se deberá crear un método auxiliar <code>restarVida</code> que reste un punto a cada propiedad y un método <code>comprobarVida</code> que cambie el valor de la propiedad <code>enVida</code> a <code>false</code> cuando la <code>salud</code> y la <code>energía</code> lleguen a cero. (Puedes crear más métodos auxiliares si es necesario)</p>
+
+        <p class="text-xl font-bold">Aplicación (juego)</p>
+        
+        <p>Al seleccionar un tamagotchi, el juego comienza. Se muestran <code>nombre</code> e <code>imagen</code> por pantalla además del valor de las propiedades <code>descripcion</code>, <code>salud</code>, <code>felicidad</code>, <code>limpieza</code> y <code>energía</code>.</p>
+        <p>Además <strong>se deberá activar un temporizador</strong>  que reste un punto a cada propiedad cada 5 segundos. </p>
+        <p>Se deberá mostrar un botón para cada una de las seis posibles acciones (<b>alimentar</b>, <b>jugar</b>, <b>dormir</b>, <b>jugar</b>, <b>reprender</b> y <b>acariciar</b>) los cuales invocarán a los métodos correspondientes.</p>        
+        <p>Cuando el usuario seleccione una acción, la pantalla deberá reflejar el cambio de valor de las propiedades.</p> 
+        <p>El tamagotchi muere cuando su propiedad <code>enVida</code> cambie a <code></code>, momento en el cual deberá desactivarse el temporizador y removerse los escuchadores.</p>
+
+        <h4 class="font-bold text-xl mb-4">Requerimientos del programa:</h4>
+
+        <ol>
+          <li>Se deberá crear una clase Tamagotchi con la cual se creará el objeto tamagotchi.</li>
+          <li>Las funciones del juego deberán  ser programadas con funciones flecha</li> 
+          <li>Sólo deberán entregarse 4 archivos: un <strong>.html</strong> y tres <strong>.js</strong> con la clase, los datos y la lógica del juego en cuestión. </li>
+        </ol>
+        <p>Todas las demás adiciones al juego, no se puntúan, a menos que afecten la lógica del mismo.</p>
+        <hr>
+        <p>Deberéis subir las URL del tamagotchi al siguiente <a target="_blank" href="#" rel="noopener">formulario</a></p>
+      </td>
+    </tr>
+  </table>
+</div>
+<div>
+  <table class="w-full max-w-full my-4">
+    <tr class="bg-sky-50">
+      <td colspan="7">
+        <h2 class="text-lg md:text-2xl">RESULTADO DE LA OBSERVACIÓN Y EVALUACIÓN DE LA PRÁCTICA</h2>
+      </td>
+    </tr>
+    <tr>
+      <th rowspan="2"><h3>ACTIVITAT</h3></th>
+      <th rowspan="2"><h3>FACTORES</h3></th>
+      <th colspan="3"><h3>PUNTUACIÓN</h3></th>
+    </tr>
+    <tr class="font-bold text-sm">
+      <th>Max</th>
+      <th>Obtenida</th>
+      <th>Min</th>
+    </tr>
+    <tr>
+      <th rowspan="10">Juego tamagotchi,<br>seleccionando<br>el tamagotchi<br>de un array<br>de objetos</th>
+      <td>1. Responsividad</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>2. Uso de buenas prácticas (especialmente, DRY)</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>    
+    <tr>      
+      <td>3. Clase Tamagotchi</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>4. Creación del objeto tamagotchi y array de objetos</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>5. Proceso de creación del selector tamagotchis (debe ser escalable: es decir, <mark>sin tocar el programa</mark>, si se agrega un nuevo tamagotchi al array, debería poderse seleccionar)</td>
+      <td class="text-center"><strong>2</strong></td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+        <tr>      
+      <td>6. Proceso de selección del tamagotchi para dar inicio al juego</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>7. Mapeo del HTML</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>8. Asignación y remoción de Escuchadores de Evento</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>9. Uso del temporizador (activación y desactivación)</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>      
+    <tr class="border-2">      
+      <th class="text-right pr-4">Total</th>
+      <th>10</th>
+      <td>&nbsp;</td>
+      <th>0.5</th>
+    </tr>
+  </table>
+</div>
+
+</body>
+</html>

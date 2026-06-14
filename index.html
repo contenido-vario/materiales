@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="mundo.svg" type="image/png">
+  <link rel="shortcut icon" href="./img/rt.ico" type="image/x-icon">
   <title>Materiales clase</title>
   <!-- Los <link> de las fuentes se colocan en el HTML dado que es la forma más rápida de carga cuando se usa el CDN. -->
 
@@ -37,12 +37,15 @@
       menu { @apply ml-4 mb-4 text-sm}
 
       /* Estilos de los títulos */
-      h1, h2 { @apply font-serif font-bold text-gray-900 mb-6; }
-      h3 { @apply font-bold text-blue-400 }
+      h1, h2 { @apply font-serif font-bold text-white mb-6; }
+      h3 { @apply text-cyan-600 text-lg mb-2}
       
       summary {@apply font-semibold mb-1}
       h4 {margin-left: -6px; @apply font-bold my-2; }
       h4 > a {@apply underline-offset-3}
+      article {
+        @apply p-4 border border-cyan-600 rounded-lg hover:shadow-md transition text-base bg-white;
+      }
     }
 
     /* @layer components: Se usa para crear clases complejas reutilizables */
@@ -99,31 +102,31 @@
 
 </head>
 
-<body class="bg-taupe-50 leading-normal tracking-normal">
+<body class="bg-taupe-100 leading-normal tracking-normal">
 
-  <header class="bg-white/90 backdrop-blur-md shadow-sm px-4 py-2 sticky top-0 z-50">
+  <header class="bg-cyan-600 backdrop-blur-md shadow-sm px-4 py-2 sticky top-0 z-50">
     <div class="container mx-auto flex justify-between items-center">
       <h1 class="text-xl font-bold mt-2">
-        <img class="inline" width="32px" src="mundo.svg" alt="logo" title="logo">
+        <img class="inline" width="32px" src="./img/rt.png" alt="logo">
         Materiales del Curso
       </h1>
       <nav class="space-x-4 text-sm md:text-base xl:text-sm xl:space-x-2">
         <a title="Gists - Explicaciones de Clase" href="https://gist.github.com/contenido-vario" target="_blank" rel="noopener">
           <img src="./icons/gist.svg" alt="icon gist"></a>
         <a href="examenes.html" target="_blank" 
-          class="text-red-700 font-bold px-4 py-1 rounded-lg hover:bg-yellow-100" md:py-2">Exámenes</a>
+          class="text-yellow-300 font-bold px-4 py-1 rounded-lg hover:bg-black" md:py-2">Exámenes</a>
       </nav>
     </div>
   </header>
 
-  <main class="container mx-auto mt-3 px-6 pt-1 pb-6 bg-white rounded-xl shadow-lg">
+  <main class="container mx-auto mt-3 px-6 pt-1 pb-6">
     <section class="text-lg">
       <!-- <span></span> -->
       <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-base">
 
 <!-- HTML -->
 
-        <article class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition text-base">
+        <article>
           <h3 class="text-xl mb-2"><img class="w-6" src="./icons/html5-color.svg" alt="html icon"> HTML <span class="text-black">| <img class="w-6" src="./icons/vscode.svg" alt="vscode icon"></span> VS Code</h3>
           <h4><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a></h4>
           <details><summary onclick="return false;" class="text-gray-300">Material VS Code</summary>
@@ -162,7 +165,7 @@
 
 <!-- CSS - TAILWIND -->
 
-        <article class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
+        <article>
           <h3 class="text-xl mb-2"><img class="w-6" src="./icons/css3-color.svg" alt="icon css3"> CSS <span class="text-black">|</span>
           <img class="w-6" src="./icons/tailwindcss.svg" alt="icon tailwind">Tailwind</h3>
           <details><summary>Material CSS3</summary>
@@ -207,7 +210,7 @@
 
 <!-- JAVASCRIPT | JSON -->
 
-        <article class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
+        <article>
           <h3 class="text-xl mb-2"><img class="w-6" src="./icons/js.svg" alt="icon js">JavaScript <span class="text-black">|</span>
           <img class="w-5" src="./icons/api.svg" alt="icon json">APIs</h3>
           <details><summary>Material de Consulta</summary>
@@ -221,18 +224,11 @@
           </details>
           <h4 class="mt-2"><a href="./buenas-practicas.html" target="_blank">Buenas Prácticas</a></h4>
           <h4 class="js mt-2"><a class="text-red-700" href="https://contenido-vario.github.io/js1/" target="_blank" rel="noopener">Material de clases</a></h4>
-
-          <!-- <details open><summary>Ejercicios JavaScript | JSON</summary>
-            <menu>
-    <li class="git"><a href="https://contenido-vario.github.io/js1/" target="_blank" rel="noreferrer noopener">Ejercicios JavaScript (I)</a></li>
-    <li class="teoria"><a href="https://contenido-vario.github.io/js1/chuletas.html" target="_blank" rel="noreferrer noopener">Explicaciones de Clase</a></li>          
-            </menu>      
-          </details> -->
         </article>
 
 <!-- GIT - GITHUB  -->
 
-        <article class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition text-base">
+        <article>
           <h3 class="text-xl mb-2"><img class="w-6" src="./icons/git.svg" alt="icon git">GIT <span class="text-black">|</span> <img class="w-6" src="./icons/github.svg" alt="icon github">GITHUB</h3>
 
           <h4><a href="https://git-scm.com/" target="_blank" rel="noopener">GIT <code>--fast-version-control</code></a></h4>
@@ -251,7 +247,7 @@
 
 <!-- REACT - VITE -->
 
-        <article class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition text-base">
+        <article>
           <h3 class="text-xl mb-2"><img class="w-6" src="./icons/react.svg" alt="icon React"> React <span class="text-black">|</span> <img class="w-6" src="./icons/vite.svg" alt="icon vite"> Vite</h3>
           <h4><a href="https://es.react.dev/" target="_blank" rel="noopener">React</a></h4>
           <details><summary onclick="return false;" class="text-gray-300">Material de React</summary>
@@ -272,7 +268,7 @@
 
 <!-- NODEJS - EXPRESS -->
 
-        <article class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition text-base">
+        <article>
           <h3 class="text-xl mb-2"><img class="w-6" src="./icons/nodejs.svg" alt="icon nodejs"> NodeJS <span class="text-black">|</span> <img class="w-6" src="./icons/express.svg" alt="icon express"> express</h3>
           <h4><a href="https://nodejs.org/es" target="_blank" rel="noopener">Node.js®</a></h4>
           <details><summary onclick="return false;" class="text-gray-300">Material de NodeJS</summary>
@@ -293,7 +289,7 @@
 
 <!-- POSTGRES - MONGO DB -->
 
-        <article class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition text-base">
+        <article>
           <h3 class="text-lg mb-2"><img class="w-6" src="./icons/postgres-sql.svg" alt="icon PostGresSQL">PostGreSQL <span class="text-black">|</span> <img class="w-6" src="./icons/mongodb.svg" alt="icon MongoDB">MongoDB</h3>
 
           <h4><a href="https://www.postgresql.org/" target="_blank" rel="noopener">PostGreSQL</a></h4>
@@ -315,7 +311,7 @@
 
 <!-- ASTRO - MARKDOWN -->
 
-        <article class="p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
+        <article>
           <h3 class="text-xl mb-2"><img class="w-6" src="./icons/astro.svg" alt="icon markdown">Astro <span class="text-black">|</span> <img class="w-6" src="./icons/markdown.svg" alt="icon markdown">Markdown</h3>
           <h4><a href="https://astro.build/" target="_blank" rel="noopener">Astro</a></h4>
           <details><summary onclick="return false;" class="text-gray-300">Material de Astro</summary>

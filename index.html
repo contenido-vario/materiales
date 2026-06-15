@@ -32,6 +32,7 @@
     @layer base {
       /* Agregar estilo de párrafo para todo el documento */
       body { @apply text-sm }
+      b {@apply font-black text-shadow-md  }
       p { @apply mb-4 leading-relaxed text-gray-700; }
       a { @apply text-blue-600 underline }
       menu { @apply ml-4 mb-4 text-sm}
@@ -76,6 +77,13 @@
       /* Viñeta para GitHub */
       li.git::before {
         content: url('./icons/github.svg');
+        font-size: 0.8rem;
+        margin-right: 8px;
+      }
+
+      /* Viñeta para enlaces */
+      li.link::before {
+        content: url('./icons/link.svg');
         font-size: 0.8rem;
         margin-right: 8px;
       }
@@ -127,7 +135,7 @@
 <!-- HTML -->
 
         <article>
-          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/html5-color.svg" alt="html icon"> HTML <span class="text-black">| <img class="w-6" src="./icons/vscode.svg" alt="vscode icon"></span> VS Code</h3>
+          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/html5-color.svg" alt="html icon"> <b title="Lenguaje de marcado">HTML</b> <span class="text-black">| <img class="w-6" src="./icons/vscode.svg" alt="vscode icon"></span> <span title="Editor de Código">VS Code</span></h3>
           <h4><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a></h4>
           <details><summary onclick="return false;" class="text-gray-300">Material VS Code</summary>
           </details>
@@ -167,8 +175,8 @@
 <!-- CSS - TAILWIND -->
 
         <article>
-          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/css3-color.svg" alt="icon css3"> CSS <span class="text-black">|</span>
-          <img class="w-6" src="./icons/tailwindcss.svg" alt="icon tailwind">Tailwind</h3>
+          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/css3-color.svg" alt="icon css3"> <b title="Lenguaje de formato">CSS</b> <span class="text-black">|</span>
+          <img class="w-6" src="./icons/tailwindcss.svg" alt="icon tailwind"><span title="Framework css">Tailwind</span></h3>
           <details><summary>Material CSS3</summary>
             <menu>
               <li class="teoria"><a href="./assets/CSS-1.pdf">Básicos CSS</a></li>
@@ -204,9 +212,20 @@
           <details><summary>Material Tailwind</summary>
             <menu>
               <li class="teoria"><a href="https://www.creative-tim.com/twcomponents/cheatsheet/tailwind-css-4" target="_blank" rel="noopener noreferrer">Tailwind CSS v4 Cheat Sheet</a></li>
-              <li class="teoria"><a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Ejemplo de Tailwind</a></li>
-              
-              <li class="teoria"><a href="https://flowbite.com/blocks/" target="_blank" rel="noopener noreferrer">Flowbite Blocks - Tailwind UI components</a></li>              
+              <li class="teoria"><a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Ejemplo de Tailwind</a></li>        
+            </menu>
+          </details>
+          <details><summary>Bloques Tailwind</summary>
+            <menu>            
+              <li class="assets"><a href="https://flowbite.com/blocks/" target="_blank" rel="noopener noreferrer">Flowbite  - Tailwind UI components</a></li>
+              <li class="assets"><a href="https://daisyui.com/" target="_blank" rel="noopener noreferrer">Daysi UI components</a></li>
+            </menu>
+          </details>
+          <details><summary class="text-gray-600">Otros frameworks para CSS</summary>
+            <menu>
+              <p class="text-black text-xs">Los frameworks de CSS funcionan como bibliotecas de código preescrito que proporcionan herramientas y estilos reutilizables para que no tengas que escribir todo el diseño desde cero.</p>
+              <li class="link"><a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap</a></li>
+              <li class="link"><a href="https://bulma.io/" target="_blank" rel="noopener noreferrer">Bulma</a></li>
             </menu>
           </details>
         </article>
@@ -214,8 +233,9 @@
 <!-- JAVASCRIPT | JSON -->
 
         <article>
-          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/js.svg" alt="icon js">JavaScript <span class="text-black">|</span>
+          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/js.svg" alt="icon js"><b title="Lenguaje de Programación">JavaScript</b> <span class="text-black">|</span>
           <img class="w-5" src="./icons/api.svg" alt="icon json">APIs</h3>
+          <h4 class="mt-2"><a href="./buenas-practicas.html" target="_blank">Buenas Prácticas en Programación</a></h4>
           <details open><summary>Material de Consulta</summary>
             <menu>
               <li class="teoria"><a href="https://www.aprendejavascript.dev/" target="_blank" rel="noreferrer noopener">Aprende JavaScript (MiDuDev)</a></li>
@@ -224,36 +244,60 @@
               <li class="teoria"><a href="https://es.javascript.info/" target="_blank" rel="noreferrer noopener">El Tutorial de JavaScript Moderno</a></li> 
               <li class="teoria"><a href="https://www.w3schools.com/js/js_json.asp" target="_blank" rel="noreferrer noopener">W3Schools JSON</a></li> 
             </menu>      
-          </details>
-          <h4 class="mt-2"><a href="./buenas-practicas.html" target="_blank">Buenas Prácticas</a></h4>
+          </details>          
           <h4 class="js mt-2"><a class="text-red-700" href="https://contenido-vario.github.io/js1/" target="_blank" rel="noopener">Material de clases</a></h4>
+          <details><summary>APIS: Lenguajes de Intercambio de Datos</summary>
+            <menu>
+              <li class="teoria"><a href="https://lenguajejs.com/javascript/objetos/json/" target="_blank" rel="noreferrer noopener"><b title="Java Script Object Notation">JSON</b></a></li> 
+              <li class="teoria"><a href="https://www.eniun.com/curso-xml/" target="_blank" rel="noreferrer noopener"><b title="eXtensible Markup Language">XLM</b></a></li> 
+              <li class="teoria"><a href="https://geekflare.com/es/what-is-yaml/" target="_blank" rel="noreferrer noopener"><b title="Ain't a Markup Language">YAML</b></a></li> 
+            </menu>
+          </details>
         </article>
         
 <!-- NODEJS - EXPRESS -->
 
         <article>
-          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/nodejs.svg" alt="icon nodejs"> NodeJS <span class="text-black">|</span> <img class="w-6" src="./icons/express.svg" alt="icon express"> express</h3>
+          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/nodejs.svg" alt="icon nodejs"> <b title="Lenguaje JavaScript del lado del Servidor">NodeJS</b> <span class="text-black">|</span> <img class="w-6" src="./icons/express.svg" alt="icon express"> express</h3>
           <h4><a href="https://nodejs.org/es" target="_blank" rel="noopener">Node.js®</a></h4>
-          <details><summary onclick="return false;" class="text-gray-300">Material de NodeJS</summary>
+          <details><summary onclick="return false;" class="text-gray-300">Material de Node.js</summary>
             <menu>
             </menu>      
           </details>
-          <hr class="my-3 border-gray-200">          
           <details><summary onclick="return false;" class="text-gray-300">Ejercicios</summary>
             <menu>
             </menu>      
           </details>
-          <h4><a href="https://expressjs.com/es/" target="_blank" rel="noopener">Expressjs</a></h4>
+          <details><summary class="text-gray-600">Otros lenguajes de Backend</summary>
+            <menu>
+              <li class="link"><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a> <img src="./icons/layer-plus.svg" title="frameworks" alt="frameworks"> <a href="https://www.djangoproject.com/" target="_blank" rel="noopener noreferrer">Django</a> | <a href="https://flask.palletsprojects.com/en/stable/" target="_blank" rel="noopener noreferrer">Flask</a></li>
+              <li class="link"><a href="https://go.dev/" target="_blank" rel="noopener noreferrer">Go</a> <img src="./icons/layer-plus.svg" title="frameworks" alt="frameworks"> <a href="https://gin-gonic.com/" target="_blank" rel="noopener noreferrer">Gin</a> | <a href="https://echo.labstack.com/" target="_blank" rel="noopener noreferrer">echo</a></li>
+              <li class="link"><a href="https://www.php.net/" target="_blank" rel="noopener noreferrer">PHP</a> <img src="./icons/layer-plus.svg" title="frameworks" alt="frameworks"> <a href="https://laravel.com/" target="_blank" rel="noopener noreferrer">Laravel</a></li>
+              <li class="link"><a href="https://www.ruby-lang.org/es/" target="_blank" rel="noopener noreferrer">Ruby</a>.  <img src="./icons/layer-plus.svg" title="frameworks" alt="frameworks"> <a href="https://rubyonrails.org/" target="_blank" rel="noopener noreferrer">Ruby on rails</a></li> 
+              <li class="link"><a title="Software propietario" href="https://www.java.com/es/download/help/whatis_java.html" target="_blank" rel="noopener noreferrer">Java</a> <img src="./icons/layer-plus.svg" title="frameworks" alt="frameworks"> <a href="https://spring.io/projects/spring-boot" target="_blank" rel="noopener noreferrer">Spring</a></li>
+            </menu> 
+          </details>
+          <hr class="my-3 border-gray-200">
+          <h4  title="Framework de backend para Node.js"><a href="https://expressjs.com/es/" target="_blank" rel="noopener">Express.js</a></h4>
           <details><summary onclick="return false;" class="text-gray-300">Material de express</summary>
             <menu>
             </menu>      
           </details>
+          <details><summary class="text-gray-600">Otros frameworks para Node.js</summary>
+            <menu>
+              <p class="text-black text-xs">Los frameworks de Node.js proporcionan código predefinida y herramientas integradas para manejar tareas repetitivas: crear servidores HTTP, gestionar bases de datos y enrutar peticiones.</p>
+              <li class="link"><a href="https://fastify.dev/" target="_blank" rel="noopener noreferrer">Fastify</a></li>
+              <li class="link"><a href="https://koajs.com/" target="_blank" rel="noopener noreferrer">Koa.js</a></li>
+              <li class="link"><a href="https://hono.dev/" target="_blank" rel="noopener noreferrer">Hono</a></li>
+              <li class="link"><a title="Usa TypeScript que es JavaScript tipado" href="https://nestjs.com/" target="_blank" rel="noopener noreferrer">Nest.js</a></li>
+            </menu>      
+          </details>
         </article>
+
 <!-- GIT - GITHUB  -->
 
         <article>
-          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/git.svg" alt="icon git">GIT <span class="text-black">|</span> <img class="w-6" src="./icons/github.svg" alt="icon github">GITHUB</h3>
-
+          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/git.svg" alt="icon git"><span class="text-orange-600" title="software de control de versiones">GIT</span> <span class="text-black">|</span> <img class="w-6" src="./icons/github.svg" alt="icon github">GITHUB</h3>
           <h4><a href="https://git-scm.com/" target="_blank" rel="noopener">GIT <code>--fast-version-control</code></a></h4>
           <details><summary onclick="return false;" class="text-gray-300">Material Git</summary>
             <menu>
@@ -271,7 +315,7 @@
 <!-- REACT - VITE -->
 
         <article>
-          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/react.svg" alt="icon React"> React <span class="text-black">|</span> <img class="w-6" src="./icons/vite.svg" alt="icon vite"> Vite</h3>
+          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/react.svg" alt="icon React"> <span title="Framework de JS">React</span> <span class="text-black">|</span> <img class="w-6" src="./icons/vite.svg" alt="icon vite"> Vite</h3>
           <h4><a href="https://es.react.dev/" target="_blank" rel="noopener">React</a></h4>
           <details><summary onclick="return false;" class="text-gray-300">Material de React</summary>
             <menu>
@@ -281,12 +325,33 @@
             <menu>
             </menu>      
           </details>
+          <details><summary class="text-gray-600">Otros frameworks para JavaScript</summary>
+            <menu>
+              <p class="text-black text-xs">Los frameworks de JavaScript proporcionan una estructura predefinida, componentes reutilizables y herramientas optimizadas para manejar la interfaz de usuario: manejo de estados, crear navegación fluida sin recargar la página y comunicación con APIs </p>
+              <li class="link"><a href="https://svelte.dev/" target="_blank" rel="noopener noreferrer">Svelte</a></li>
+              <li class="link"><a href="https://www.solidjs.com/" target="_blank" rel="noopener noreferrer">Solid.js</a></li>
+              <li class="link"><a href="https://vuejs.org/" target="_blank" rel="noopener noreferrer">Vue.js</a></li>
+              <li class="link"><a title="ideal para SEO" href="https://astro.build/" target="_blank" rel="noopener noreferrer">Astro</a></li> 
+              <!-- + https://github.com/nanostores/nanostores -->
+              <li class="link"><a href="https://angularjs.org/" target="_blank" rel="noopener noreferrer">Angular</a></li>
+            </menu> 
+          </details>   
           <hr class="my-3 border-gray-200">    
-          <h4><a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a></h4>
+          <h4><a href="https://vite.dev/" target="_blank" rel="noopener"><span title="Herramienta de empaquetado para crear, compilar y ejecutar proyectos frontend">Vite</span></a></h4>
           <details><summary onclick="return false;" class="text-gray-300">Material de Vite</summary>
             <menu>
             </menu>      
           </details>
+          <details><summary class="text-gray-600">Otras herramientas de empaquetado</summary>
+            <menu>
+              <p class="text-black text-xs">Los frameworks de JavaScript proporcionan una estructura predefinida, componentes reutilizables y herramientas optimizadas para manejar la interfaz de usuario: manejo de estados, crear navegación fluida sin recargar la página y comunicación con APIs </p>
+              <li class="link"><a href="https://parceljs.org/" target="_blank" rel="noopener noreferrer">Parcel</a></li>
+              <li class="link"><a href="https://esbuild.github.io/" target="_blank" rel="noopener noreferrer">esbuild</a></li>
+              <li class="link"><a href="https://webpack.js.org/" target="_blank" rel="noopener noreferrer">Webpack</a></li> 
+              <li class="link"><a href="https://rollupjs.org/" target="_blank" rel="noopener noreferrer">rollup.js</a></li>
+            </menu> 
+          </details>
+
         </article>
 
 <!-- POSTGRES - MONGO DB -->
@@ -303,10 +368,32 @@
             <menu>
             </menu>      
           </details>
+          <details><summary class="text-gray-600">Otras Bases de Datos Relacionales</summary>
+            <menu>
+              <p class="text-black text-xs">Una base de datos relacional es una forma muy estructurada de almacenar, organizar y administrar datos mediante tablas y relaciones definidas. Todas las Bases de Datos Relacionales utilizan el mismo lenguaje de consulta: SQL que significa Structured Query Languaje.</p>
+              <li class="link"><a href="https://supabase.com/" target="_blank" rel="noopener noreferrer">Supabase (Postgres en la nube)</a></li>
+              <li class="link"><a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer">MySQL</a></li>
+              <li class="link"><a href="https://mariadb.org/" target="_blank" rel="noopener noreferrer">MariaDB</a></li>
+              <li class="link"><a href="https://www.sqlite.org/" target="_blank" rel="noopener noreferrer">SQLite</a></li>
+              <p  class="text-black text-xs font-bold  py-2">Propietarias:</p>
+              <li class="link"><a href="https://koajs.com/" target="_blank" rel="noopener noreferrer">Microsoft SQL Server</a></li>
+              <li class="link"><a href="https://hono.dev/" target="_blank" rel="noopener noreferrer">Oracle Database</a></li>
+            </menu>      
+          </details>
+
           <hr class="my-3 border-gray-200">              
           <h4><a href="https://www.mongodb.com/" target="_blank" rel="noopener">MongoDB</a></h4>
           <details><summary onclick="return false;" class="text-gray-300">Material de MongoDB</summary>
             <menu>
+            </menu>      
+          </details>
+          <details><summary class="text-gray-600">Otras Bases de Datos NoSQL</summary>
+            <menu>
+              <p class="text-black text-xs">Hay muchos tipos de BBDD NoSQL. Estas son de tipo Documento, las cuales almacenan la información en formatos flexibles muy parecidos a JSON.</p>
+              <li class="link"><a href="https://appwrite.io/" target="_blank" rel="noopener noreferrer">Appwrite</a></li>
+              <li class="link"><a title="aunque no es relacional usa SQL como lenguaje de consultas" href="https://www.couchbase.com" target="_blank" rel="noopener noreferrer">Couchbase |  </a></li>
+              <li class="link"><a title="Es un software cerrado propietario de Google" href="https://firebase.google.com/?hl=es-419" target="_blank" rel="noopener noreferrer">Firebase</a></li>
+              
             </menu>      
           </details>
         </article>
@@ -314,7 +401,7 @@
 <!-- ASTRO - MARKDOWN -->
 
         <article>
-          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/astro.svg" alt="icon markdown">Astro <span class="text-black">|</span> <img class="w-6" src="./icons/markdown.svg" alt="icon markdown">Markdown</h3>
+          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/astro.svg" alt="icon markdown">Astro <span class="text-black">|</span> <img class="w-6" src="./icons/markdown.svg" alt="icon markdown"><b title="Lenguaje de marcado ligero">Markdown</b></h3>
           <h4><a href="https://astro.build/" target="_blank" rel="noopener">Astro</a></h4>
           <details><summary onclick="return false;" class="text-gray-300">Material de Astro</summary>
             <menu>

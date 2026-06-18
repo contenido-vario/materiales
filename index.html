@@ -44,9 +44,10 @@
       summary {@apply font-semibold mb-1}
       h4 {margin-left: -6px; @apply font-bold my-2; }
       h4 > a {@apply underline-offset-3}
-      article {
-        @apply p-4 border border-cyan-600 rounded-lg hover:shadow-md transition text-base bg-white;
-      }
+      article { @apply p-4 border border-cyan-600 rounded-lg hover:shadow-md transition text-base bg-white; }
+      ul {@apply list-outside ms-6 space-y-1 mb-3 }
+      ul li {@apply ps-2 mb-1 mr-2 text-sm}
+      img {@apply inline mr-1;}
     }
 
     /* @layer components: Se usa para crear clases complejas reutilizables */
@@ -67,42 +68,19 @@
       }
 
       /* Viñeta para Teoría */
-      li.teoria::before {
-        content: url('./icons/book.svg'); 
-        font-size: 0.8rem;
-        margin-right: 8px;
-        opacity: 0.7;
-      }
+      li.teoria::before { content: url('./icons/book.svg'); }
 
       /* Viñeta para GitHub */
-      li.git::before {
-        content: url('./icons/github.svg');
-        font-size: 0.8rem;
-        margin-right: 8px;
-      }
+      li.git::before { content: url('./icons/github.svg'); }
 
       /* Viñeta para enlaces */
-      li.link::before {
-        content: url('./icons/link.svg');
-        font-size: 0.8rem;
-        margin-right: 8px;
-      }
+      li.link::before { content: url('./icons/link.svg');  }
 
       /* Viñeta para Recursos */
-      li.assets::before {
-        content: url('./icons/assets.svg');
-        font-size: 0.8rem;
-        margin-right: 8px;
-      }
+      li.assets::before { content: url('./icons/assets.svg'); }
 
       /* Viñeta para juegos */
-      li.juegos::before {
-        content: url('./icons/toys.svg');
-        font-size: 0.8rem;
-        margin-right: 8px;
-      }
-
-      img {@apply inline mr-1;}
+      li.juegos::before { content: url('./icons/toys.svg'); }
     }
 
 
@@ -220,6 +198,21 @@
             <menu>            
               <li class="assets"><a href="https://flowbite.com/blocks/" target="_blank" rel="noopener noreferrer">Flowbite  - Tailwind UI components</a></li>
               <li class="assets"><a href="https://daisyui.com/" target="_blank" rel="noopener noreferrer">Daysi UI components</a></li>
+              <li class="assets"><a href="https://merakiui.com/components" target="_blank" rel="noopener">
+                  Meraki UI - Components
+              </a></li>
+              <li class="assets"><a href="https://tailkit.com/" target="_blank" rel="noopener">
+                  Tailwind resources
+              </a></li>
+              <li class="assets"><a href="https://www.hyperui.dev/" target="_blank" rel="noopener">
+                  Free Open Source Tailwind CSS Components
+              </a></li>
+              <li class="assets"><a href="https://floatui.com/" target="_blank" rel="noopener">
+                  Float UI - components and website templates
+              </a></li>
+              <li class="assets"><a href="https://tailscan.com/gradients" target="_blank" rel="noopener">
+                  Tailscan - free Tailwind resources
+              </a></li>
             </menu>
           </details>
           <details><summary class="text-gray-600">Otros frameworks para CSS</summary>

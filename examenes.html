@@ -2,61 +2,201 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/estilos.css">
-  <link rel="shortcut icon" href="favicon.png" type="image/png">
-  <title>EXAMENES</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/rt.ico" type="image/x-icon">
+    <title>Examenes</title>
+    <!-- Los <link> de las fuentes se colocan en el HTML dado que es la forma más rápida de carga cuando se usa el CDN. -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
+    </script>
+
+    <style type="text/tailwindcss">
+        @import "tailwindcss"; 
+    /* Esto carga todo el framework */
+
+    /* Variables de configuración */
+    @theme {
+      --font-sans: "Inclusive Sans", ui-sans-serif, system-ui, sans-serif;
+      --color-brand: #ff4500;
+    }
+
+    /* layer base: estilos globales y "reseteo" de etiquetas HTML puras */
+    /* Permite definir cómo se ve la web "por defecto" antes de empezar a poner clases. */
+
+    @layer base {
+      /* Agregar estilo de párrafo para todo el documento */
+      body { @apply text-sm }
+      b {@apply font-black text-shadow-md  }
+      p { @apply mb-4 leading-relaxed text-gray-700; }
+      a { @apply text-blue-600 underline }
+      menu {@apply list-['☆'] list-outside ms-6 space-y-1 mb-3 marker:text-cyan-600}
+      ul li {@apply ps-2 mb-1 text-sm}
+
+      /* Estilos de los títulos */
+      h1, h2 { @apply font-serif font-bold text-white mb-6; }
+      h3 { @apply text-cyan-600 text-lg mb-2}
+      
+      summary {@apply font-semibold mb-1}
+      h4 {margin-left: -6px; @apply font-bold my-2; }
+      h4 > a {@apply underline-offset-3}
+      article {
+        @apply p-4 border border-cyan-600 rounded-lg hover:shadow-md transition text-base bg-white;
+      }
+    }
+
+    /* @layer components: Se usa para crear clases complejas reutilizables */
+    /* Se usa cuando se está repitiendo EXACTAMENTE las mismas 10 clases en muchos componentes (por ejemplo botones), para crear una clase propia. */
+
+    @layer components {
+      .btn-principal {
+        @apply px-4 py-2 bg-red-700 text-white rounded-lg hover:bg-red-500 transition;
+      }
+      h4::before {        
+        content: url('./icons/link.svg'); 
+        margin-right: 4px;
+      }
+
+    }
+
+
+  </style>
+
 </head>
 
-<body>
-  <header>
-    <h1>Examenes prácticos CURSO</h1>
-  </header>
+<body class="bg-taupe-100 leading-normal tracking-normal">
 
-  <div class="dashboard">
-    <nav class="columna">
-      <h2>MF0491_3. PROGRAMACIÓN WEB EN EL ENTORNO CLIENTE</h2>
-        <menu>
-          <li><a href="https://forms.gle/TxRKkG1YTk1Vqh7k6" target="_blank" rel="noopener noreferrer">UF1841 (24/04/2026)</a></li>
-          <li><a href="uf1842.html" target="_blank" rel="noopener noreferrer">UF1842 (20/05/2026)</a></li>
-          <li><a href="uf1843.html" target="_blank" rel="noopener noreferrer">UF1843 (27/05/2026)</a></li>
-        </menu>
-    </nav>
+    <header class="bg-cyan-600 backdrop-blur-md shadow-sm px-4 py-2 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold mt-2 ps-4">
+                <img class="inline" width="32px" src="mundo.svg" alt="logo">
+                Exámenes
+            </h1>
+            <nav class="mr-8 space-x-4 text-sm md:text-base xl:text-sm xl:space-x-2">
+                <a href="index.html" target="_blank"
+                    class="text-yellow-300 font-bold px-4 py-1 rounded-lg hover:bg-black" md:py-2">Inicio</a>
+            </nav>
+        </div>
+    </header>
 
-    <nav class="columna">
-      <h2>MF0492_3. PROGRAMACIÓN WEB EN EL ENTORNO SERVIDOR</h2>
-      <menu>
-        <li><a href="uf1844.html" target="_blank" rel="noopener noreferrer">UF1844 (17/06/2026)</a></li>
-      </menu>
-    </nav>
+    <main class="container mx-auto mt-3 px-6 pt-1 pb-6">
+        <section class="text-lg">
+            <!-- <span></span> -->
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-base">
 
-    <nav class="columna">
-      <h2>MF0493_3. IMPLANTACIÓN DE APLICACIONES WEB EN ENTORNO INTERNET (INTRANET Y EXTRANET)</h2>
-        <menu>
-        </menu>
-    </nav>
-  </div>
+                <!-- MODULO 1 -->
+                <article>
+                        <h3 class="text-base"><strong>MF0491_3</strong><br>PROGRAMACIÓN WEB EN EL ENTORNO CLIENTE</h3>
+                        <menu class="text-lg">
+                            <li>&nbsp;
+                                <a 
+                                    target="_blank" rel="noreferrer noopener"
+                                    href="https://forms.gle/TxRKkG1YTk1Vqh7k6">
+                                    UF1841 (24/04/2026)
+                                </a>
+                            </li>
+                            <li>&nbsp;
+                                <a 
+                                    target="_blank" rel="noreferrer noopener"
+                                    href="uf1842.html">
+                                   UF1842 (20/05/2026)
+                                </a>
+                            </li>
+                            <li>&nbsp;
+                                <a 
+                                    target="_blank" rel="noreferrer noopener"
+                                    href="uf1843.html">
+                                   UF1843 (27/05/2026)
+                                </a>
+                                <hr class="my-8 border-b border-gray-200">
+                            </li>
+                            <li>&nbsp;
+                                <a 
+                                    class="mt-4"
+                                    rel="noreferrer noopener"  
+                                    href="#">
+                                   Examen Final Módulo 1 (27/07/2026)
+                                </a>
+                            </li>
+                        </menu>
+                </article>
 
+                <!-- MODULO 2 -->
+                <article>
+                        <h3 class="text-base"><strong>MF0492_3</strong><br>PROGRAMACIÓN WEB EN ENTORNO SERVIDOR</h3>
+                        <menu class="text-lg">
+                            <li>&nbsp;
+                                <a 
+                                    target="_blank" rel="noreferrer noopener"
+                                    href="uf1844.html">
+                                    UF1844 (17/06/2026)
+                                </a>
+                            </li>
+                            <li>&nbsp;
+                                <a 
+                                    target="_blank" rel="noreferrer noopener"
+                                    href="uf1845.html">
+                                   UF1845 (15/07/2026)
+                                </a>
+                            </li>
+                            <li>&nbsp;
+                                <a 
+                                    rel="noreferrer noopener" 
+                                    href="#">
+                                   UF1846 (09/09/2026)
+                                </a>
+                                <hr class="my-8 border-b border-gray-200">
+                            </li>
+                            <li>&nbsp;
+                                <a 
+                                    class="mt-4"
+                                    rel="noreferrer noopener"  
+                                    href="#">
+                                   Examen Final Módulo 2 (23/09/2026)
+                                </a>
+                            </li>
+                        </menu>
+                </article>
 
+                <!-- MODULO 3 -->
+                <article>
+                        <h3 class="text-base"><strong>MF0493_3</strong><br>IMPLANTACIÓN DE APLICACIONES WEB EN ENTORNO INTERNET (INTRANET Y EXTRANET)</h3>
+                        <menu class="text-lg">
+                            <li>&nbsp;
+                                <a 
+                                    rel="noreferrer noopener" 
+                                    href="#">
+                                   MF0493_3 (14/10/2026)
+                                </a>
+                                <hr class="my-8 border-b border-gray-200">
+                            </li>
+                            <li>&nbsp;
+                                <a 
+                                    class="mt-4"
+                                    rel="noreferrer noopener"  
+                                    href="#">
+                                   Examen Final Módulo 3 (26/10/2026)
+                                </a>                           
+                            </li>
+                            <li>&nbsp;
+                                <a 
+                                    class="mt-4"
+                                    rel="noreferrer noopener"  
+                                    href="#">
+                                   <b>Examen Recuperación</b> (27/10/2026)
+                                </a>
+                            </li>
+                        </menu>
+                </article>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <ul type="circle">
-
-
-  </ul>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>

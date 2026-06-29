@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./img/rt.ico" type="image/x-icon">
+  <title>Materiales clase</title>
+  <!-- Los <link> de las fuentes se colocan en el HTML dado que es la forma más rápida de carga cuando se usa el CDN. -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
+  </script>
+
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+    /* Esto carga todo el framework */
+
+    /* Variables de configuración */
+    @theme {
+      --font-sans: "Inclusive Sans", ui-sans-serif, system-ui, sans-serif;
+      --color-brand: #ff4500;
+    }
+
+    /* layer base: estilos globales y "reseteo" de etiquetas HTML puras */
+    /* Permite definir cómo se ve la web "por defecto" antes de empezar a poner clases. */
+
+    @layer base {
+      /* Agregar estilo de párrafo para todo el documento */
+      body { @apply text-sm }
+      b {@apply font-black text-shadow-md  }
+      p { @apply mb-4 leading-relaxed text-gray-700; }
+      a { @apply text-blue-600 underline }
+      menu { @apply ml-4 mb-4 text-sm}
+
+      /* Estilos de los títulos */
+      h1, h2 { @apply font-serif font-bold text-white mb-6; }
+      h3 { @apply text-cyan-600 text-lg }
+      
+      summary {@apply font-semibold mb-1}
+      h4 { margin-left: -6px; @apply my-2; }
+      h4 > a {@apply underline-offset-3}
+      h6 { @apply text-gray-400 text-sm ms-7 mb-4 }
+
+      article { @apply p-4 border border-cyan-600 rounded-lg hover:shadow-md transition text-base bg-white; }
+      ul {@apply list-outside ms-8 space-y-1 mb-3 }
+      ul li {@apply ps-6 mb-1 mr-2 text-sm}
+      img {@apply inline mr-1;}
+    }
+
+    /* @layer components: Se usa para crear clases complejas reutilizables */
+    /* Se usa cuando se está repitiendo EXACTAMENTE las mismas 10 clases en muchos componentes (por ejemplo botones), para crear una clase propia. */
+
+    @layer components {
+      .btn-principal {
+        @apply px-4 py-2 bg-red-700 text-white rounded-lg hover:bg-red-500 transition;
+      }
+      h4::before {        
+        content: url('./icons/link.svg'); 
+        margin-right: 4px;
+      }
+
+      h4.js::before {        
+        content: url('./icons/javascript.svg'); 
+        margin-right: 4px;
+      }
+
+      h4.node::before {        
+        content: url('./icons/node.svg'); 
+        margin-right: 4px;
+      }
+      
+      /* Viñeta para Teoría */
+      li.teoria::before { 
+        content: url('./icons/book.svg'); 
+        margin-right: 4px;
+      }
+
+      /* Viñeta para GitHub */
+      li.git::before {
+        content: url('./icons/github.svg');
+        margin-right: 4px; 
+      }
+
+      /* Viñeta para enlaces */
+      li.link::before { 
+        content: url('./icons/link.svg'); 
+        margin-right: 4px; 
+      }
+
+      /* Viñeta para Recursos */
+      li.assets::before { 
+        content: url('./icons/assets.svg');
+        margin-right: 4px; 
+      }
+
+      /* Viñeta para juegos */
+      li.juegos::before { 
+        content: url('./icons/toys.svg'); 
+        margin-right: 4px;
+      }
+    }
+
+</style>
+</head>
+
+<body class="bg-taupe-100 leading-normal tracking-normal">
+
+  <header class="bg-cyan-600 backdrop-blur-md shadow-sm px-4 py-2 sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold mt-2">
+        <img class="inline" width="32px" src="mundo.svg" alt="logo">
+        Materiales del Curso
+      </h1>
+      <nav class="space-x-4 text-sm md:text-base xl:text-sm xl:space-x-2">
+        <a title="Gists - Explicaciones de Clase" href="https://gist.github.com/contenido-vario" target="_blank"
+          rel="noopener">
+          <img src="./icons/gist.svg" alt="icon gist"></a>
+        <a href="examenes.html" target="_blank" class="text-yellow-300 font-bold px-4 py-1 rounded-lg hover:bg-black"
+          md:py-2">Exámenes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto mt-3 px-6 pt-1 pb-6">
+    <section class="text-lg">
+      <!-- <span></span> -->
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-base">
+
+        <!-- VS CODE -->
+
+        <article>
+          <h3 class="text-xl"><img class="w-6" src="./icons/vscode.svg"
+                alt="vscode icon">Visual Studio Code</h3>
+          <h6>[Editor de Código (IDE)]</h6>
+          <h4><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a></h4>
+          <details>
+            <summary onclick="return false;" class="text-gray-300">Material VS Code</summary>
+          </details>
+        </article>
+
+        <!-- HTML -->
+
+        <article>
+          <h3 class="text-xl"><img class="w-6" src="./icons/html5-color.svg" alt="html icon">HTML</h3>
+          <h6>[Lenguaje de marcado FrontEnd]</h6>
+          <details>
+            <summary>Material de consulta HTML</summary>
+            <menu>
+              <li class="teoria"><a href="https://web.dev/learn/html" target="_blank" rel="noopener noreferrer">Google
+                  web.dev</a></li>
+              <li class="teoria">Elementos HTML en <a download href="./assets/etiquetas_html.xlsx">Excel</a></li>
+              <li class="teoria">Elementos HTML en <a target="_blank"
+                  href="https://docs.google.com/spreadsheets/d/1rXU7XDkpa092lHm5SsstBTyPs4Bjk0sueW4bcX0zKiA/edit?usp=drive_link"
+                  rel="noreferrer noopener">Google Sheets</a></li>
+              <li class="teoria"><a href="https://contenido-vario.github.io/formularios/" target="_blank"
+                  rel="noopener noreferrer">Controles de Formulario</a></li>
+            </menu>
+          </details>
+          <details>
+            <summary>Assets (recursos)</summary>
+            <menu>
+              <li class="assets"><a href="https://www.w3schools.com/charsets/ref_emoji_intro.asp" target="_blank"
+                  rel="noopener noreferrer">HTML Emojis</a></li>
+              <li class="assets"><a href="https://allsvgicons.com/" target="_blank" rel="noopener noreferrer">All SVG
+                  Icons</a></li>
+              <li class="assets"><a href="https://techicons.dev/icons/express" target="_blank"
+                  rel="noopener noreferrer">Tech Icons</a></li>
+              <li class="assets"><a href="https://lordicon.com/" target="_blank" rel="noopener noreferrer">LordIcon:
+                  Animated Icons</a></li>
+              <li class="assets"><a title="Fuentes e Iconos de Google" href="https://fonts.google.com/" target="_blank"
+                  rel="noopener noreferrer">Google Fonts</a></li>
+              <li class="assets"><a title="Conversor colores" href="https://oklch.com/" target="_blank"
+                  rel="noopener noreferrer">OKLCH Color Picker & Converter</a></li>
+              <li class="assets"><a title="Colores HTML" href="https://htmlcolorcodes.com/es/" target="_blank"
+                  rel="noopener noreferrer">Selector de Colores</a></li>
+            </menu>
+          </details>
+          <details>
+            <summary>Ejercicios para subir al GitHub</summary>
+            <menu>
+              <li class="git">Ejercicios de <a target="_blank" href="https://ritadelatorre.github.io/tablas/"
+                  rel="noreferrer noopener">tablas</a></li>
+              <li class="git"><a target="_blank" href="https://contenido-vario.github.io/clase6/"
+                  rel="noreferrer noopener">Curriculum Vitae</a></li>
+            </menu>
+          </details>
+        </article>
+
+        <!-- CSS  -->
+
+        <article>
+          <h3 class="text-xl"><img class="w-6" src="./icons/css3-color.svg" alt="icon css3">CSS</h3><h6> [Lenguaje de Formato FrontEnd]</h3>
+          <details>
+            <summary>Material CSS3</summary>
+            <menu>
+              <li class="teoria"><a href="./assets/CSS-1.pdf">Básicos CSS</a></li>
+              <li class="teoria"><a href="https://ritadelatorre.github.io/position/" target="_blank"
+                  rel="noreferrer noopener">Posicionamiento</a></li>
+              <li class="teoria"><a href="https://necolas.github.io/normalize.css/" target="_blank"
+                  rel="noreferrer noopener">normalize.css</a></li>
+              <li class="teoria"><a href="https://ritadelatorre.github.io/flexbox/css-flexbox.pdf" download
+                  target="_blank" rel="noreferrer noopener">flexbox</a></li>
+              <li class="teoria"><a href="https://ritadelatorre.github.io/grid/css-grid.pdf" download target="_blank"
+                  rel="noreferrer noopener">grid</a></li>
+              <li class="teoria"><a href="https://gridbyexample.com/examples/" target="_blank"
+                  rel="noreferrer noopener">grid by example</a></li>
+            </menu>
+          </details>
+          <details>
+            <summary>Subir a GitHub</summary>
+            <menu>
+              <li class="git"><a target="_blank" href="https://ritadelatorre.github.io/fabula/"
+                  rel="noreferrer noopener">Pseudoclases y pseudoelementos</a></li>
+              <li class="git"><a target="_blank" href="https://ritadelatorre.github.io/atributos-css/atributos.html"
+                  rel="noreferrer noopener">Selectores de
+                  Atributo</a></li>
+              <li class="git"><a target="_blank" rel="noreferrer noopener"
+                  href="https://ritadelatorre.github.io/tablas/transformaciones.pdf">Transformaciones CSS</a></li>
+              <li class="git"><a href="https://ritadelatorre.github.io/position/absolute.html" target="_blank"
+                  rel="noopener noreferrer">Galería con posicionamiento absoluto</a></li>
+              <li class="git"><a href="https://ritadelatorre.github.io/position/relativas.html" target="_blank"
+                  rel="noopener noreferrer">Hacer con Flexbox</a></li>
+            </menu>
+          </details>
+          <details>
+            <summary>Juegos</summary>
+            <menu>
+              <li class="juegos"><a href="https://codepip.com/games/" target="_blank" rel="noopener noreferrer">Juegos
+                  CSS</a></li>
+              <li class="juegos"><a href="https://programmingmentor.com/post/playing-css-grid-garden/" target="_blank"
+                  rel="noopener noreferrer">Soluciones CSS Grid Garden</a></li>
+              <li class="juegos"><a href="https://flukeout.github.io/" target="_blank" rel="noopener noreferrer">CSS
+                  Diner</a>, <a href="https://gist.github.com/chrisman/fcb0a88459cd98239dbe6d2d200b02d1" target="_blank"
+                  rel="noopener noreferrer"> Solución CSS Diner</a></li>
+            </menu>
+          </details>
+        </article>
+
+        <!-- TAILWIND -->
+        
+        <article>
+          <h3 class="text-xl"><img class="w-6" src="./icons/tailwindcss.svg" alt="icon tailwind">Tailwindcss</h3><h6>[Framework CSS FrontEnd]</h6>
+          <h4><a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind css</a></h4>
+          <details>
+            <summary>Material Tailwind</summary>
+            <menu>
+              <li class="teoria"><a href="https://www.creative-tim.com/twcomponents/cheatsheet/tailwind-css-4"
+                  target="_blank" rel="noopener noreferrer">Tailwind CSS v4 Cheat Sheet</a></li>
+              <li class="teoria"><a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Ejemplo de
+                  Tailwind</a></li>
+            </menu>
+          </details>
+          <details>
+            <summary>Bloques Tailwind</summary>
+            <menu>
+              <li class="assets"><a href="https://flowbite.com/blocks/" target="_blank"
+                  rel="noopener noreferrer">Flowbite - Tailwind UI components</a></li>
+              <li class="assets"><a href="https://daisyui.com/" target="_blank" rel="noopener noreferrer">Daysi UI
+                  components</a></li>
+              <li class="assets"><a href="https://merakiui.com/components" target="_blank" rel="noopener">
+                  Meraki UI - Components
+                </a></li>
+              <li class="assets"><a href="https://tailkit.com/" target="_blank" rel="noopener">
+                  Tailwind resources
+                </a></li>
+              <li class="assets"><a href="https://www.hyperui.dev/" target="_blank" rel="noopener">
+                  Free Open Source Tailwind CSS Components
+                </a></li>
+              <li class="assets"><a href="https://floatui.com/" target="_blank" rel="noopener">
+                  Float UI - components and website templates
+                </a></li>
+              <li class="assets"><a href="https://tailscan.com/gradients" target="_blank" rel="noopener">
+                  Tailscan - free Tailwind resources
+                </a></li>
+            </menu>
+          </details>
+          <details>
+            <summary class="text-gray-600">Otros frameworks para CSS</summary>
+            <menu>
+              <p class="text-black text-xs">Los frameworks de CSS funcionan como bibliotecas de código preescrito que
+                proporcionan herramientas y estilos reutilizables para que no tengas que escribir todo el diseño desde
+                cero.</p>
+              <li class="link"><a href="https://getbootstrap.com/" target="_blank"
+                  rel="noopener noreferrer">Bootstrap</a></li>
+              <li class="link"><a href="https://bulma.io/" target="_blank" rel="noopener noreferrer">Bulma</a></li>
+            </menu>
+          </details>
+        </article>
+
+        <!-- JAVASCRIPT -->
+
+        <article>
+          <h3 class="text-xl"><img class="w-6" src="./icons/js.svg" alt="icon js">JavaScript</h3><h6>[Lenguaje de Programación<br>FrontEnd/BackEnd con Node.js]</h6>          
+          <h4 class="mt-2"><a href="./buenas-practicas.html" target="_blank">Buenas Prácticas en Programación</a></h4>
+          <details>
+            <summary>Material de Consulta</summary>
+            <menu>
+              <li class="teoria"><a href="https://www.aprendejavascript.dev/" target="_blank"
+                  rel="noreferrer noopener">Aprende JavaScript (MiDuDev)</a></li>
+              <li class="teoria"><a href="https://aprendejavascript.org/" target="_blank"
+                  rel="noreferrer noopener">Aprende JavaScript (Jon Mircha)</a></li>
+              <li class="teoria"><a href="https://www.eloquentjavascript.es/" target="_blank"
+                  rel="noreferrer noopener">Eloquent JavaScript (libro)</a></li>
+              <li class="teoria"><a href="https://es.javascript.info/" target="_blank" rel="noreferrer noopener">El
+                  Tutorial de JavaScript Moderno</a></li>
+              <li class="teoria"><a href="https://www.w3schools.com/js/js_json.asp" target="_blank"
+                  rel="noreferrer noopener">W3Schools JSON</a></li>
+            </menu>
+          </details>
+          <h4 class="js mt-2"><a class="text-red-700" href="https://contenido-vario.github.io/es6/" target="_blank" rel="noopener">Material de clases</a></h4>
+        </article>
+
+        <!-- Lenguajes de Intercambio de Datos -->
+
+        <article>
+          <h3 class="text-xl"><img class="w-5" src="./icons/data-exchange.svg" alt="icon json">Intercambio de Datos</h3>
+          <h6>Lenguajes y Formatos</h6>
+          <h4><a href="https://www.json.org/json-es.html" target="_blank" rel="noreferrer noopener">JSON. Java Script Object Notation</a></h4>
+          <h4><a href="https://www.w3.org/TR/xml/" target="_blank" rel="noreferrer noopener">XLM. eXtensible Markup Language</a></h4>
+          <h4><a href="https://learnxinyminutes.com/es/yaml/" target="_blank" rel="noreferrer noopener">YAML. Ain't Markup Language</a></h4>
+          <details>
+            <summary>Material de consulta</summary>
+            <menu>
+              <li class="teoria"><a href="https://www.youtube.com/@tiidxml" target="_blank" rel="noreferrer noopener">TIID (Tecnologías de intercambio/integración de datos)</a></li>
+              <li class="teoria"><a href="https://lenguajejs.com/javascript/objetos/json/" target="_blank" rel="noreferrer noopener">El Formato JSON</a></li>
+              <li class="teoria"><a href="https://www.eniun.com/curso-xml/" target="_blank" rel="noreferrer noopener">Curso de XLM</a></li>
+            </menu>
+          </details>
+          <details>
+            <summary>Recursos y Librerías</summary>
+            <menu>
+              <li class="assets"><a href="https://publicapis.dev/" target="_blank"
+                  rel="noreferrer noopener">publicapis</a></li>
+              <li class="assets"><a href="https://es.worder.cat/" target="_blank" rel="noreferrer noopener">Palabras
+                  para jugar</a></li>
+              <!-- <li class="teoria"><a href="https://geekflare.com/es/what-is-yaml/" target="_blank" rel="noreferrer noopener">YAML</a></li> -->
+            </menu>
+          </details>
+        </article>
+
+        <article>
+          <h3 class="text-xl"><img class="w-5" src="./icons/api.svg" alt="icon apis">APIs</h3>
+          <h6>Application Programming Interface</h6>
+
+          <details>
+            <summary>Material de consulta</summary>
+            <menu>
+              <!-- https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Client-side_APIs -->
+              <!-- https://www.rwit.io/blog/choosing-the-right-api-7-essential-api-types -->
+              <li class="teoria"><a href="#" target="_blank" rel="noreferrer noopener">¿Qué es un API?</a></li>
+              <li class="teoria"><a href="https://datos.gob.es/sites/default/files/doc/file/guia_publicacion_apis.pdf" target="_blank" rel="noreferrer noopener">RESTful API o API Rest</a></li>
+              <li class="teoria"><a href="#" target="_blank" rel="noreferrer noopener">RESTful API o API Rest</a></li>
+              <!-- https://github.com/codenoschool/restapis-course -->
+              <li class="teoria"><a href="#" target="_blank" rel="noreferrer noopener">GraphQL</a></li>
+              <li class="teoria"><a href="#" target="_blank" rel="noreferrer noopener">SOAP (Simple Object Access Protocol)</a></li>
+              <li class="teoria"><a href="#" target="_blank" rel="noreferrer noopener">RPC (Remote Procedure Call)</a></li>
+              <li class="teoria"><a href="#" target="_blank" rel="noreferrer noopener">gRPC (Google Remote Procedure Call)</a></li>
+              <li class="teoria"><a href="#" target="_blank" rel="noreferrer noopener">WebSockets</a></li>
+              <li class="teoria"><a href="#" target="_blank" rel="noreferrer noopener">Webhooks</a></li>
+              
+            </menu>
+          </details>
+          <details>
+            <summary>Recursos y Librerías</summary>
+            <menu>
+              <li class="assets"><a href="https://publicapis.dev/" target="_blank"
+                  rel="noreferrer noopener">publicapis</a></li>
+              <li class="assets"><a href="https://es.worder.cat/" target="_blank" rel="noreferrer noopener">Palabras
+                  para jugar</a></li>
+              <!-- <li class="teoria"><a href="https://geekflare.com/es/what-is-yaml/" target="_blank" rel="noreferrer noopener">YAML</a></li> -->
+            </menu>
+          </details>
+        </article>
+
+        <!-- NODEJS - EXPRESS -->
+
+        <article>
+          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/nodejs.svg" alt="icon nodejs"> <b title="Entorno de Desarrollo Fullstack para JavaScript">NodeJS</b></h3>
+          <h4><a href="https://nodejs.org/es" target="_blank" rel="noopener">Node.js®</a></h4>
+          <h4 class="node mt-2"><a class="text-red-700" href="https://contenido-vario.github.io/node-js/" target="_blank" rel="noopener">Material de clases Node.js</a></h4>
+<!-- https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html -->
+          <details>
+            <summary class="text-gray-600">Otros Lenguajes Fullstack</summary>
+            <menu>
+              <li class="link"><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a>
+                <img src="./icons/layer-plus.svg" title="frameworks" alt="frameworks"> <a
+                  href="https://www.djangoproject.com/" target="_blank" rel="noopener noreferrer">Django</a> | <a
+                  href="https://flask.palletsprojects.com/en/stable/" target="_blank"
+                  rel="noopener noreferrer">Flask</a></li>
+              <li class="link"><a href="https://go.dev/" target="_blank" rel="noopener noreferrer">Go</a> <img
+                  src="./icons/layer-plus.svg" title="frameworks" alt="frameworks"> <a href="https://gin-gonic.com/"
+                  target="_blank" rel="noopener noreferrer">Gin</a> | <a href="https://echo.labstack.com/"
+                  target="_blank" rel="noopener noreferrer">echo</a></li>
+              <li class="link"><a href="https://www.php.net/" target="_blank" rel="noopener noreferrer">PHP</a> <img
+                  src="./icons/layer-plus.svg" title="frameworks" alt="frameworks"> <a href="https://laravel.com/"
+                  target="_blank" rel="noopener noreferrer">Laravel</a></li>
+              <li class="link"><a href="https://www.ruby-lang.org/es/" target="_blank"
+                  rel="noopener noreferrer">Ruby</a>. <img src="./icons/layer-plus.svg" title="frameworks"
+                  alt="frameworks"> <a href="https://rubyonrails.org/" target="_blank" rel="noopener noreferrer">Ruby on
+                  rails</a></li>
+              <li class="link"><a title="Software propietario"
+                  href="https://www.java.com/es/download/help/whatis_java.html" target="_blank"
+                  rel="noopener noreferrer">Java</a> <img src="./icons/layer-plus.svg" title="frameworks"
+                  alt="frameworks"> <a href="https://spring.io/projects/spring-boot" target="_blank"
+                  rel="noopener noreferrer">Spring</a></li>
+            </menu>
+          </details>
+          <hr class="my-3 border-gray-200">
+          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/express.svg" alt="icon express"> express</h3>
+          <h4 title="Framework de backend para Node.js"><a href="https://expressjs.com/es/" target="_blank"
+              rel="noopener">Express.js</a></h4>
+          <details>
+            <summary class="text-gray-600">Otros frameworks para Node.js</summary>
+            <menu>
+              <p class="text-black text-xs">Los frameworks de Node.js proporcionan código predefinida y herramientas
+                integradas para manejar tareas repetitivas: crear servidores HTTP, gestionar bases de datos y enrutar
+                peticiones.</p>
+              <li class="link"><a href="https://fastify.dev/" target="_blank" rel="noopener noreferrer">Fastify</a></li>
+              <li class="link"><a href="https://koajs.com/" target="_blank" rel="noopener noreferrer">Koa.js</a></li>
+              <li class="link"><a href="https://hono.dev/" target="_blank" rel="noopener noreferrer">Hono</a></li>
+              <li class="link"><a title="Usa TypeScript que es JavaScript tipado" href="https://nestjs.com/"
+                  target="_blank" rel="noopener noreferrer">Nest.js</a></li>
+            </menu>
+          </details>
+
+        </article>
+
+        <!-- ASTRO - MARKDOWN -->
+
+        <article>
+          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/astro.svg" alt="icon markdown">Astro <span
+              class="text-black">|</span> <img class="w-6" src="./icons/markdown.svg" alt="icon markdown"><b
+              title="Lenguaje de marcado ligero">Markdown</b></h3>
+          <h4><a href="https://astro.build/" target="_blank" rel="noopener">Astro</a></h4>
+          <details>
+            <summary onclick="return false;" class="text-gray-300">Material de Astro</summary>
+            <menu>
+            </menu>
+          </details>
+          <details>
+            <summary onclick="return false;" class="text-gray-300">Ejercicios</summary>
+            <menu>
+            </menu>
+          </details>
+          <hr class="my-3 border-gray-200">
+          <h4><a href="https://www.markdownguide.org/" target="_blank" rel="noopener">Markdown</a></h4>
+          <h4><a href="https://obsidian.md/es/download" target="_blank" rel="noopener">Obsidian - Editor Markdown |
+              Notas</a></h4>
+          <details>
+            <summary>Material de Markdown</summary>
+            <menu>
+              <li class="teoria"><a href="https://programminghistorian.org/es/lecciones/introduccion-a-markdown"
+                  target="_blank" rel="noopener noreferrer">Introducción a Markdown</a></li>
+            </menu>
+          </details>
+          <details>
+            <summary onclick="return false;" class="text-gray-300">Ejercicios</summary>
+            <menu>
+            </menu>
+          </details>
+        </article>
+
+        <!-- GIT - GITHUB  -->
+
+        <article>
+          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/git.svg" alt="icon git"><span class="text-orange-600"
+              title="software de control de versiones">GIT</span> <span class="text-black">|</span> <img class="w-6"
+              src="./icons/github.svg" alt="icon github">GITHUB</h3>
+          <h4><a href="https://git-scm.com/" target="_blank" rel="noopener">GIT <code>--fast-version-control</code></a>
+          </h4>
+          <details>
+            <summary onclick="return false;" class="text-gray-300">Material Git</summary>
+            <menu>
+            </menu>
+          </details>
+          <hr class="my-3 border-gray-200">
+          <h4 class="mt-2"><a href="https://github.com/" target="_blank" rel="noopener">Github</a></h4>
+          <details open>
+            <summary>Material Github</summary>
+            <menu>
+              <li class="git"><a href="./gist.html" target="_blank"><mark>GIST de Github y EJERCICIO JS</mark></a></li>
+            </menu>
+          </details>
+        </article>
+
+        <!-- REACT - VITE -->
+
+        <article>
+          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/react.svg" alt="icon React"> <span
+              title="Framework de JS">React</span> <span class="text-black">|</span> <img class="w-6"
+              src="./icons/vite.svg" alt="icon vite"> Vite</h3>
+          <h4><a href="https://es.react.dev/" target="_blank" rel="noopener">React</a></h4>
+          <details>
+            <summary onclick="return false;" class="text-gray-300">Material de React</summary>
+            <menu>
+            </menu>
+          </details>
+          <details>
+            <summary onclick="return false;" class="text-gray-300">Ejercicios</summary>
+            <menu>
+            </menu>
+          </details>
+          <details>
+            <summary class="text-gray-600">Otros frameworks para JavaScript</summary>
+            <menu>
+              <p class="text-black text-xs">Los frameworks de JavaScript proporcionan una estructura predefinida,
+                componentes reutilizables y herramientas optimizadas para manejar la interfaz de usuario: manejo de
+                estados, crear navegación fluida sin recargar la página y comunicación con APIs </p>
+              <li class="link"><a href="https://svelte.dev/" target="_blank" rel="noopener noreferrer">Svelte</a></li>
+              <li class="link"><a href="https://www.solidjs.com/" target="_blank" rel="noopener noreferrer">Solid.js</a>
+              </li>
+              <li class="link"><a href="https://vuejs.org/" target="_blank" rel="noopener noreferrer">Vue.js</a></li>
+              <li class="link"><a title="ideal para SEO" href="https://astro.build/" target="_blank"
+                  rel="noopener noreferrer">Astro</a></li>
+              <!-- + https://github.com/nanostores/nanostores -->
+              <li class="link"><a href="https://angularjs.org/" target="_blank" rel="noopener noreferrer">Angular</a>
+              </li>
+            </menu>
+          </details>
+          <hr class="my-3 border-gray-200">
+          <h4><a href="https://vite.dev/" target="_blank" rel="noopener"><span
+                title="Herramienta de empaquetado para crear, compilar y ejecutar proyectos frontend">Vite</span></a>
+          </h4>
+          <details>
+            <summary onclick="return false;" class="text-gray-300">Material de Vite</summary>
+            <menu>
+            </menu>
+          </details>
+          <details>
+            <summary class="text-gray-600">Otras herramientas de empaquetado</summary>
+            <menu>
+              <p class="text-black text-xs">Los frameworks de JavaScript proporcionan una estructura predefinida,
+                componentes reutilizables y herramientas optimizadas para manejar la interfaz de usuario: manejo de
+                estados, crear navegación fluida sin recargar la página y comunicación con APIs </p>
+              <li class="link"><a href="https://parceljs.org/" target="_blank" rel="noopener noreferrer">Parcel</a></li>
+              <li class="link"><a href="https://esbuild.github.io/" target="_blank"
+                  rel="noopener noreferrer">esbuild</a></li>
+              <li class="link"><a href="https://webpack.js.org/" target="_blank" rel="noopener noreferrer">Webpack</a>
+              </li>
+              <li class="link"><a href="https://rollupjs.org/" target="_blank" rel="noopener noreferrer">rollup.js</a>
+              </li>
+            </menu>
+          </details>
+
+        </article>
+
+        <!-- POSTGRES - MONGO DB -->
+
+        <article>
+          <h3 class="text-lg mb-2"><img class="w-6" src="./icons/postgres-sql.svg" alt="icon PostGresSQL">PostGreSQL
+            <span class="text-black">|</span> <img class="w-6" src="./icons/mongodb.svg" alt="icon MongoDB">MongoDB</h3>
+
+          <h4><a href="https://www.postgresql.org/" target="_blank" rel="noopener">PostGreSQL</a></h4>
+          <details>
+            <summary onclick="return false;" class="text-gray-300">Material de PostGreSQL</summary>
+            <menu>
+            </menu>
+          </details>
+          <details>
+            <summary onclick="return false;" class="text-gray-300">Ejercicios BBDD</summary>
+            <menu>
+            </menu>
+          </details>
+          <details>
+            <summary class="text-gray-600">Otras Bases de Datos Relacionales</summary>
+            <menu>
+              <p class="text-black text-xs">Una base de datos relacional es una forma muy estructurada de almacenar,
+                organizar y administrar datos mediante tablas y relaciones definidas. Todas las Bases de Datos
+                Relacionales utilizan el mismo lenguaje de consulta: SQL que significa Structured Query Languaje.</p>
+              <li class="link"><a href="https://supabase.com/" target="_blank" rel="noopener noreferrer">Supabase
+                  (Postgres en la nube)</a></li>
+              <li class="link"><a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer">MySQL</a></li>
+              <li class="link"><a href="https://mariadb.org/" target="_blank" rel="noopener noreferrer">MariaDB</a></li>
+              <li class="link"><a href="https://www.sqlite.org/" target="_blank" rel="noopener noreferrer">SQLite</a>
+              </li>
+              <p class="text-black text-xs font-bold  py-2">Propietarias:</p>
+              <li class="link"><a href="https://koajs.com/" target="_blank" rel="noopener noreferrer">Microsoft SQL
+                  Server</a></li>
+              <li class="link"><a href="https://hono.dev/" target="_blank" rel="noopener noreferrer">Oracle Database</a>
+              </li>
+            </menu>
+          </details>
+
+          <hr class="my-3 border-gray-200">
+          <h4><a href="https://www.mongodb.com/" target="_blank" rel="noopener">MongoDB</a></h4>
+          <details>
+            <summary onclick="return false;" class="text-gray-300">Material de MongoDB</summary>
+            <menu>
+            </menu>
+          </details>
+          <details>
+            <summary class="text-gray-600">Otras Bases de Datos NoSQL</summary>
+            <menu>
+              <p class="text-black text-xs">Hay muchos tipos de BBDD NoSQL. Estas son de tipo Documento, las cuales
+                almacenan la información en formatos flexibles muy parecidos a JSON.</p>
+              <li class="link"><a href="https://appwrite.io/" target="_blank" rel="noopener noreferrer">Appwrite</a>
+              </li>
+              <li class="link"><a title="aunque no es relacional usa SQL como lenguaje de consultas"
+                  href="https://www.couchbase.com" target="_blank" rel="noopener noreferrer">Couchbase | </a></li>
+              <li class="link"><a title="Es un software cerrado propietario de Google"
+                  href="https://firebase.google.com/?hl=es-419" target="_blank" rel="noopener noreferrer">Firebase</a>
+              </li>
+
+            </menu>
+          </details>
+        </article>
+
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-20 py-8 bg-gray-800 text-white text-center">
+    <p class="text-white">&copy; 2026 Página web creada con Tailwind CSS</p>
+  </footer>
+
+</body>
+
+</html>

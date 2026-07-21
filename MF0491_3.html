@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es-Es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">    
+  </script>
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+
+    @theme {
+      --font-sans: "Inclusive Sans", ui-sans-serif, system-ui, sans-serif;
+      --color-brand: #ff4500;
+    }
+
+    @layer base {
+      :root { @apply text-sm; line-height: 1.7;}
+      p { @apply mb-2 text-lg}
+      button { @apply rounded-md bg-slate-200 border-1 border-slate-400 px-4 py-1 my-1 text-sm cursor-pointer disabled:opacity-50}
+      details { @apply mb-4 py-2 border-b-slate-700 border-b-1 text-slate-800 }
+      summary { @apply py-1 text-base bg-slate-800 text-white font-bold }
+      blockquote { @apply mx-8 p-2 bg-slate-200 }
+      ol { @apply list-decimal list-outside ml-6 mb-4 }
+      ul { @apply list-[circle] list-outside ml-6 mb-4 }
+      li { @apply mb-1 }     
+      kbd, code, a { @apply text-blue-800 }
+      a { @apply border-b-1 }
+      input, select { @apply border-1 px-2 }
+      hr { @apply my-3 }
+      td, th { @apply border-black border p-1.5 }
+      h1, h2, h3 { @apply font-bold }
+    }
+  </style>
+
+  <link rel="shortcut icon" href="questions.svg" type="image/svg">
+  <title>MF0491_3 Examen Final</title>
+</head>
+
+<body class="container mx-auto w-5/6 pb-10 text-sky-900">
+<h1 class="text-xl md:text-2xl text-center mb-4 text-sky-950">
+  Prueba práctica de evaluación // Prova pràctica d' avaluació
+</h1>
+<p class="text-center"></p>
+<div>
+  <table class="w-full">
+    <tr class="bg-teal-50">
+      <td colspan="2">
+        <h2 class="text-2xl">ACTIVIDAD</h2>
+      </td>
+    </tr>
+    <tr>
+      <td class="w-1/6">&nbsp;</td>
+      <td>
+        <h3 class="font-bold bg-amber-100 mb-8 text-xl">Proyecto MF0491_3. TEST CON IMÁGENES</h3>
+        <p>Crear un programa que permita realizar un <strong>test/cuestionario de 10 preguntas</strong> utilizando imágenes. Ejemplo:</p>
+        <figure><img src="./test1.png" alt="test1"></figure>
+        
+        <p>Las preguntas deberán guardarse en un objeto de JavaScript.</p>
+        <p>Cada pregunta mostrará cuatro opciones las cuales deberán aparecer dentro de botones.</p>
+        <p>Al seleccionar un botón para responder, la respuesta deberá quedar guardada en un atributo respuesta (el cual inicialmente, estará vacío). Una vez que la persona haga clic en el botón, deberá confirmarse la respuesta a través de un <code>Dialog</code>.</p>
+        <ol class="text-lg">
+          <li>Si la persona confirma la respuesta, la misma no podrá cambiarse. Además, aparecerá una flecha señalando la  opción correcta y en la parte inferior de la pantalla se mostrará la opción correcta, con una breve explicación.</li>
+          <li>Si la persona no confirma podrá seguir revisando y respondiendo el resto de preguntas del test,y regresar a la pregunta no respondida cuando así lo desee para responderla.</li>
+         </ol>
+        <p>Al presionar el botón <code>Terminar</code>, deberán inhabilitarse todas las preguntas y aparecer un <code>Dialog</code> con el siguiente formulario para enviar el cuestionario por mail.  </p>
+        <hr class="bt-8">
+        <div class="p-4">
+          <form class="mt-12 ">
+            <p><label class="text-black">Indica tu mail para enviar los resultados: <input type="email" disabled></label></p>
+            <button type="submit" disabled class="text-center text-white text-xl bg-sky-800 rounded">Enviar</button>
+          </form>
+        </div>
+        <hr class="bt-8">
+        <p  class="bt-8">El formulario no se envía, sólo se evaluará el uso correcto de campos y restricciones.</p>
+
+
+        <h4 class="font-bold text-xl mb-4">Requerimientos del programa:</h4>
+
+        <ol>
+          <li>Las funciones deberán  ser programadas con funciones flecha</li> 
+          <li>Deberán entregarse 3 archivos: un <strong>.html</strong> y dos <strong>.js</strong> uno con los datos y otro con la lógica del juego en cuestión.</li>
+          <li>Para el examen <strong>UF1843</strong> la URL con el Dashboard de Ejercicios</li>
+        </ol>
+        <p>Todas las demás adiciones al test, no se puntúan, a menos que afecten la lógica del mismo.</p>
+        <hr>
+        <p>Deberéis subir las URL del test al siguiente <a target="_blank" href="#" rel="noopener">formulario</a></p>
+      </td>
+    </tr>
+  </table>
+</div>
+<div>
+  <h2 CLASS="text-3xl mt-10">UF1841</h2>
+  <table class="w-full max-w-full my-4">
+    <tr class="bg-sky-50">
+      <td colspan="7">
+        <h2 class="text-lg md:text-2xl">RESULTADO DE LA OBSERVACIÓN Y EVALUACIÓN DE LA PRÁCTICA</h2>
+      </td>
+    </tr>
+    <tr>
+      <th rowspan="2" width="25%"><h3>ACTIVITAT</h3></th>
+      <th rowspan="2"><h3>FACTORES</h3></th>
+      <th colspan="3"><h3>PUNTUACIÓN</h3></th>
+    </tr>
+    <tr class="font-bold text-sm">
+      <th>Max</th>
+      <th>Obtenida</th>
+      <th>Min</th>
+    </tr>
+    <tr>
+      <th rowspan="10"><strong>UF1841</strong><br>
+        HTML, Responsividad, Legibilidad, Semántica, Uso controles de Formulario y Validación de los mismos.
+      </th>
+      <td>1.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>2.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>    
+    <tr>      
+      <td>3.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>4.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>5.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+        <tr>      
+      <td>6.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>7.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>8.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>9.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr> 
+    <tr>      
+      <td>10.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>          
+    <tr class="border-2">      
+      <th class="text-right pr-4">Total</th>
+      <th>10</th>
+      <td>&nbsp;</td>
+      <th>0.5</th>
+    </tr>
+  </table>
+  <hr>
+    <h2 CLASS="text-3xl">UF1842</h2>
+    <table class="w-full max-w-full my-4">
+    <tr class="bg-sky-50">
+      <td colspan="7">
+        <h2 class="text-lg md:text-2xl">RESULTADO DE LA OBSERVACIÓN Y EVALUACIÓN DE LA PRÁCTICA</h2>
+      </td>
+    </tr>
+    <tr>
+      <th rowspan="2" width="25%"><h3>ACTIVITAT</h3></th>
+      <th rowspan="2"><h3>FACTORES</h3></th>
+      <th colspan="3"><h3>PUNTUACIÓN</h3></th>
+    </tr>
+    <tr class="font-bold text-sm">
+      <th>Max</th>
+      <th>Obtenida</th>
+      <th>Min</th>
+    </tr>
+    <tr>
+      <th rowspan="10"><strong>UF1842</strong><br>
+        
+      </th>
+      <td>1.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>2.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>    
+    <tr>      
+      <td>3.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>4.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>5.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+        <tr>      
+      <td>6.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>7.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>8.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>9.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr> 
+    <tr>      
+      <td>10.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>          
+    <tr class="border-2">      
+      <th class="text-right pr-4">Total</th>
+      <th>10</th>
+      <td>&nbsp;</td>
+      <th>0.5</th>
+    </tr>
+  </table>
+  <hr>
+    <h2 CLASS="text-3xl">UF1843</h2>
+    <table class="w-full max-w-full my-4">
+    <tr class="bg-sky-50">
+      <td colspan="7">
+        <h2 class="text-lg md:text-2xl">RESULTADO DE LA OBSERVACIÓN Y EVALUACIÓN DE LA PRÁCTICA</h2>
+      </td>
+    </tr>
+    <tr>
+      <th rowspan="2" width="25%"><h3>ACTIVITAT</h3></th>
+      <th rowspan="2"><h3>FACTORES</h3></th>
+      <th colspan="3"><h3>PUNTUACIÓN</h3></th>
+    </tr>
+    <tr class="font-bold text-sm">
+      <th>Max</th>
+      <th>Obtenida</th>
+      <th>Min</th>
+    </tr>
+    <tr>
+      <th rowspan="7"><strong>UF1843</strong><br>
+      </th>
+      <td>1. Dashboard con Ejercicios de Objetos</td>
+      <td class="text-center"><strong>3</strong></td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>2.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>    
+    <tr>      
+      <td>3.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>4.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>5.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+        <tr>      
+      <td>6.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>7.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>        
+    <tr class="border-2">      
+      <th class="text-right pr-4">Total</th>
+      <th>10</th>
+      <td>&nbsp;</td>
+      <th>0.5</th>
+    </tr>
+  </table>
+</div>
+
+</body>
+</html>

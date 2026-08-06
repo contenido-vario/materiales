@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es-Es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">    
+  </script>
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+
+    @theme {
+      --font-sans: "Inclusive Sans", ui-sans-serif, system-ui, sans-serif;
+      --color-brand: #ff4500;
+    }
+
+    @layer base {
+      :root { @apply text-sm; line-height: 1.7;}
+      p { @apply mb-2}
+      button { @apply rounded-md bg-slate-200 border-1 border-slate-400 px-4 py-1 my-1 text-sm cursor-pointer disabled:opacity-50}
+      details { @apply mb-4 py-2 border-b-slate-700 border-b-1 text-slate-800 }
+      summary { @apply py-1 text-base bg-slate-800 text-white font-bold }
+      blockquote { @apply mx-8 p-2 bg-slate-200 }
+      ol { @apply list-decimal list-outside ml-6 mb-4 }
+      ul { @apply list-[circle] list-outside ml-6 mb-4 }
+      li { @apply mb-1 }     
+      kbd, code, a { @apply text-blue-800 }
+      a { @apply border-b-1 }
+      input, select { @apply border-1 px-2 }
+      hr { @apply my-3 }
+      td, th { @apply border-black border p-1.5 }
+      h1, h2, h3 { @apply font-bold }
+    }
+  </style>
+
+  <link rel="shortcut icon" href="questions.svg" type="image/svg">
+  <title>UF1846 Examen</title>
+</head>
+
+<body class="container mx-auto w-5/6 pb-10 text-sky-900">
+
+<h2 class="text-lg md:text-2xl text-center my-4 text-sky-950">
+  Temas prueba teórica UF1846 (09/09/2026)
+</h2>
+<h3>Node.js y Astro</h3>
+<ul>
+    <li><a href="https://contenido-vario.github.io/node-js/instalacion.html" target="_blank" rel="noopener noreferrer">¿Qué es Node.js, Cmder, fnm, pnpm?</a></li>
+    <li><a href="https://contenido-vario.github.io/node-js/node-frontend.html" target="_blank" rel="noopener noreferrer">El rol de Node.js en el Frontend | pnpm como gestor de paquetes</a></li>
+    <li><strong>Astro</strong> (<a href="https://contenido-vario.github.io/content-collections/" target="_blank" rel="noopener noreferrer">estudiar la guía que os he hecho</a>)<br>
+      <details><summary class="bg-white text-black text-sm">Puntos importantes de la Guía</summary>
+      <ul class="text-sm">
+        <li>Para qué sirven los archivos de Astro</li>
+        <li>¿Qué es el <code>package.json</code> (node)</li>
+        <li>Componentes</li>
+        <li>Layouts</li>
+        <li>Pages</li>
+        <li>¿Qué va en las carpetas <code>public</code> y <code>src/assets</code></li>
+        <li>¿Qué son las Content Collections?</li>
+        <li>¿Qué va en la carpeta <code>contents</code>?</li>
+        <li>Las páginas dinámicas <code>blog/index.astro</code>, <code>[page].astro</code>y <code>[id].astro</code></li>
+        <li>¿Para qué sirve el archivo <code>content.config.ts</code>?</li>
+        <li>¿Qué es DecapCMS? ¿Cuál es su objetivo?</li>
+        <li>Alinear los campos del <code>config.yml</code> de DecapCMS con los del <code>content.config.ts</code> y el Frontmatter de los posts.</li>
+      </ul>
+      </details>
+    </li>
+  </ul>
+  <p class="pb-8">Esto es todo lo que irá (he seleccionado lo más importante) ya que considero que es mucho contenido. El contenido que veamos la primera semana de clases, lo pasaré a la siguiente evaluación, ya que sólo tenemos 3 días por semana y así podréis compensar la cantidad de cosas que hemos visto.</p>
+
+<h2 class="text-lg md:text-2xl text-center my-4 text-sky-950">
+  Prueba práctica de evaluación
+</h2>
+<p class="text-center"></p>
+<div>
+  <table class="w-full">
+    <tr class="bg-teal-50">
+      <td colspan="2">
+        <h2 class="text-2xl">ACTIVIDAD</h2>
+      </td>
+    </tr>
+    <tr>
+      <td class="w-1/6">&nbsp;</td>
+      <td>
+        <h3 class="font-bold bg-amber-100 mb-8 text-xl">
+          Proyecto UF1846. CREAR UN BLOG CON ASTRO + DecapCMS
+        </h3>
+        <p>Para este proyecto, crearás una App en Astro con un <b>Blog</b> que tenga 10 post.</p>
+        <p>La aplicación deberá tener un menú que permita navegar entre la página principal <code>index</code>, una página <code>about (sobreMi)</code> y un enlace a la página <code>blog/index</code> del blog.</p>
+        <p>Este menu deberá crearse en un componente (<code>Menu.astro</code>) que se integrará en un layout. El Layout deberá envolver todas las páginas de la app.</p>
+        <ul>
+          <li>En la página principal <code>index</code> podréis hacer una introducción al tema de la App.</li>
+          <li>En la página principal <code>about</code> un párrafo corto con vuestra  presentación.</li>          
+          <li>La página <code>index</code> del blog, la podéis hacer como gustéis. Normalmente lleva un párrafo indicando lo que se puede encontrar en el blog y el último post, además de un botón a la página de paginación <code>[page].astro</code> desde donde se podrá navegar por todas las entradas del blog.</li>
+          <li>La página <code>[id].astro</code> muestra finalmente el contenido del post.</li>
+          <li>Por último deberéis publicar el blog en <b>Netlify</b></li>
+        </ul>
+        <h4 class="font-bold text-xl mb-4">Entrega:</h4>
+
+        <ol>
+          <li>Subir comprimidas en un <code>.zip</code> las carpetas <code>public</code> + <code>src</code>.</li>
+          <li>Deberéis subir las URL del proyecto al siguiente <a href="#" target="_top" rel="noopener">formulario</a></li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+</div>
+<div>
+  <table class="w-full max-w-full my-4">
+    <tr class="bg-sky-50">
+      <td colspan="7">
+        <h2 class="text-lg md:text-2xl">RESULTADO DE LA OBSERVACIÓN Y EVALUACIÓN DE LA PRÁCTICA</h2>
+      </td>
+    </tr>
+    <tr>
+      <th rowspan="2"><h3>ACTIVITAT</h3></th>
+      <th rowspan="2"><h3>FACTORES</h3></th>
+      <th colspan="3"><h3>PUNTUACIÓN</h3></th>
+    </tr>
+    <tr class="font-bold text-sm">
+      <th>Max</th>
+      <th>Obtenida</th>
+      <th>Min</th>
+    </tr>
+    <tr>
+      <th rowspan="12">Blog en Astro</th>
+      <td>1. Componente Menú de la App (<code>Menu.astro</code>)</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>2. Layout (creación e integración del componente en el mismo)</td>
+      <td class="text-center">1,5</td>
+      <td>&nbsp;</td>
+      <td class="text-center">1</td>
+    </tr>    
+    <tr>      
+      <td>3. Páginas principales (<code>index</code>, <code>about</code>)</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>4. Páginas dinámicas del blog (<code>index</code>, <code>[page]</code>, <code>[id]</code>)</td>
+      <td class="text-center">2</td>
+      <td>&nbsp;</td>
+      <td class="text-center">1</td>
+    </tr>
+    <tr>      
+      <td>5. Archivo <code>content.config.ts</code></td>
+      <td class="text-center">1,5</td>
+      <td>&nbsp;</td>
+      <td class="text-center">1</td>
+    </tr>
+    <tr>      
+      <td>6. Validación de <code>Frontmatter</code> en el <code>content.config.ts</code></td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>7. Inclusión de  <b>Decap CMS</b></td>
+      <td class="text-center">0,5</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>8. Alineación de los campos del <code>config.yml</code> de DecapCMS con los del <code>content.config.ts</code> y el Frontmatter de los posts.</td>
+      <td class="text-center">1,5</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>        
+    <tr>      
+      <td>9. Penalización por no usar <a href="buenas-practicas.html" target="_blank">Buenas Prácticas</a></td>
+      <td class="text-center">-1.5</td>
+      <td>&nbsp;</td>
+      <td class="text-center">-1</td>
+    </tr>
+    <tr class="border ">      
+      <th class="text-right pr-4">Total</th>
+      <th>10</th>
+      <td>&nbsp;</td>
+      <th>2</th>
+    </tr>
+  </table>
+</div>
+
+</body>
+</html>

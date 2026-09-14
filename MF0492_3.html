@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es-Es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">    
+  </script>
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+
+    @theme {
+      --font-sans: "Inclusive Sans", ui-sans-serif, system-ui, sans-serif;
+      --color-brand: #ff4500;
+    }
+
+    @layer base {
+      :root { @apply text-sm; line-height: 1.7;}
+      p { @apply mb-2 text-lg}
+      button { @apply rounded-md bg-slate-200 border-1 border-slate-400 px-4 py-1 my-1 text-sm cursor-pointer disabled:opacity-50}
+      details { @apply mb-0.5 py-0.5 text-slate-800 }
+      details p { @apply mb-0.5 text-base }
+      summary { @apply py-1 text-base bg-slate-100 text-black font-bold }
+      blockquote { @apply mx-8 p-2 bg-slate-200 }
+      ol { @apply list-decimal list-outside ml-6 mb-4 }
+      ul { @apply list-[circle] list-outside ml-6 mb-4 }
+      li { @apply mb-1 }     
+      kbd, code, a { @apply text-blue-800 }
+      a { @apply border-b-1 }
+      input, select { @apply border-1 px-2 }
+      hr { @apply my-3 }
+      td, th { @apply border-black border p-1.5 }
+      h1, h2, h3 { @apply font-bold }
+    }
+  </style>
+
+  <link rel="shortcut icon" href="questions.svg" type="image/svg">
+  <title>MF0492_3 Examen Final</title>
+</head>
+
+<body class="container mx-auto w-5/6 pb-10 text-slate-900">
+
+<h2 class="text-lg md:text-2xl text-center my-4 text-slate-950">
+  Temas prueba teórica
+</h2>
+<ul>
+    <li><a href="https://contenido-vario.github.io/js1/destructuracion.html" target="_blank" rel="noopener">Destructuración</a></li>
+    <li><a href="https://contenido-vario.github.io/js1/web-storage.html" target="_blank" rel="noopener">Local Storage y Session Storage</a></li>
+    <li><a href="https://contenido-vario.github.io/js1/try-catch.html" target="_blank" rel="noopener">Try-catch (uso, sintaxis)</a></li>
+    <li><a href="https://contenido-vario.github.io/js1/ajax.html" target="_blank" rel="noopener">Asincronía (async / await)</a></li>
+    <li>El material de clases de Bases de Datos</li>
+    <li>Los archivos <code>package.json</code>, <code>tsconfig.json</code>, <code>astro.config.mjs</code> y los archivos tipo <code>pages</code>, <code>components</code> y <code>layouts</code> (lo pueden leer en el documento de <a href="https://contenido-vario.github.io/content-collections/" target="_blank" rel="noopener">Content collections</a>.</li>
+</ul>  
+<h1 class="text-xl md:text-2xl text-center mb-4 text-sky-950">
+  Prueba práctica de evaluación // Prova pràctica d' avaluació
+</h1>
+<p class="text-center"></p>
+<div>
+  <table class="w-full">
+    <tr class="bg-teal-50">
+      <td colspan="2">
+        <h2 class="text-2xl">ACTIVIDAD</h2>
+      </td>
+    </tr>
+    <tr>
+      <td class="w-1/6">&nbsp;</td>
+      <td>
+        <h3 class="font-bold bg-yellow-50 mb-8 text-xl">Proyecto MF0492_3. CREACIÓN Y ACCESO A BASE DE DATOS</h3>
+        <h4 class="font-bold text-lg">Objetivos</h4>
+        <ul type="disc">
+          <li>Crear la Base de Datos (en Supabase / PostGres) para el MVP de una Tienda Virtual que será programada utilizando Astro / NodeJS.</li>
+          <li>Crear la primera pantalla en la cual se muestre el complemento <b>MenuCategorias.astro</b>.</li>
+          <li>Crear la conexión y mostrar en el complemento, las categorías guardadas en la tabla <b>categorias</b>.</li>
+        </ul>
+        
+        <h4 class="font-bold text-lg mb-4">Requerimientos de la Base de Datos:</h4>
+        <h5 class="font-semibold">Tablas</h5>
+          <ul type="disc">
+            <li>
+              <details><summary>CLIENTES (alrededor de 15 clientes)</summary>
+                <p>- pk_cliente <code>UUID REFERENCES <mark>auth.users</mark> ON DELETE CASCADE PRIMARY KEY</code></p>
+                <p>- email (la autentificación la haremos por la cuenta de Google)</p>
+                <p>- dni_cif</p>
+                <p>- tipo (empresa/autónomo)</p>
+                <p>- razon_social (escribir acá persona natural en caso de ser autónomo)</p> 
+                <p>- nombres_cliente</p>
+                <p>- apellido1_cliente</p>
+                <p>- apellido2_cliente</p>
+                <p>- telefono_movil</p>
+                <p>- rol (cliente/administrador)</p>
+                <p>- fecha_registro <code>TIMESTAMP WITH TIME ZONE DEFAULT NOW()</code></p>
+                <p class="mt-4"><mark>auth.users</mark> hace referencia directa a la tabla interna del sistema de autenticación de Supabase.</p>
+                <p class="mt-4">La tabla <code>auth.users</code> de Supabase utiliza obligatoriamente identificadores del tipo <b>UUID</b>. Por eso el campo <code>pk_cliente</code> debe ser obligatoriamente <b>UUID</b>, de lo contrario PostgreSQL arrojará un error de incompatibilidad de tipos al intentar crear la tabla.</p>
+              </details>
+            </li>
+            <li>
+              <details><summary>CATEGORIAS (entre 5 y 10 categorías)</summary>
+                <p>- pk_categoria</p> 
+                <p>- nom_categoria</p>
+                <p>- descripcion_categoria</p>
+              </details>
+            </li>
+            <li>
+              <details><summary>PRODUCTOS (entre 5 y 10 por categoría)</summary>
+                <p class="mb-2">Haremos una tienda virtual sencilla, con lo cual a un producto sólo se le podrá asignar una única categoría.</p>
+                  <p>- pk_producto</p>
+                  <p>- fk_categoria</p>
+                  <p>- nombre_producto</p>
+                  <p>- url_imagen <mark>TEXT</mark>,</p>
+                  <p>- descripcion_producto (que se puede desglosar en varios campos)</p>
+                  <p>- precio</p>
+                  <p>- iva (en caso de que haya iva diferencial)</p>
+                  <p>- descuento (para productos promocionales)</p>
+                  <p>- stock</p>
+                  <p>- punto_reposicion (ROP: Reorder Point)</p>
+                  <p>- fecha_creacion TIMESTAMP WITH TIME ZONE DEFAULT NOW()</p>
+                  <p>- fecha_baja TIMESTAMP WITH TIME ZONE DEFAULT NULL</p> 
+              </details>
+            </li>
+            <li>
+              <details><summary>FACTURAS</summary>
+                <p>Una vez que un cliente incluya producto(s) a la cesta y la compra haya sido confirmada por <b>Stripe</b>, la tienda guardará el registro de compras con el número de factura asociado a la misma.</p>
+                <p>- pk_factura</p>
+                <p>- fk_cliente</p>
+                <p>- fecha_compra</p>
+                <p>- stripe_payment_intent_id TEXT NOT NULL UNIQUE,</p>
+                <p>- iva (si todos los productos de la tienda tienen el mismo iva, se registrará acá, de lo contrario se registrará en la tabla DETALLE_FACTURA)</p>
+                <p>- pagado con [tarjeta, transferencia, pay-pal, etc]</p>
+                <p>- referencia-pago</p>
+                <p>- banco</p>
+              </details>
+            </li>
+            <li>
+              <details><summary>DETALLE_FACTURA</summary>
+                <p>- fk-factura</p>
+                <p>- fk-producto</p>
+                <p>- cantidad</p>
+                <p>- precio-unitario</p>
+                <p>- <mark>precio_total NUMERIC <b>GENERATED ALWAYS AS (precio * cantidad) STORED</b></mark></p>
+                <p>- descuento</p>
+                <p>- iva (si aplica)</p>
+                
+                <p class="mt-4 mb-2">La cláusula <b>GENERATED ALWAYS AS (fórmula) STORED</b> se utiliza para crear columnas calculadas (también conocidas como columnas autogeneradas). El valor de este tipo de columna se calcula automáticamente a partir de otras columnas de la misma fila y se guarda físicamente en el disco.</p>
+                <h5 class="my-1 font-bold text-base">Reglas para crear columnas calculadas</h5>
+                <ul type="disc">
+                  <li>Deben llevar STORED: PostgreSQL actualmente solo soporta columnas generadas persistentes (STORED). No se calculan al vuelo en cada consulta, sino que se guardan al insertar o actualizar.</li>
+                  <li>Son de solo lectura: No puedes insertar ni actualizar datos directamente en esa columna. Postgres se encarga de todo.</li>
+                  <li>La fórmula solo puede usar columnas de la misma fila y funciones deterministas (que siempre devuelven el mismo resultado con los mismos datos). No puedes usar funciones como NOW() o incluir subconsultas a otras tablas.</li>
+                </ul>
+              </details>
+            </li>                                                                                    
+          </ul>
+
+        <details><summary class="font-bold text-lg mb-4">Requerimientos de la Conexión:</summary>
+          <p class="text-base">Al conectar un backend a una base de datos, las buenas prácticas se enfocan en tres pilares: seguridad, rendimiento y mantenibilidad.</p>
+
+          <h5 class="font-semibold">Seguridad</h5>
+          <ul>
+            <li>Nunca guardes contraseñas en el código. Utiliza variables de entorno (<code>.env</code>).</li>
+            <li>Principio de menor privilegio: Configura el usuario de la base de datos con los permisos mínimos necesarios (por ejemplo, si un usuario solo debe leer datos, no le des permisos de escritura o eliminación).</li>
+            <li>Prevención de Inyección SQL: Usa siempre consultas preparadas (Prepared Statements) en lugar de concatenar texto directamente en las sentencias SQL.</li>
+            <li>Cifrado en tránsito: Fuerza conexiones seguras utilizando SSL/TLS para evitar que los datos sean interceptados entre el backend y la base de datos.</li>
+          </ul>
+
+          <h5 class="font-semibold">Rendimiento y Eficiencia</h5>
+          <ul>
+            <li>Usa un Pool de Conexiones (Connection Pooling): Abrir y cerrar una conexión por cada solicitud es costoso. Mantén un grupo de conexiones reutilizables preabiertas para mejorar el tiempo de respuesta.</li>
+            <li>Cierre de conexiones: Asegúrate de liberar o devolver la conexión al pool una vez que la consulta termine, idealmente usando bloques try-catch-finally</li>
+            <li>Control de Tiempos de Espera (Timeouts): Configura límites de tiempo (connectTimeout y socketTimeout). Esto evita que un hilo del backend se quede bloqueado indefinidamente si la base de datos no responde.</li>
+            <!-- * Manejo de Transacciones: Mantén las transacciones ACID lo más cortas posibles para evitar el bloqueo de tablas o filas durante mucho tiempo, lo que ralentizaría a otros usuarios. -->
+          </ul>
+
+          <h5 class="font-semibold">Mantenibilidad y Arquitectura</h5>
+          <ul>
+            <!-- <li>Abstracción del acceso a datos: Implementa patrones de diseño como Repository Pattern o Data Access Object (DAO). Esto separa la lógica de negocio de las consultas directas a la base de datos.</li> -->
+            <li>Manejo de errores centralizado: Captura las excepciones (errores) de la base de datos y muéstralas de forma genérica para el usuario. Nunca muestres errores internos del motor (como códigos de error SQL) en la respuesta del cliente, ya que revelan información de la infraestructura.</li>
+            <li>Define interfaces para los resultados de tus consultas. Así mantendrás tu proyecto Astro escalable y robusto.</li>
+            <li>Estrategia de Reintentos (Retry Logic): Implementa reintentos automáticos con un retraso exponencial (exponential backoff) únicamente para fallos temporales de red, evitando saturar el servidor.</li>
+          </ul>
+        </details>
+
+        <h4 class="font-bold text-lg mb-4">Forma de Entrega:</h4>
+        <p>Deberéis subir cuatro documentos al siguiente <a target="_blank" href="#" rel="noopener">formulario</a>:</p>
+        <ul type="disc">
+          <li>Un archivo <code>ejercicios.sql</code> comentando, con la solución de los ejercicios SELECT: ★ Consultas simples, ★&nbsp;Consultas multitabla y ★ Consultas agrupadas.</li>
+          <li>Un archivo <code>tienda_<em>tu_nombre</em>.sql</code> con las instrucciones para la creación e inserción de registros en la Base de Datos.</li>
+          <li>El archivo del componente <code>MenuCategorias.astro</code></li>
+          <li>Un archivo <code><em>tu_nombre</em>.zip</code> con el contenido de los archivos de conexión (carpeta <code>/src/lib/</code> de Astro) y los archivos <code>astro.config.mjs</code> y <code>package.json</code></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</div>
+<div>
+  <table class="w-full max-w-full my-4"> <!-- UF1844 -->
+    <tr class="bg-sky-50">
+      <td colspan="5">
+        <h2 class="text-lg md:text-2xl tracking-wide">RESULTADO DE LA OBSERVACIÓN Y EVALUACIÓN DE LA PRÁCTICA UF1844</h2>
+      </td>
+    </tr>
+    <tr>
+      <th rowspan="2" width="25%"><h3>ACTIVITAT</h3></th>
+      <th rowspan="2"><h3>FACTORES</h3></th>
+      <th colspan="3"><h3>PUNTUACIÓN</h3></th>
+    </tr>
+    <tr class="font-bold text-sm">
+      <th>Max</th>
+      <th>Obtenida</th>
+      <th>Min</th>
+    </tr>
+    <tr>
+      <th rowspan="6">
+        <span class="text-4xl">UF1844</span>
+      </th>
+      <td>1. Funcionalidad del Componente <code>MenuCategorias.astro</code></td>
+      <td class="text-center">2.5</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>2. Uso de Buenas Prácticas en el código del Componente</td>
+      <td class="text-center">2.5</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>    
+    <tr>      
+      <td>3. Funciones de array para mapear la información</td>
+      <td class="text-center">2.5</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>4. Diseño del Menú de Categorías</td>
+      <td class="text-center">2.5</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr class="border-2">      
+      <th class="text-right pr-4">Total&nbsp;</th>
+      <th>10</th>
+      <th>&nbsp;</th>
+      <th>0</th>
+    </tr>
+  </table>
+
+  <table class="w-full max-w-full my-4"> <!-- UF1845 -->
+    <tr class="bg-sky-50">
+      <td colspan="7">
+        <h2 class="text-lg md:text-2xl tracking-wide">RESULTADO DE LA OBSERVACIÓN Y EVALUACIÓN DE LA PRÁCTICA UF1845 </h2>
+      </td>
+    </tr>
+    <tr>
+      <th rowspan="2" width="25%"><h3>ACTIVITAT</h3></th>
+      <th rowspan="2"><h3>FACTORES</h3></th>
+      <th colspan="3"><h3>PUNTUACIÓN</h3></th>
+    </tr>
+    <tr class="font-bold text-sm">
+      <th>Max</th>
+      <th>Obtenida</th>
+      <th>Min</th>
+    </tr>
+    <tr>
+      <th rowspan="5">
+        <span class="text-4xl">UF1845</span>
+      </th>
+      <td>1. Solución de los ejercicios SELECT</td>
+      <td class="text-center">3</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>2. Los campos de las tablas tienen un tipo de datos coherente.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>    
+    <tr>      
+      <td>3. Se han establecido y justificado las restricciones pertinentes en los campos que así lo ameritan.</td>
+      <td class="text-center">2</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>4. Se han programado las relaciones entre las tablas (foreing keys)</td>
+      <td class="text-center">2</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>5. Las relaciones contienen las cláusulas ON UPDATE | ON DELETE justificadas</td>
+      <td class="text-center">2</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr> 
+    <tr class="border-2">      
+      <th>&nbsp;</th>
+      <th class="text-right pr-4">Total</th>
+      <th>10</th>
+      <td>&nbsp;</td>
+      <th>0</th>
+    </tr>
+  </table>
+
+  <table class="w-full max-w-full my-4"> <!-- UF1846 -->
+    <tr class="bg-sky-50">
+      <td colspan="7">
+        <h2 class="text-lg md:text-2xl tracking-wide">RESULTADO DE LA OBSERVACIÓN Y EVALUACIÓN DE LA PRÁCTICA UF1846</h2>
+      </td>
+    </tr>
+    <tr>
+      <th rowspan="2" width="25%"><h3>ACTIVITAT</h3></th>
+      <th rowspan="2"><h3>FACTORES</h3></th>
+      <th colspan="3"><h3>PUNTUACIÓN</h3></th>
+    </tr>
+    <tr class="font-bold text-sm">
+      <th>Max</th>
+      <th>Obtenida</th>
+      <th>Min</th>
+    </tr>
+    <tr>
+      <th rowspan="7">
+        <span class="text-4xl">UF1846</span>
+      </th>
+      <td>1. Se ha establecido el renderizado del lado del servidor en <code>astro.config.mjs</code></td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>2. El archivo <code>package.json</code> tiene incluida todas las dependencias necesarias.</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>    
+    <tr>      
+      <td>3. El archivo <code>src/lib/db.ts</code> no expone la cadena de conexión y usa cifrado en tránsito SSL</td>
+      <td class="text-center">2</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>4. ¿Se usa un Pool de Conexiones?</td>
+      <td class="text-center">2</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>5. ¿Se define la interface para los resultados de la consulta?</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+        <tr>      
+      <td>6. ¿El archivo <code>src/lib/db.ts</code> utiliza <code>try...catch</code>?</td>
+      <td class="text-center">1</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>
+    <tr>      
+      <td>7. ¿Se utilizan Prepared Statement para realizar la consulta?</td>
+      <td class="text-center">2</td>
+      <td>&nbsp;</td>
+      <td class="text-center">0</td>
+    </tr>        
+    <tr class="border-2">      
+      <td>&nbsp;</td>
+      <th class="text-right pr-4">Total</th>
+      <th>10</th>
+      <td>&nbsp;</td>
+      <th>0</th>
+    </tr>
+  </table>
+</div>
+
+</body>
+</html>

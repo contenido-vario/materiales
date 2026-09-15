@@ -84,7 +84,6 @@
               <details><summary>CLIENTES (alrededor de 15 clientes)</summary>
                 <p>- pk_cliente <code>UUID REFERENCES <mark>auth.users</mark> ON DELETE CASCADE PRIMARY KEY</code></p>
                 <p>- email (la autentificación la haremos por la cuenta de Google)</p>
-                <p>- dni_cif</p>
                 <p>- tipo (empresa/autónomo)</p>
                 <p>- razon_social (escribir acá persona natural en caso de ser autónomo)</p> 
                 <p>- nombres_cliente</p>
@@ -129,9 +128,6 @@
                 <p>- fecha_compra</p>
                 <p>- stripe_payment_intent_id TEXT NOT NULL UNIQUE,</p>
                 <p>- iva (si todos los productos de la tienda tienen el mismo iva, se registrará acá, de lo contrario se registrará en la tabla DETALLE_FACTURA)</p>
-                <p>- pagado con [tarjeta, transferencia, pay-pal, etc]</p>
-                <p>- referencia-pago</p>
-                <p>- banco</p>
               </details>
             </li>
             <li>

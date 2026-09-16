@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es-Es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">    
+  </script>
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+
+    @theme {
+      --font-sans: "Inclusive Sans", ui-sans-serif, system-ui, sans-serif;
+      --color-brand: #ff4500;
+    }
+
+    @layer base {
+      :root { @apply text-sm; line-height: 1.7;}
+      p { @apply mb-2 text-lg}
+      button { @apply rounded-md bg-slate-200 border-1 border-slate-400 px-4 py-1 my-1 text-sm cursor-pointer disabled:opacity-50}
+      details { @apply mb-0.5 py-0.5 text-slate-800 }
+      details p { @apply mb-0.5 text-base }
+      summary { @apply py-1 text-base bg-slate-100 text-black font-bold }
+      blockquote { @apply mx-8 p-2 bg-slate-100 }
+      ol { @apply list-decimal list-outside ml-6 mb-4 }
+      ul { @apply list-[circle] list-outside ml-6 mb-4 }
+      li { @apply mb-1 }     
+      kbd, code, a { @apply text-blue-800 font-semibold }
+      a { @apply border-b-1 }
+      input, select { @apply border-1 px-2 }
+      hr { @apply my-3 }
+      td, th { @apply border-black border p-1.5 }
+      h1, h2, h3 { @apply font-bold }
+      h1 {@apply text-2xl}
+      h2 {@apply text-xl my-4 text-red-700}
+      h3 {@apply text-lg text-cyan-600}
+      h4 {@apply text-base text-black font-bold my-4}
+    }
+  </style>
+
+  <link rel="shortcut icon" href="questions.svg" type="image/svg">
+    <title>Subir archivos desde Astro</title>
+</head>
+<body class="container mx-auto w-5/6 pb-10 text-slate-900">
+
+  <h1 class="text-lg md:text-2xl text-center my-4 text-slate-950">
+    Utilizar el método <code>upload</code> desde el cliente para guardar el archivo en el bucket.
+  </h1>
+
+  <p>Para usar Astro con Node.js (modo SSR) y procesar la subida de imágenes en el servidor usando el <a target="_blank" rel="" href="https://supabase.com/docs/reference/javascript/v1/storage-from-upload">SDK de Supabase</a>, el enfoque recomendado es crear un endpoint de tipo API con un formulario en una página de Astro configurado para procesar métodos <code>POST</code>.</p>
+
+  <p>Paso a paso de cómo estructurarlo:</p>
+
+  <h2>1. Requisitos e Instalación</h2>
+  <p>Asegúrate de tener habilitado el modo de servidor en tu <code>astro.config.mjs</code> y de haber instalado la librería de [Supabase JavaScript Client](https://supabase.com/docs/guides/storage/quickstart).</p>
+
+  <pre><code>npm install @supabase/supabase-js</code></pre>
+
+  <h2>2. Configurar el Cliente de Supabase</h2>
+
+  <p>Crear un archivo de inicialización en <code>src/lib/supabase.js</code> para reutilizar el cliente:</p>
+
+  <details>
+    <summary>src/lib/supabase.js</summary>
+    <script 
+    src="https://gist.github.com/contenido-vario/9f596c34e03ac02976a90c6f04b2479a.js?file=supabase.js">
+    </script>
+  </details>
+
+  <p>No olvides añadir tus claves <code>SUPABASE_URL</code> y <code>SUPABASE_ANON_KEY</code> en tu archivo <code>.env</code>.</p>
+
+  <h2>3. Crear el EndPoint de Subida (Backend en Astro con Node)</h2>
+
+  <p>Crea una ruta de API en <code>src/pages/api/upload.js</code>. Dado que estás usando Node, procesaremos los datos del formulario binario directamente en la petición [Supabase Docs](https://supabase.com/docs/guides/storage/uploads/standard-uploads):</p>
+
+  <details>
+    <summary>src/pages/api/upload.js</summary>
+    <script 
+    src="https://gist.github.com/contenido-vario/9f596c34e03ac02976a90c6f04b2479a.js?file=upload.js">
+    </script>
+  </details>
+
+
+  <h2>4. El Formulario en tu Página de Astro</h2>
+
+  <p>Crear un formulario (por ejemplo, <code>src/pages/formulario.astro</code>) para enviar el archivo hacia tu nuevo endpoint:</p>
+
+  <details>
+    <summary>src/pages/formulario.astro</summary>
+    <script 
+    src="https://gist.github.com/contenido-vario/9f596c34e03ac02976a90c6f04b2479a.js?file=formulario.astro">
+    </script>
+  </details>
+
+  <h2>Punto clave a revisar:</h2>
+
+  <blockquote>
+    <p><span class="text-red-800">Políticas RLS en Supabase</span>: Recuerda ir al panel de Supabase Storage, seleccionar tu Bucket y asegurarte de tener las <b>Políticas RLS</b> que permitan la inserción (INSERT) de archivos de forma pública o autenticada Supabase Docs. Si es un bucket de pruebas, puedes habilitar el acceso público total provisionalmente para verificar que todo funciona correctamente.</p>
+  </blockquote>
+ 
+  <p>Para que la aplicación acepte subidas de archivos, el bucket no solo debe existir, sino que la tabla interna de la base de datos que gestiona los archivos (storage.objects) necesita una política RLS que permita la acción <code>INSERT</code>.</p>
+
+  <h3 class="my-8">Configuraciones estándar dependiendo del caso de uso:</h3>
+
+  <h4>Opción 1: Permitir subidas solo a usuarios autenticados (Recomendado)</h4>
+  <p>Esta política permite que cualquier usuario que haya iniciado sesión en tu app pueda subir archivos.</p>
+
+  <ul>
+    <li>Operación permitida: <code>INSERT</code></li>
+    <li>Target roles: <code>authenticated</code></li>
+    <li>Expresión condicional <span class="text-sm">(WITH CHECK)</span>: <code>auth.role() = 'authenticated'</code></li>
+  </ul>
+
+  <h4>Opción 2: Permitir subidas públicas (Anónimas)</h4>
+
+  <p>Usa esta opción si estás creando un formulario público donde cualquiera pueda subir un archivo sin registrarse. Atención: Esto puede exponer tu bucket a spam si no validas las subidas en el frontend o mediante funciones.</p>
+
+  <ul>  
+    <li>Operación permitida: <code>INSERT</code></li>
+    <li>Target roles: <code> anon</code> (o dejarlo para todos los roles)</li>
+    <li>Expresión condicional <span class="text-sm">(WITH CHECK)</span>: <code>true</code></li>
+  </ul>
+
+  <h4>Opción 3: El usuario solo puede subir archivos a su propia carpeta</h4>
+
+  <p>Si quieres organizar el bucket creando una carpeta por usuario basada en su ID, necesitas restringir el acceso para que nadie suba archivos en carpetas ajenas. <sup>[1]</sup></p> 
+
+  <ul>
+    <li>Operación permitida: <code>INSERT</code></li>
+    <li>Target roles: <code>authenticated</code></li>
+    <li>Expresión condicional <span class="text-sm">(WITH CHECK)</span>:<br> 
+      <code>(bucket_id = 'nombre_de_tu_bucket'::text) AND (auth.uid() = (storage.foldername(name))[1]::uuid)</code></li>
+  </ul>
+  
+  <hr>
+  
+  <p class="mb-8"><sup>[1]</sup> Esto asume que la ruta del archivo empieza con el ID del usuario, por ejemplo: <code>nombre_de_tu_bucket/id_del_usuario/foto.png</code></p>  
+ 
+  <h3 class="mt-8">Cómo aplicarlo desde el Panel de Supabase</h3>
+
+  <ol>
+    <li>Entra en el Dashboard de Supabase.</li>
+    <li>Ve a la sección de Storage en el menú lateral izquierdo.</li>
+    <li>Haz clic en Policies (Políticas).</li>
+    <li>Busca tu Bucket y haz clic en New Policy (Nueva política).</li>
+    <li>Selecciona Create a policy from scratch (Crear desde cero) para tener un control total.</li>
+    <li>Dale un nombre descriptivo (ej. "Permitir subidas a usuarios autenticados").</li>
+    <li>Selecciona la operación INSERT.</li>
+    <li>Pega el código correspondiente en el recuadro de la condición y guarda los cambios.</li>
+</ol>
+
+<p>En lugar de crear 3 políticas visuales en el Dashboard, es mucho más rápido ir al SQL Editor de Supabase (el icono de >_ en la barra lateral izquierda) y ejecutar el siguiente bloque de código. Solo asegúrate de cambiar <code>nombre_de_tu_bucket</code> por el nombre real de tu bucket de productos:</p>
+
+  <details>
+    <summary>Supabase: politicas.sql</summary>
+    <script 
+    src="https://gist.github.com/contenido-vario/9f596c34e03ac02976a90c6f04b2479a.js?file=politicas.sql">
+    </script>
+  </details>
+
+<p>Como se utiliza una tabla personalizada en la base de datos para definir los roles (por ejemplo, una tabla llamada clientes o perfiles), la política de Storage debe realizar una consulta (subquery) a esa tabla para verificar si el usuario que intenta modificar el bucket tiene el rol de administrador.</p>
+
+<p>Asumiendo que tu tabla se llama clientes, que tiene una columna de identidad vinculada a Supabase Auth (usualmente id o user_id) y una columna para el rol (por ejemplo, rol o tipo_usuario). La configuración cambia de la siguiente manera:</p>
+
+  <details>
+    <summary>Supabase: politicas2.sql</summary>
+    <script 
+    src="https://gist.github.com/contenido-vario/9f596c34e03ac02976a90c6f04b2479a.js?file=politicas2.sql">
+    </script>
+  </details>
+
+
+
+<hr>
+<div class="my-8">
+  <p class="text-sm"><sup>[1]</sup> [https://www.reddit.com](https://www.reddit.com/r/Supabase/comments/1dlqksf/help_how_do_i_set_up_rls_policy_for_file_upload/?tl=es-419)</p>
+  <p class="text-sm"><sup>[2]</sup> [https://www.reddit.com](https://www.reddit.com/r/Supabase/comments/1ovxyld/urgent_supabase_bucket_policies_issue/?tl=es-419)</p>
+</div>
+
+
+</body>
+</html>

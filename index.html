@@ -56,6 +56,7 @@
     /* Se usa cuando se está repitiendo EXACTAMENTE las mismas 10 clases en muchos componentes (por ejemplo botones), para crear una clase propia. */
 
     @layer components {
+      summary.principal {@apply text-cyan-600 text-xl }
       .btn-principal {
         @apply px-4 py-2 bg-red-700 text-white rounded-lg hover:bg-red-500 transition;
       }
@@ -151,9 +152,9 @@
 
         <!-- VS CODE -->
 
-        <article>
-          <h3 class="text-xl"><img class="w-6" src="./icons/vscode.svg"
-                alt="vscode icon">Visual Studio Code</h3>
+        <article><details>
+          <summary class="principal"><img class="w-6" src="./icons/vscode.svg"
+                alt="vscode icon">Visual Studio Code</summary>
           <h6>[Editor de Código (IDE)]</h6>
           <h4><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a></h4>
 
@@ -176,12 +177,12 @@
 
           <h4 class="mt-2"><a href="https://github.com/" target="_blank" rel="noopener">Github</a></h4>
           <h4 class="mt-2"><a href="./gist.html" target="_blank" rel="noopener">GIST de Github / Ejercicio JS</a></h4>
-        </article>
+        </details></article>
 
         <!-- HTML -->
 
-        <article>
-          <h3 class="text-xl"><img class="w-6" src="./icons/html5-color.svg" alt="html icon">HTML</h3>
+        <article><details>
+          <summary class="principal" class="text-xl"><img class="w-6" src="./icons/html5-color.svg" alt="html icon">HTML</summary>
           <h6>[Lenguaje de marcado FrontEnd]</h6>
           <details>
             <summary>Material de consulta HTML</summary>
@@ -224,12 +225,13 @@
                   rel="noreferrer noopener">Curriculum Vitae</a></li>
             </menu>
           </details>
-        </article>
+        </details></article>
 
         <!-- CSS  -->
 
-        <article>
-          <h3 class="text-xl"><img class="w-6" src="./icons/css3-color.svg" alt="icon css3">CSS</h3><h6> [Lenguaje de Formato FrontEnd]</h3>
+        <article><details>
+          <summary class="principal"><img class="w-6" src="./icons/css3-color.svg" alt="icon css3">CSS</summary>
+          <h6> [Lenguaje de Formato FrontEnd]</h3>
           <details>
             <summary>Material CSS3</summary>
             <menu>
@@ -274,12 +276,13 @@
                   rel="noopener noreferrer"> Solución CSS Diner</a></li>
             </menu>
           </details>
-        </article>
+        </details></article>
 
         <!-- TAILWIND -->
         
-        <article>
-          <h3 class="text-xl"><img class="w-6" src="./icons/tailwindcss.svg" alt="icon tailwind">Tailwindcss</h3><h6>[Framework CSS FrontEnd]</h6>
+        <article><details>
+          <summary class="principal"><img class="w-6" src="./icons/tailwindcss.svg" alt="icon tailwind">Tailwindcss</summary>
+          <h6>[Framework CSS FrontEnd]</h6>
           <h4><a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind css</a></h4>
           <details>
             <summary>Material Tailwind</summary>
@@ -325,12 +328,12 @@
               <li class="link"><a href="https://bulma.io/" target="_blank" rel="noopener noreferrer">Bulma</a></li>
             </menu>
           </details>
-        </article>
+        </details></article>
 
         <!-- JAVASCRIPT -->
 
-        <article>
-          <h3 class="text-xl"><img class="w-6" src="./icons/js.svg" alt="icon js">JavaScript</h3><h6>[Lenguaje de Programación<br>FrontEnd/BackEnd con Node.js]</h6>          
+        <article><details>
+          <summary class="principal"><img class="w-6" src="./icons/js.svg" alt="icon js">JavaScript</summary><h6>[Lenguaje de Programación<br>FrontEnd/BackEnd con Node.js]</h6>          
           <h4 class="teoria mt-2 font-bold"><a href="./buenas-practicas.html" target="_blank">Buenas Prácticas</a></h4>
           <details>
             <summary>Material de Consulta</summary>
@@ -348,12 +351,12 @@
             </menu>
           </details>
           <h4 class="js mt-2"><a class="roja" href="https://contenido-vario.github.io/es6/" target="_blank" rel="noopener">Material de clases JavaScript</a></h4>
-        </article>
+        </details></article>
 
         <!-- NODEJS - EXPRESS -->
 
-        <article>
-          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/nodejs.svg" alt="icon nodejs"> <b title="Entorno de Desarrollo Fullstack para JavaScript">NodeJS</b></h3>
+        <article><details>
+          <summary class="principal"><img class="w-6" src="./icons/nodejs.svg" alt="icon nodejs"> <b title="Entorno de Desarrollo Fullstack para JavaScript">Node.js</b></summary>
           <h6>[Node.js Entorno de Desarrollo para JavaScript Backend]</h6> 
           <h4 class="node mt-2"><a class="roja" href="https://contenido-vario.github.io/node-js/" target="_blank" rel="noopener">Material de clases Node.js</a></h4>
           <h4><a href="https://nodejs.org/es" target="_blank" rel="noopener">Node.js®</a></h4>
@@ -384,12 +387,12 @@
                   rel="noopener noreferrer">Spring</a></li>
             </menu>
           </details>
-        </article>        
+        </details></article>        
 
         <!-- Lenguajes de Intercambio de Datos -->
 
-        <article>
-          <h3 class="text-xl"><img class="w-5" src="./icons/data-exchange.svg" alt="icon json">Intercambio de Datos</h3>
+        <article><details>
+          <summary class="principal"><img class="w-5" src="./icons/data-exchange.svg" alt="icon json">Intercambio de Datos</summary>
           <h6>Lenguajes y Formatos</h6>
           <h4><a href="https://www.json.org/json-es.html" target="_blank" rel="noreferrer noopener">JSON. Java Script Object Notation</a></h4>
           <h4><a href="https://www.w3.org/TR/xml/" target="_blank" rel="noreferrer noopener">XLM. eXtensible Markup Language</a></h4>
@@ -403,12 +406,12 @@
             </menu>
           </details>
 
-        </article>
+        </details></article>
 
         <!-- APIs -->
 
-        <article>
-          <h3 class="text-xl"><img class="w-5" src="./icons/api.svg" alt="icon apis">APIs</h3>
+        <article><details>
+          <summary class="principal"><img class="w-5" src="./icons/api.svg" alt="icon apis">APIs</summary>
           <h6>Application Programming Interface</h6>
           <h4><a href="https://www.youtube.com/watch?v=u2Ms34GE14U" target="_blank" rel="noreferrer noopener">¿Qué es un API?</a></h4>          
           <details>
@@ -441,12 +444,12 @@
               <!-- <li class="teoria"><a href="https://geekflare.com/es/what-is-yaml/" target="_blank" rel="noreferrer noopener">YAML</a></li> -->
             </menu>
           </details>
-        </article>
+        </details></article>
         
         <!-- GIT - GITHUB  -->
 
-        <article>
-          <h3 class="text-xl"><img class="w-6" src="./icons/git.svg" alt="icon git"><span class="text-orange-600">GIT</span></h3>
+        <article><details>
+          <summary class="principal"><img class="w-6" src="./icons/git.svg" alt="icon git"><span class="text-orange-600">GIT</span></summary>
           <h6>Sistema de Control de Versiones</h6>
           <h4><a href="https://git-scm.com/" target="_blank" rel="noopener">GIT <code>--fast-version-control</code></a>
           </h4>
@@ -455,12 +458,12 @@
             <menu>
             </menu>
           </details>
-        </article>
+        </details></article>
 
         <!-- ASTRO.BUILD -->
 
-        <article>
-          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/astro.svg" alt="icon Astro">Astro</h3>
+        <article><details>
+          <summary class="principal"><img class="w-6" src="./icons/astro.svg" alt="icon Astro">Astro</summary>
           <h6>Framework FrontEnd / Orquestador</h6>
           <h4><a href="https://astro.build/" target="_blank" rel="noopener">Astro</a></h4>
           <h4 class="astro mt-2"><a class="roja" href="https://contenido-vario.github.io/astro/" target="_blank" rel="noopener">Material de clases Astro</a></h4>
@@ -469,25 +472,25 @@
             <menu>
             </menu>
           </details>
-        </article>
+        </details></article>
 
         <!-- MARKDOWN -->
 
-        <article>
-          <h3 class="text-xl mb-2">
-            <img class="w-6" src="./icons/markdown.svg" alt="icon markdown">Markdown</h3>
+        <article><details>
+          <summary class="principal">
+            <img class="w-6" src="./icons/markdown.svg" alt="icon markdown">Markdown</summary>
           <h6>Lenguaje de marcado ligero</h6>
           <h4><a href="https://www.markdownguide.org/" target="_blank" rel="noopener">Markdown</a></h4>
           <h4 class="teoria"><a href="https://programminghistorian.org/es/lecciones/introduccion-a-markdown"
               target="_blank" rel="noopener noreferrer">Introducción a Markdown</a></h4>
           <h4 class="obsidian"><a href="https://obsidian.md/es/download" target="_blank" rel="noopener">Obsidian - Editor Markdown</a></h4>
 
-        </article>
+        </details></article>
 
         <!-- BASES DE DATOS -->
 
-        <article>
-          <h3 class="text-lg mb-2"><img class="w-6" src="./icons/postgres-sql.svg" alt="icon PostGresSQL">PostGreSQL en Supabase</h3>
+        <article><details>
+          <summary class="principal"><img class="w-6" src="./icons/postgres-sql.svg" alt="icon PostGresSQL">PostGreSQL | Supabase</summary>
           <h6>Base de Datos Multiparadigma</h6>
           <h4><a href="https://www.postgresql.org/" target="_blank" rel="noopener">PostGreSQL</a></h4>
           <h4><a href="https://www.pgadmin.org/" target="_blank" rel="noopener">pgadmin: Gestor de PotGres</a></h4>          
@@ -533,17 +536,17 @@
             </menu>
           </details>
           
-        </article>
+        </details></article>
 
 
         <!-- REACT  -->
 
-        <article>
-          <h3 class="text-xl mb-2"><img class="w-6" src="./icons/react.svg" alt="icon React">React</h3>
+        <article><details>
+          <summary class="principal"><img class="w-6" src="./icons/react.svg" alt="icon React">React</summary>
           <h6>Framework JavaScript</h6>
 
           <h4><a href="https://es.react.dev/" target="_blank" rel="noopener">React</a></h4>
-          <h4 class="react mt-2"><a class="roja" href="#" target="_blank" rel="noopener">Material de clases React</a></h4>
+          <h4 class="react mt-2"><a class="roja" href="https://contenido-vario.github.io/react/" target="_blank" rel="noopener">Material de clases React</a></h4>
           <details>
             <summary onclick="return false;" class="text-gray-300">Material React</summary>
             <menu>
@@ -552,9 +555,8 @@
           <details>
             <summary class="text-gray-600">Otros frameworks para JavaScript</summary>
             <menu>
-              <p class="text-black text-xs">Los frameworks de JavaScript proporcionan una estructura predefinida,
-                componentes reutilizables y herramientas optimizadas para manejar la interfaz de usuario: manejo de
-                estados, crear navegación fluida sin recargar la página y comunicación con APIs </p>
+              <p class="text-black text-xs">Los frameworks de JavaScript proporcionan 
+                componentes reutilizables y herramientas optimizadas para manejar la interfaz de usuario: manejo de estados, crear navegación fluida sin recargar la página y comunicación con APIs </p>
               <li class="link"><a href="https://svelte.dev/" target="_blank" rel="noopener noreferrer">Svelte</a></li>
               <li class="link"><a href="https://www.solidjs.com/" target="_blank" rel="noopener noreferrer">Solid.js</a>
               </li>
@@ -566,21 +568,21 @@
               </li>
             </menu>
           </details>
-        </article>
+        </details></article>
 
 
         <!-- MATERIAL COMPLEMENTARIO -->
 
-        <article>
-          <h3 class="text-xl mb-2">
-            <img class="w-6" src="./icons/bookmark-star.svg" alt="icon">Material Complementario</h3>
+        <article><details>
+          <summary class="principal text-lg">
+            <img class="w-6" src="./icons/bookmark-star.svg" alt="icon">Material Complementario</summary>
           <hr class="my-3 border-gray-200">
 
           <h4><a href="https://www.webempresa.com/university/curso-wordpress-gratis/" target="_blank" rel="noopener">Curso de WordPress</a></h4>
 
           <h4><a href="https://academy.hubspot.com/es/courses/seo-training" target="_blank" rel="noopener">Cert. AEO Hubspot Academy</a></h4>
 
-        </article>
+        </details></article>
 
       </div>
     </section>

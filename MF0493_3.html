@@ -1,0 +1,778 @@
+<html lang="es-Es">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&amp;display=swap">
+
+  <style>
+    /*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */
+    @layer properties;
+    @layer theme, base, components, utilities;
+
+    @layer theme {
+
+      :root,
+      :host {
+        --font-sans: "Inclusive Sans", ui-sans-serif, system-ui, sans-serif;
+        --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+          monospace;
+        --color-yellow-50: oklch(98.7% 0.026 102.212);
+        --color-teal-50: oklch(98.4% 0.014 180.72);
+        --color-sky-50: oklch(97.7% 0.013 236.62);
+        --color-sky-950: oklch(29.3% 0.066 243.157);
+        --color-blue-800: oklch(42.4% 0.199 265.638);
+        --color-slate-100: oklch(96.8% 0.007 247.896);
+        --color-slate-200: oklch(92.9% 0.013 255.508);
+        --color-slate-400: oklch(70.4% 0.04 256.788);
+        --color-slate-800: oklch(27.9% 0.041 260.031);
+        --color-slate-900: oklch(20.8% 0.042 265.755);
+        --color-slate-950: oklch(12.9% 0.042 264.695);
+        --color-black: #000;
+        --spacing: 0.25rem;
+        --text-sm: 0.875rem;
+        --text-sm--line-height: calc(1.25 / 0.875);
+        --text-base: 1rem;
+        --text-base--line-height: calc(1.5 / 1);
+        --text-lg: 1.125rem;
+        --text-lg--line-height: calc(1.75 / 1.125);
+        --text-xl: 1.25rem;
+        --text-xl--line-height: calc(1.75 / 1.25);
+        --text-2xl: 1.5rem;
+        --text-2xl--line-height: calc(2 / 1.5);
+        --text-4xl: 2.25rem;
+        --text-4xl--line-height: calc(2.5 / 2.25);
+        --font-weight-semibold: 600;
+        --font-weight-bold: 700;
+        --tracking-wide: 0.025em;
+        --radius-md: 0.375rem;
+        --default-font-family: var(--font-sans);
+        --default-mono-font-family: var(--font-mono);
+      }
+    }
+
+    @layer base {
+
+      *,
+      ::after,
+      ::before,
+      ::backdrop,
+      ::file-selector-button {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: 0 solid;
+      }
+
+      html,
+      :host {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        tab-size: 4;
+        font-family: var(--default-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');
+        font-feature-settings: var(--default-font-feature-settings, normal);
+        font-variation-settings: var(--default-font-variation-settings, normal);
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      hr {
+        height: 0;
+        color: inherit;
+        border-top-width: 1px;
+      }
+
+      abbr:where([title]) {
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: inherit;
+        font-weight: inherit;
+      }
+
+      a {
+        color: inherit;
+        -webkit-text-decoration: inherit;
+        text-decoration: inherit;
+      }
+
+      b,
+      strong {
+        font-weight: bolder;
+      }
+
+      code,
+      kbd,
+      samp,
+      pre {
+        font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace);
+        font-feature-settings: var(--default-mono-font-feature-settings, normal);
+        font-variation-settings: var(--default-mono-font-variation-settings, normal);
+        font-size: 1em;
+      }
+
+      small {
+        font-size: 80%;
+      }
+
+      sub,
+      sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+
+      sub {
+        bottom: -0.25em;
+      }
+
+      sup {
+        top: -0.5em;
+      }
+
+      table {
+        text-indent: 0;
+        border-color: inherit;
+        border-collapse: collapse;
+      }
+
+      :-moz-focusring:where(:not(iframe)) {
+        outline: auto;
+      }
+
+      progress {
+        vertical-align: baseline;
+      }
+
+      summary {
+        display: list-item;
+      }
+
+      ol,
+      ul,
+      menu {
+        list-style: none;
+      }
+
+      img,
+      svg,
+      video,
+      canvas,
+      audio,
+      iframe,
+      embed,
+      object {
+        display: block;
+        vertical-align: middle;
+      }
+
+      img,
+      video {
+        max-width: 100%;
+        height: auto;
+      }
+
+      button,
+      input,
+      select,
+      optgroup,
+      textarea,
+      ::file-selector-button {
+        font: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+        border-radius: 0;
+        background-color: transparent;
+        opacity: 1;
+      }
+
+      :where(select:is([multiple], [size])) optgroup {
+        font-weight: bolder;
+      }
+
+      :where(select:is([multiple], [size])) optgroup option {
+        padding-inline-start: 20px;
+      }
+
+      ::file-selector-button {
+        margin-inline-end: 4px;
+      }
+
+      ::placeholder {
+        opacity: 1;
+      }
+
+      @supports (not (-webkit-appearance: -apple-pay-button)) or (contain-intrinsic-size: 1px) {
+        ::placeholder {
+          color: currentcolor;
+
+          @supports (color: color-mix(in lab, red, red)) {
+            color: color-mix(in oklab, currentcolor 50%, transparent);
+          }
+        }
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      ::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+
+      ::-webkit-date-and-time-value {
+        min-height: 1lh;
+        text-align: inherit;
+      }
+
+      ::-webkit-datetime-edit {
+        display: inline-flex;
+      }
+
+      ::-webkit-datetime-edit-fields-wrapper {
+        padding: 0;
+      }
+
+      ::-webkit-datetime-edit,
+      ::-webkit-datetime-edit-year-field,
+      ::-webkit-datetime-edit-month-field,
+      ::-webkit-datetime-edit-day-field,
+      ::-webkit-datetime-edit-hour-field,
+      ::-webkit-datetime-edit-minute-field,
+      ::-webkit-datetime-edit-second-field,
+      ::-webkit-datetime-edit-millisecond-field,
+      ::-webkit-datetime-edit-meridiem-field {
+        padding-block: 0;
+      }
+
+      ::-webkit-calendar-picker-indicator {
+        line-height: 1;
+      }
+
+      :-moz-ui-invalid {
+        box-shadow: none;
+      }
+
+      button,
+      input:where([type='button'], [type='reset'], [type='submit']),
+      ::file-selector-button {
+        appearance: button;
+      }
+
+      ::-webkit-inner-spin-button,
+      ::-webkit-outer-spin-button {
+        height: auto;
+      }
+
+      [hidden]:where(:not([hidden='until-found'])) {
+        display: none !important;
+      }
+    }
+
+    @layer utilities {
+      .container {
+        width: 100%;
+
+        @media (width >=40rem) {
+          max-width: 40rem;
+        }
+
+        @media (width >=48rem) {
+          max-width: 48rem;
+        }
+
+        @media (width >=64rem) {
+          max-width: 64rem;
+        }
+
+        @media (width >=80rem) {
+          max-width: 80rem;
+        }
+
+        @media (width >=96rem) {
+          max-width: 96rem;
+        }
+      }
+
+      .mx-auto {
+        margin-inline: auto;
+      }
+
+      .my-1 {
+        margin-block: var(--spacing);
+      }
+
+      .my-4 {
+        margin-block: calc(var(--spacing) * 4);
+      }
+
+      .mt-4 {
+        margin-top: calc(var(--spacing) * 4);
+      }
+
+      .mb-2 {
+        margin-bottom: calc(var(--spacing) * 2);
+      }
+
+      .mb-4 {
+        margin-bottom: calc(var(--spacing) * 4);
+      }
+
+      .mb-8 {
+        margin-bottom: calc(var(--spacing) * 8);
+      }
+
+      .w-1\/6 {
+        width: calc(1 / 6 * 100%);
+      }
+
+      .w-5\/6 {
+        width: calc(5 / 6 * 100%);
+      }
+
+      .w-full {
+        width: 100%;
+      }
+
+      .max-w-full {
+        max-width: 100%;
+      }
+
+      .border-2 {
+        border-style: var(--tw-border-style);
+        border-width: 2px;
+      }
+
+      .bg-sky-50 {
+        background-color: var(--color-sky-50);
+      }
+
+      .bg-teal-50 {
+        background-color: var(--color-teal-50);
+      }
+
+      .bg-yellow-50 {
+        background-color: var(--color-yellow-50);
+      }
+
+      .pr-4 {
+        padding-right: calc(var(--spacing) * 4);
+      }
+
+      .pb-10 {
+        padding-bottom: calc(var(--spacing) * 10);
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .text-right {
+        text-align: right;
+      }
+
+      .text-2xl {
+        font-size: var(--text-2xl);
+        line-height: var(--tw-leading, var(--text-2xl--line-height));
+      }
+
+      .text-4xl {
+        font-size: var(--text-4xl);
+        line-height: var(--tw-leading, var(--text-4xl--line-height));
+      }
+
+      .text-base {
+        font-size: var(--text-base);
+        line-height: var(--tw-leading, var(--text-base--line-height));
+      }
+
+      .text-lg {
+        font-size: var(--text-lg);
+        line-height: var(--tw-leading, var(--text-lg--line-height));
+      }
+
+      .text-sm {
+        font-size: var(--text-sm);
+        line-height: var(--tw-leading, var(--text-sm--line-height));
+      }
+
+      .text-xl {
+        font-size: var(--text-xl);
+        line-height: var(--tw-leading, var(--text-xl--line-height));
+      }
+
+      .font-bold {
+        --tw-font-weight: var(--font-weight-bold);
+        font-weight: var(--font-weight-bold);
+      }
+
+      .font-semibold {
+        --tw-font-weight: var(--font-weight-semibold);
+        font-weight: var(--font-weight-semibold);
+      }
+
+      .tracking-wide {
+        --tw-tracking: var(--tracking-wide);
+        letter-spacing: var(--tracking-wide);
+      }
+
+      .text-sky-950 {
+        color: var(--color-sky-950);
+      }
+
+      .text-slate-900 {
+        color: var(--color-slate-900);
+      }
+
+      .text-slate-950 {
+        color: var(--color-slate-950);
+      }
+
+      @media (width >=48rem) {
+        .md\:text-2xl {
+          font-size: var(--text-2xl);
+          line-height: var(--tw-leading, var(--text-2xl--line-height));
+        }
+      }
+    }
+
+    @layer base {
+      :root {
+        font-size: var(--text-sm);
+        line-height: var(--tw-leading, var(--text-sm--line-height));
+        line-height: 1.7;
+      }
+
+      p {
+        margin-bottom: calc(var(--spacing) * 2);
+        font-size: var(--text-lg);
+        line-height: var(--tw-leading, var(--text-lg--line-height));
+      }
+
+      button {
+        margin-block: var(--spacing);
+        cursor: pointer;
+        border-radius: var(--radius-md);
+        border-style: var(--tw-border-style);
+        border-width: 1px;
+        border-color: var(--color-slate-400);
+        background-color: var(--color-slate-200);
+        padding-inline: calc(var(--spacing) * 4);
+        padding-block: var(--spacing);
+        font-size: var(--text-sm);
+        line-height: var(--tw-leading, var(--text-sm--line-height));
+
+        &:disabled {
+          opacity: 50%;
+        }
+      }
+
+      details {
+        margin-bottom: calc(var(--spacing) * 0.5);
+        padding-block: calc(var(--spacing) * 0.5);
+        color: var(--color-slate-800);
+      }
+
+      details p {
+        margin-bottom: calc(var(--spacing) * 0.5);
+        font-size: var(--text-base);
+        line-height: var(--tw-leading, var(--text-base--line-height));
+      }
+
+      summary {
+        background-color: var(--color-slate-100);
+        padding-block: var(--spacing);
+        font-size: var(--text-base);
+        line-height: var(--tw-leading, var(--text-base--line-height));
+        --tw-font-weight: var(--font-weight-bold);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-black);
+      }
+
+      blockquote {
+        margin-inline: calc(var(--spacing) * 8);
+        background-color: var(--color-slate-200);
+        padding: calc(var(--spacing) * 2);
+      }
+
+      ol {
+        margin-bottom: calc(var(--spacing) * 4);
+        margin-left: calc(var(--spacing) * 6);
+        list-style-position: outside;
+        list-style-type: decimal;
+      }
+
+      ul {
+        margin-bottom: calc(var(--spacing) * 4);
+        margin-left: calc(var(--spacing) * 6);
+        list-style-position: outside;
+        list-style-type: circle;
+      }
+
+      li {
+        margin-bottom: var(--spacing);
+      }
+
+      kbd,
+      code,
+      a {
+        color: var(--color-blue-800);
+      }
+
+      a {
+        border-bottom-style: var(--tw-border-style);
+        border-bottom-width: 1px;
+      }
+
+      input,
+      select {
+        border-style: var(--tw-border-style);
+        border-width: 1px;
+        padding-inline: calc(var(--spacing) * 2);
+      }
+
+      hr {
+        margin-block: calc(var(--spacing) * 3);
+      }
+
+      td,
+      th {
+        border-style: var(--tw-border-style);
+        border-width: 1px;
+        border-color: var(--color-black);
+        padding: calc(var(--spacing) * 1.5);
+      }
+
+      h1,
+      h2,
+      h3 {
+        --tw-font-weight: var(--font-weight-bold);
+        font-weight: var(--font-weight-bold);
+      }
+    }
+
+    @property --tw-border-style {
+      syntax: "*";
+      inherits: false;
+      initial-value: solid;
+    }
+
+    @property --tw-font-weight {
+      syntax: "*";
+      inherits: false;
+    }
+
+    @property --tw-tracking {
+      syntax: "*";
+      inherits: false;
+    }
+
+    @layer properties {
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+
+        *,
+        ::before,
+        ::after,
+        ::backdrop {
+          --tw-border-style: solid;
+          --tw-font-weight: initial;
+          --tw-tracking: initial;
+        }
+      }
+    }
+  </style>
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+
+    @theme {
+      --font-sans: "Inclusive Sans", ui-sans-serif, system-ui, sans-serif;
+      --color-brand: #ff4500;
+    }
+
+    @layer base {
+      :root { @apply text-sm; line-height: 1.7;}
+      p { @apply mb-2 text-lg}
+      button { @apply rounded-md bg-slate-200 border-1 border-slate-400 px-4 py-1 my-1 text-sm cursor-pointer disabled:opacity-50}
+      details { @apply mb-0.5 py-0.5 text-slate-800 }
+      details p { @apply mb-0.5 text-base }
+      summary { @apply py-1 text-base bg-slate-100 text-black font-bold }
+      blockquote { @apply mx-8 p-2 bg-slate-200 }
+      ol { @apply list-decimal list-outside ml-6 mb-4 }
+      ul { @apply list-[circle] list-outside ml-6 mb-4 }
+      li { @apply mb-1 }     
+      kbd, code, a { @apply text-blue-800 }
+      a { @apply border-b-1 }
+      input, select { @apply border-1 px-2 }
+      hr { @apply my-3 }
+      td, th { @apply border-black border p-1.5 }
+      h1, h2, h3 { @apply font-bold }
+    }
+  </style>
+
+  <link rel="shortcut icon" href="https://contenido-vario.github.io/materiales/questions.svg" type="image/svg">
+  <title>MF0493_3 Examen Parcial</title>
+</head>
+
+<body class="container mx-auto w-5/6 pb-10 text-slate-900">
+
+<h2 class="text-lg md:text-2xl text-center my-4 text-slate-950">
+  Temas prueba teórica
+</h2>
+<p>Para la prueba teórica, irán las explicaciones de <b>React</b>, dando peso a los <b>Conceptos Clave</b>.</p>
+<figure><img width="30%" src="./img/temas_react.png" alt="Temas React"></figure>
+
+<h1 class="text-xl md:text-2xl text-center my-4 text-sky-950">
+  Prueba práctica de evaluación // Prova pràctica d' avaluació
+</h1>
+<p class="text-center"></p>
+<div>
+  <table class="w-full">
+  <thead>
+    <tr>
+      <th colspan="2">
+              <h3 class="font-bold bg-yellow-50 my-2 text-xl">
+          ACTIVIDADES MF0493_3
+        </h3>
+      </th>
+    </tr>
+    </thead>
+  <tbody>
+    <tr class="bg-teal-50">
+      <td colspan="2">
+        <h2 class="text-2xl">ACTIVIDAD</h2>
+      </td>
+    </tr>
+    <tr>
+      <td class="w-1/6"><b>Proyecto 1<br>GALERIA</b></td>
+      <td>
+
+        <p>Utilizando la información que conoces hasta ahora de React y JavaScript, haz una galería de posts, con lo que has aprendido sobre componentes. Puedes maquetarla de la manera siguiente:</p>
+        <figure><img  src="./img/galeria_react.png" alt="Temas React"></figure>
+        <p>Podéis usar un array de objetos con el contenido que gustéis.</p>
+        <p>Estructura del array de objetos: <a href="https://contenido-vario.github.io/react/ejercicio1.html" target="_blank" rel="noopener noreferrer"><b>posts.js</b></a>  </p>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Proyecto 2<br>El Ahorcado</b></td>
+      <td>
+        <p>Se te entregará el  <a href="https://contenido-vario.github.io/react/ejercicio2.html" target="_blank" rel="noopener noreferrer">90% del juego del ahorcado en JavaScript</a>. Falta la lógica de la puntuación.</p>
+        <p>Completa la lógica del juego para que funcione en JavaScript, cambiando el array de palabras a adivinar y llevandolo a un archivo .js aparte.</p>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td><b>Entrega</b></td>
+      <td>
+        <p>Deberéis publicar ambos proyectos como GitHub Pages, e indicar sus URL.en el siguiente <a target="_blank" href="#" rel="noopener">formulario</a>.</p>
+      </td>
+    </tr>
+  </tfoot>
+  </table>
+</div>
+
+
+
+
+<div>
+  <table class="w-full max-w-full my-4"> <!-- UF1844 -->
+    <tbody>
+      <tr class="bg-sky-50">
+        <td colspan="5">
+          <h2 class="text-lg md:text-2xl tracking-wide">RESULTADO DE LA OBSERVACIÓN Y EVALUACIÓN DE LAS PRÁCTICAS MF0493_3
+          </h2>
+        </td>
+      </tr>
+      <tr>
+        <th rowspan="2" width="25%">
+          <h3>ACTIVITAT</h3>
+        </th>
+        <th rowspan="2">
+          <h3>FACTORES</h3>
+        </th>
+        <th colspan="3">
+          <h3>PUNTUACIÓN</h3>
+        </th>
+      </tr>
+      <tr class="font-bold text-sm">
+        <th>Max</th>
+        <th>Obtenida</th>
+        <th>Min</th>
+      </tr>
+      <tr>
+        <th rowspan="3">
+          <span class="text-lg">Proyecto 1<br>Galería</span>
+        </th>
+        <td>Uso de Componentes <code>React</code></td>
+        <td class="text-center">1</td>
+        <td>&nbsp;</td>
+        <td class="text-center">0</td>
+      </tr>
+      <tr>
+        <td>Paso de propiedades (<em>props</em>)</td>
+        <td class="text-center">2</td>
+        <td>&nbsp;</td>
+        <td class="text-center">0</td>
+      </tr>
+      <tr>
+        <td>Mapeo array de objetos</td>
+        <td class="text-center">1</td>
+        <td>&nbsp;</td>
+        <td class="text-center">0</td>
+      </tr>
+      <tr>
+        <th rowspan="3">
+          <span class="text-lg">Proyecto 2<br>El Ahorcado</span>
+        </th>
+        <td>Enlazado del array de palabras</td>
+        <td class="text-center">1</td>
+        <td>&nbsp;</td>
+        <td class="text-center">0</td>
+      </tr>
+      <tr>
+        <td>Lógica del Puntuación</td>
+        <td class="text-center">3</td>
+        <td>&nbsp;</td>
+        <td class="text-center">0</td>
+      </tr>
+      <tr>
+        <td>Estética / Responsividad</td>
+        <td class="text-center">1</td>
+        <td>&nbsp;</td>
+        <td class="text-center">0</td>
+      </tr>            
+      <tr>
+        <th>Despliegue<br>en Github</th>
+        <td>Publicación</td>
+        <td class="text-center">1</td>
+        <td>&nbsp;</td>
+        <td class="text-center">0</td>
+      </tr> 
+    </tbody>
+    <tfoot>
+      <tr class="border-2">
+        <th colspan="2" class="text-right pr-4">Total&nbsp;</th>
+        <th>10</th>
+        <th>&nbsp;</th>
+        <th>0</th>
+      </tr>    
+    </tfoot>
+  </table>
+
+</div>
+</body>
+
+</html>

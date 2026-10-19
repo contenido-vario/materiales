@@ -1,0 +1,236 @@
+<html lang="es-Es">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&amp;display=swap">
+
+  <style>
+    html {font-size: 90%; /* valor por defecto en todos los navegadores */ }
+    body {
+      width: 80%;
+      margin: 0 auto;
+      color: darkslategray
+    }
+
+    table,
+    td,
+    th {
+      text-align: left;
+      border: 1px solid darkslategray;
+      padding: 5px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 98%;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {font-size: 1.4rem;}
+    h2 {font-size: 1.3rem;}
+    h3 {font-size: 1.2rem;}
+    h4 {font-size: 1.1rem;}
+    h5 {font-size: 1rem;}
+
+    h1, h2, h3, h4, h5 { margin: 5px 0px}
+
+    .center {text-align: center;}
+    .yellow {background-color: lightgoldenrodyellow} 
+    .teal {background-color: cadetblue;}
+    .blanco {color: white;}
+    .right {text-align: right;}
+    details {margin-bottom: 20px;}
+  </style>
+
+  <link rel="shortcut icon" href="https://contenido-vario.github.io/materiales/questions.svg" type="image/svg">
+  <title>MF0493_3 Final</title>
+</head>
+
+<body>
+
+  <h1 class="center">Examen Final MF0493_3</h1>
+  <h2 class="center">Temas prueba teórica</h2>
+
+  <details>
+    <summary>
+      El temario de este último examen trata sobre implementar, proteger y documentar aplicaciones web.
+    </summary>
+
+    <ol>
+      <li>
+        <p>¿Qué es una arquitectura en 3 capas?<br>
+          (Cliente, Servidor de Aplicaciones y Servidor de Base de Datos)
+        </p>
+      </li>
+      <li>
+        <p>Diferencia entre servidores en la nube (Cloud) y servidores privados</p>
+      </li>
+      <li>
+        <p>Desarrollo y despliegue de aplicaciones web</p>
+        <ul type="circle">
+          <li>¿Qué es el entorno de desarrollo versus el entorno de producción?</li>
+          <li>Despliegue de aplicaciones web.</li>
+          <li>Repositorios de aplicaciones. Qué es GitHub y proceso de despliegue en Github</li>
+          <li>Servidores de aplicaciones en la Nube: <a>Netlify</a> y <a>Vercel</a>.</li>
+          <li>Servidores de Base de Datos en la nube (Supabase)</li>
+          <li>Documentación de aplicaciones web: Función del archivo Read.me, formato .md</li>
+          <li>Cómo proteger claves de aplicaciones y servicios.</li>
+        </ul>
+      </li>
+    </ol>
+  </details>
+  <h2 class="center">
+    Prueba práctica de evaluación // Prova pràctica d' avaluació
+  </h2>
+
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2" class="yellow center">
+            <h3>ACTIVIDAD MF0493_3</h3>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><h4>Tienda Virtual</h4></td>
+          <td>
+            <p>Crear una tienda virtual en Astro, con una Base de Datos PostGres en Supabase y publicada en Vercel que venda un sólo tipo de productos clasificado por categorías. Para hacer la compra, se usará Stripe</p>
+            <h5>Pantallas de la Tienda</h5>
+            <ol>
+              <li>Inicio</li>
+              <li>Productos de una categoría</li>
+              <li>Producto seleccionado</li>
+              <li>Carrito de Compras (globito actualizable)</li>
+              <li>Página de Autenticación</li>
+              <li>Página de Datos Cliente</li>
+              <li>Pago con Stripe</li>
+            </ol>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td><h4>Entrega</h4></td>
+          <td>
+            <p>URL del proyecto en Vercel.</p>
+            <p>URL del proyecto en Github</p>
+            <p><em>Recordar que el proceso de la tienda está acá</em></p>
+            <figure><img width="30%" src="./img/tienda.png" alt="explicaciones tienda"></figure>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <div>
+    <table>
+      <tbody>
+        <tr class="teal blanco center">
+          <td colspan="5" class="center">
+            <h2 class="text-lg md:text-2xl tracking-wide">RESULTADO DE LA OBSERVACIÓN <br>Y EVALUACIÓN DE LAS PRÁCTICAS MF0493_3
+            </h2>
+          </td>
+        </tr>
+        <tr>
+          <th rowspan="2" width="25%" class="center">
+            <h4>ACTIVITAT</h4>
+          </th>
+          <th rowspan="2" class="center">
+            <h4>FACTORES</h4>
+          </th>
+          <th colspan="3" class="center">
+            <h4>PUNTUACIÓN</h4>
+          </th>
+        </tr>
+        <tr class="font-bold text-sm">
+          <th class="center">Max</th>
+          <th class="center">Obtenida</th>
+          <th class="center">Min</th>
+        </tr>
+        <tr>
+          <th rowspan="10">
+            <h1 class="center">Tienda<br>Virtual</h1>
+          </th>
+          <td>1. API Autenticación</td>
+          <td class="center">1</td>
+          <td>&nbsp;</td>
+          <td class="center">0</td>
+        </tr>
+        <tr>
+          <td>2. Pool y funciones BBDD<br>(Interfaces, async-await y try-catch)</td>
+          <td class="center">1</td>
+          <td>&nbsp;</td>
+          <td class="center">0</td>
+        </tr>
+        <tr>
+          <td>3. Uso SQL nativo (<mark>No SDK Supabase</mark>)</td>
+          <td class="center">1</td>
+          <td>&nbsp;</td>
+          <td class="center">0</td>
+        </tr>
+        <tr>
+          <td>4. Manejo del <code>Get</code> para pasar parámetros por URL</td>
+          <td class="center">1</td>
+          <td>&nbsp;</td>
+          <td class="center">0</td>
+        </tr>
+        <tr>
+          <td>5. Uso de <code>define:vars</code> <br>(variables BackEnd&rarr;FrontEnd)</td>
+          <td class="center">1</td>
+          <td>&nbsp;</td>
+          <td class="center">0</td>
+        </tr>
+        <tr>
+          <td>6. Proceso de Compra en Stripe</td>
+          <td class="center">1</td>
+          <td>&nbsp;</td>
+          <td class="center">0</td>
+        </tr>
+        <tr>
+          <td>7. Seguridad (Uso de Prepared Statements, no publicar claves en Github...)</td>
+          <td class="center">1</td>
+          <td>&nbsp;</td>
+          <td class="center">0</td>
+        </tr>
+        <tr>
+          <td>8. Estética / Responsividad</td>
+          <td class="center">1</td>
+          <td>&nbsp;</td>
+          <td class="center">0</td>
+        </tr>
+        <tr>
+          <td>9. Documentación (<code>Read.me</code> en Github explicando las características del proyecto)</td>
+          <td class="center">1</td>
+          <td>&nbsp;</td>
+          <td class="center">0</td>
+        </tr>
+        <tr>
+          <td>10. Publicación (Vercel+Github)</td>
+          <td class="center">1</td>
+          <td>&nbsp;</td>
+          <td class="center">0</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="border-2">
+          <th colspan="2" class="right">Total&nbsp;</th>
+          <th class="center">10</th>
+          <th>&nbsp;</th>
+          <th class="center">0</th>
+        </tr>
+      </tfoot>
+    </table>
+
+  </div>
+  <br>
+</body>
+
+</html>
